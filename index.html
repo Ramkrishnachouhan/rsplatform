@@ -1,10 +1,139 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Welcome to RS Platform</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>RSPlatform</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f8f4fa;
+      color: #2c1e3c;
+    }
+
+    header {
+      background-color: #3e214c;
+      color: white;
+      text-align: center;
+      padding: 30px 0;
+    }
+
+    header img {
+      width: 80px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      margin: 10px 0;
+    }
+
+    .welcome {
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .welcome h2 {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+
+    .welcome p {
+      font-size: 1.1em;
+      color: #555;
+      margin-bottom: 30px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .buttons a {
+      text-decoration: none;
+      background-color: #5b2a70;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .buttons a:hover {
+      background-color: #402053;
+    }
+
+    .notes-section {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    .notes-section h3 {
+      font-size: 1.5em;
+      margin-bottom: 20px;
+    }
+
+    .cards {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      flex: 1;
+      min-width: 250px;
+    }
+
+    .card h4 {
+      margin: 0 0 10px;
+    }
+
+    .card p {
+      color: #555;
+    }
+  </style>
 </head>
 <body>
-  <h1>Hello from Mcom World with RS Platform!</h1>
-  <p>This is your first website on GitHub.</p>
+
+  <header>
+    <img src="https://i.ibb.co/vZfbdX2/avatar.png" alt="Avatar">
+    <h1>MCom world with RS platform</h1>
+  </header>
+
+  <div class="welcome">
+    <h2>Welcome to RSPlatform.com</h2>
+    <p>Find educational notes, ebooks, assignments, and more.</p>
+    <div class="buttons">
+      <a href="#">Browse Notes</a>
+      <a href="#">View Ebooks</a>
+    </div>
+  </div>
+
+  <div class="notes-section">
+    <h3>Notes & Summaries</h3>
+    <div class="cards">
+      <div class="card">
+        <h4>Higher Secondary First Year</h4>
+        <p>Solved question papers and summary notes</p>
+      </div>
+      <div class="card">
+        <h4>Higher Secondary Second Year</h4>
+        <p>Solved question papers and summary notes</p>
+      </div>
+      <div class="card">
+        <h4>M.Com (IGNOU)</h4>
+        <p>Assignment solutions</p>
+      </div>
+    </div>
+  </div>
+
 </body>
 </html>
+
