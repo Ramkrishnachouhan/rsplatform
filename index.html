@@ -15,49 +15,56 @@
   </script>
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #f8f4fa;
       color: #2c1e3c;
+      line-height: 1.6;
     }
 
     header {
       background-color: #3e214c;
       color: white;
       text-align: center;
-      padding: 30px 0;
+      padding: 40px 20px;
     }
 
     header img {
-      width: 80px;
+      width: 100px;
       border-radius: 50%;
       margin-bottom: 10px;
     }
 
     h1 {
       margin: 10px 0;
+      font-size: 2em;
     }
 
     .welcome {
       text-align: center;
-      padding: 40px 20px;
+      padding: 50px 20px;
     }
 
     .welcome h2 {
-      font-size: 2em;
+      font-size: 2.2em;
       margin-bottom: 10px;
     }
 
     .welcome p {
-      font-size: 1.1em;
-      color: #555;
+      font-size: 1.2em;
+      color: #666;
       margin-bottom: 30px;
     }
 
     .buttons {
       display: flex;
       justify-content: center;
+      flex-wrap: wrap;
       gap: 15px;
     }
 
@@ -65,10 +72,11 @@
       text-decoration: none;
       background-color: #5b2a70;
       color: white;
-      padding: 12px 24px;
-      border-radius: 8px;
+      padding: 14px 28px;
+      border-radius: 10px;
       font-weight: bold;
-      transition: background 0.3s;
+      font-size: 1em;
+      transition: background 0.3s ease;
     }
 
     .buttons a:hover {
@@ -76,89 +84,83 @@
     }
 
     .notes-section {
-      max-width: 900px;
-      margin: 40px auto;
+      max-width: 1000px;
+      margin: 50px auto;
       padding: 0 20px;
     }
 
     .notes-section h3 {
-      font-size: 1.5em;
-      margin-bottom: 20px;
+      font-size: 1.8em;
+      text-align: center;
+      margin-bottom: 30px;
     }
 
     .cards {
       display: flex;
       gap: 20px;
       flex-wrap: wrap;
+      justify-content: center;
     }
 
     .card {
       background: white;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+      border-radius: 15px;
+      padding: 25px;
+      box-shadow: 0 6px 12px rgba(0,0,0,0.05);
       flex: 1;
       min-width: 250px;
+      max-width: 300px;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
     }
 
     .card h4 {
       margin: 0 0 10px;
+      font-size: 1.3em;
+      color: #3e214c;
     }
 
     .card p {
       color: #555;
+      font-size: 0.95em;
     }
 
-    .video-section {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 20px;
-    }
-
-    .video-section h3 {
-      font-size: 1.5em;
-      margin-bottom: 20px;
-    }
-
-    .video-card {
-      background: white;
-      border-radius: 12px;
-      padding: 20px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-    }
-
-    .video-card a {
-      display: inline-block;
-      margin-top: 10px;
-      background-color: #d35400;
+    footer {
+      background-color: #3e214c;
       color: white;
-      padding: 10px 20px;
-      border-radius: 8px;
-      text-decoration: none;
+      text-align: center;
+      padding: 20px 10px;
+      margin-top: 60px;
     }
 
-    .video-card a:hover {
-      background-color: #b84300;
+    @media (max-width: 600px) {
+      .buttons a {
+        width: 100%;
+        text-align: center;
+      }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <img src="https://github.com/Ramkrishnachouhan/rsplatform/blob/main/avatar.jpg?raw=true" alt="Avatar" width="120" style="border-radius: 50%;">
+    <img src="https://github.com/Ramkrishnachouhan/rsplatform/blob/main/avatar.jpg?raw=true" alt="Avatar">
     <h1>MCom world with RS platform</h1>
   </header>
 
-  <div class="welcome">
+  <section class="welcome">
     <h2>Welcome to RSPlatform.com</h2>
     <p>Find educational notes, ebooks, assignments, and more.</p>
     <div class="buttons">
       <a href="#">Browse Notes</a>
       <a href="#">View Ebooks</a>
     </div>
-  </div>
+  </section>
 
-  <div class="notes-section">
+  <section class="notes-section">
     <h3>Notes & Summaries</h3>
     <div class="cards">
       <div class="card">
@@ -174,17 +176,8 @@
         <p>Assignment solutions</p>
       </div>
     </div>
-  </div>
+  </section>
 
-  <!-- New Video Section -->
-  <div class="video-section">
-    <h3>M.Com IGNOU Lecture Video</h3>
-    <div class="video-card">
-      <h4>Subject: IBO 02 – International Marketing</h4>
-      <p>Watch the full lecture video on YouTube to understand the concepts of International Marketing.</p>
-      <a href="https://youtu.be/8ofxrg-BMIY?si=q7CrlQZgx86jOTP2" target="_blank">Watch Video</a>
-    </div>
-  </div>
-
-</body>
-</html>
+  <footer>
+    <p>&copy; 2025 RSPlatform.com | All rights reserved</p>
+  </footer
