@@ -126,6 +126,45 @@
     .card p {
       color: #555;
       font-size: 0.95em;
+      margin-bottom: 10px;
+    }
+
+    .download-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #5b2a70;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .download-link:hover {
+      text-decoration: underline;
+    }
+
+    .video-section {
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .video-section h3 {
+      font-size: 1.8em;
+      margin-bottom: 20px;
+    }
+
+    .video-section a {
+      display: inline-block;
+      background-color: #e53935;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+
+    .video-section a:hover {
+      background-color: #c62828;
     }
 
     footer {
@@ -171,57 +210,24 @@
         <h4>Higher Secondary Second Year</h4>
         <p>Solved question papers and summary notes</p>
       </div>
-      <!-- M.Com IGNOU + Notes side by side -->
-      <div class="card" style="display: flex; flex-direction: row; flex-wrap: wrap;">
-        <div style="flex: 1; min-width: 260px;">
-          <img src="https://images.unsplash.com/photo-1596495578064-bfdc6c5d7c94" alt="IGNOU MCom" style="width:100%; border-radius:12px;">
-          <div class="card-content">
-            <h4>M.Com (IGNOU)</h4>
-            <p>Assignment solutions and support</p>
-          </div>
-        </div>
-        <div style="flex: 1; padding: 20px; background: #f0e6f5;">
-          <h4 style="margin-top: 0; color: #3e214c;">International Marketing Notes (IBO 02)</h4>
-          <p>Download high-quality notes for IBO 02 - International Marketing</p>
-          <a href="https://drive.google.com/file/d/1xJrXqPWZ-xXBpkbhi5ziVo0RMhS8bWxh/view" target="_blank" style="
-            display:inline-block;
-            margin-top:10px;
-            background:#5b2a70;
-            color:#fff;
-            padding:10px 20px;
-            border-radius:8px;
-            text-decoration:none;
-          ">Download Notes</a>
-        </div>
+      <div class="card">
+        <h4>M.Com (IGNOU)</h4>
+        <p>Assignment solutions</p>
+        <a class="download-link" href="https://www.youtube.com/redirect?event=comments&redir_token=QUFFLUhqbDFxcjFwSzNNZ1c3dFVkdzZvRjVfSEtQRzJQQXxBQ3Jtc0ttNXg3YktIdmtQbzNkQ2h5VE04WGVGVkx2bE56a29BaGZsZmI5TWMxWVhGTHFQWnM0QTFMNGF4NmJrU0dELTVHQXo2WWlHNXo5VGtXcjJ3d3hNV1VWd2VjZkw2SVJNVEpLWjZabFlERGxyUHhtR0FzTQ&q=https%3A%2F%2Fdrive.google.com%2Ffile%2Fd%2F1xJrXqPWZ-xXBpkbhi5ziVo0RMhS8bWxh%2Fview%3Fusp%3Ddrivesdk" target="_blank">
+          📥 Download IBO 02 Notes
+        </a>
       </div>
     </div>
   </section>
 
-  <!-- NEW VIDEO SECTION -->
-  <section class="notes-section">
-    <h3>M.Com (IGNOU) Lecture Video</h3>
-    <div class="cards">
-      <div class="card">
-        <img src="https://img.youtube.com/vi/8ofxrg-BMIY/hqdefault.jpg" alt="International Marketing">
-        <div class="card-content">
-          <h4>IBO 02 - International Marketing</h4>
-          <p>Watch this lecture covering the core concepts of International Marketing.</p>
-          <a href="https://youtu.be/8ofxrg-BMIY?si=q7CrlQZgx86jOTP2" target="_blank" style="
-            display:inline-block;
-            margin-top:10px;
-            background:#5b2a70;
-            color:#fff;
-            padding:10px 20px;
-            border-radius:8px;
-            text-decoration:none;
-          ">Watch on YouTube</a>
-        </div>
-      </div>
-    </div>
+  <section class="video-section">
+    <h3>M.Com IGNOU Lecture Video (IBO 02)</h3>
+    <a href="https://youtu.be/8ofxrg-BMIY?si=DXXTc5Y4Zg-gonxA" target="_blank">🎥 Watch on YouTube</a>
   </section>
 
   <footer>
     <p>&copy; 2025 RSPlatform.com | All rights reserved</p>
   </footer>
+
 </body>
 </html>
