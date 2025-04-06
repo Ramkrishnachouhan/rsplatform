@@ -126,45 +126,45 @@
     .card p {
       color: #555;
       font-size: 0.95em;
-      margin-bottom: 10px;
     }
 
-    .download-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
+    .card a {
+      display: inline-block;
+      margin-top: 10px;
       color: #5b2a70;
       font-weight: bold;
       text-decoration: none;
     }
 
-    .download-link:hover {
+    .card a:hover {
       text-decoration: underline;
     }
 
     .video-section {
+      max-width: 800px;
+      margin: 50px auto;
       text-align: center;
-      padding: 40px 20px;
     }
 
     .video-section h3 {
-      font-size: 1.8em;
+      font-size: 1.6em;
       margin-bottom: 20px;
     }
 
-    .video-section a {
-      display: inline-block;
-      background-color: #e53935;
+    .video-button {
+      background-color: #ff0000;
       color: white;
       padding: 12px 24px;
       border-radius: 8px;
+      font-size: 1.1em;
       text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s ease;
+      display: inline-block;
+      margin-top: 10px;
+      transition: background-color 0.3s ease;
     }
 
-    .video-section a:hover {
-      background-color: #c62828;
+    .video-button:hover {
+      background-color: #cc0000;
     }
 
     footer {
@@ -213,21 +213,18 @@
       <div class="card">
         <h4>M.Com (IGNOU)</h4>
         <p>Assignment solutions</p>
-        <a class="download-link" href="https://www.youtube.com/redirect?event=comments&redir_token=QUFFLUhqbDFxcjFwSzNNZ1c3dFVkdzZvRjVfSEtQRzJQQXxBQ3Jtc0ttNXg3YktIdmtQbzNkQ2h5VE04WGVGVkx2bE56a29BaGZsZmI5TWMxWVhGTHFQWnM0QTFMNGF4NmJrU0dELTVHQXo2WWlHNXo5VGtXcjJ3d3hNV1VWd2VjZkw2SVJNVEpLWjZabFlERGxyUHhtR0FzTQ&q=https%3A%2F%2Fdrive.google.com%2Ffile%2Fd%2F1xJrXqPWZ-xXBpkbhi5ziVo0RMhS8bWxh%2Fview%3Fusp%3Ddrivesdk" target="_blank">
-          📥 Download IBO 02 Notes
-        </a>
+        <a href="https://drive.google.com/file/d/1xJrXqPWZ-xXBpkbhi5ziVo0RMhS8bWxh/view" target="_blank">📄 Download International Marketing Notes (IBO 02)</a>
       </div>
     </div>
   </section>
 
   <section class="video-section">
     <h3>M.Com IGNOU Lecture Video (IBO 02)</h3>
-    <a href="https://youtu.be/8ofxrg-BMIY?si=DXXTc5Y4Zg-gonxA" target="_blank">🎥 Watch on YouTube</a>
+    <a class="video-button" href="https://youtu.be/8ofxrg-BMIY?si=DXXTc5Y4Zg-gonxA" target="_blank">▶️ Watch on YouTube</a>
   </section>
 
   <footer>
     <p>&copy; 2025 RSPlatform.com | All rights reserved</p>
   </footer>
-
 </body>
 </html>
