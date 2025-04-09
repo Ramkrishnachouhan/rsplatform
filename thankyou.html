@@ -26,32 +26,31 @@
       font-size: 18px;
       margin: 20px 0;
     }
-    a.download-btn, a.whatsapp-btn {
+    a.download-btn {
       display: inline-block;
       padding: 12px 25px;
       margin: 10px 10px;
       text-decoration: none;
       font-weight: bold;
       border-radius: 8px;
-    }
-    .download-btn {
       background-color: #2b9348;
       color: white;
     }
-    .download-btn:hover {
+    a.download-btn:hover {
       background-color: #238636;
-    }
-    .whatsapp-btn {
-      background-color: #25D366;
-      color: white;
-    }
-    .whatsapp-btn:hover {
-      background-color: #1ebe5d;
     }
     .help-text {
       margin-top: 30px;
       font-size: 14px;
       color: #555;
+    }
+    .email-link {
+      color: #0077cc;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .email-link:hover {
+      text-decoration: underline;
     }
   </style>
 </head>
@@ -61,13 +60,10 @@
     <p>Your transaction was successful. You can now download your IBO-02 notes below:</p>
     
     <a class="download-btn" href="assets/IBO_02.pdf" download>📥 Download IBO-02 Notes (PDF)</a>
-    <br/>
-    <a class="whatsapp-btn" href="https://wa.me/918638589930?text=Hi%20RSPlatform%2C%20I%20need%20help%20with%20my%20download." target="_blank">
-      💬 Contact Support on WhatsApp
-    </a>
 
     <div class="help-text">
-      If you face any issues with the download, feel free to contact us!
+      If you face any issues with the download, please email us at 
+      <a class="email-link" href="mailto:ramchouhan863858@gmail.com">ramchouhan863858@gmail.com</a>
     </div>
   </div>
 </body>
