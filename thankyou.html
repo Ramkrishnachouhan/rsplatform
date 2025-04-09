@@ -2,24 +2,50 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Thank You – RSPlatform</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thank You | RSPlatform</title>
   <style>
-    body { font-family: Arial; text-align: center; padding: 50px; }
-    h1 { color: green; }
-    .download-button {
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f9;
+      text-align: center;
+      padding: 50px;
+    }
+    .container {
+      background: white;
+      padding: 30px;
+      max-width: 600px;
+      margin: auto;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      color: #2b9348;
+    }
+    p {
+      font-size: 18px;
+      margin: 20px 0;
+    }
+    a.download-btn {
       display: inline-block;
-      padding: 12px 20px;
-      background: #4CAF50;
+      padding: 12px 25px;
+      background-color: #2b9348;
       color: white;
       text-decoration: none;
-      border-radius: 6px;
+      font-weight: bold;
+      border-radius: 8px;
       margin-top: 20px;
+    }
+    a.download-btn:hover {
+      background-color: #238636;
     }
   </style>
 </head>
 <body>
-  <h1>✅ Thank you for your payment!</h1>
-  <p>Your download is ready below:</p>
-  <a href="assets/your-note-file.pdf" class="download-button" download>📥 Download Notes</a>
+  <div class="container">
+    <h1>🎉 Thank You for Your Payment!</h1>
+    <p>Your transaction was successful. You can now download your notes below:</p>
+    <a class="download-btn" href="assets/mcom-notes.pdf" download>📥 Download Notes (PDF)</a>
+  </div>
 </body>
 </html>
