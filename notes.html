@@ -100,7 +100,86 @@
       padding: 20px 10px;
       margin-top: 60px;
     }
-  </style>
+
+    .note-preview-card {
+      background-color: #ffffff;
+      border: 1px solid #e0e0e0;
+      border-radius: 16px;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.05);
+      padding: 20px;
+      margin-bottom: 40px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      animation: fadeInUp 0.8s ease;
+    }
+
+    .note-preview-card h3 {
+      margin-bottom: 15px;
+      color: #2b9348;
+      font-size: 1.5rem;
+    }
+
+    .preview-snippet img {
+      max-width: 100%;
+      border-radius: 12px;
+      margin-bottom: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .note-details ul {
+      list-style-type: disc;
+      padding-left: 20px;
+      margin-top: 0;
+      margin-bottom: 15px;
+    }
+
+    .note-details li {
+      margin-bottom: 6px;
+    }
+
+    form {
+      margin-top: 15px;
+    } 
+    .note-preview-card-horizontal {
+  display: flex;
+  gap: 20px;
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  margin-bottom: 40px;
+  align-items: flex-start;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.preview-image img {
+  width: 250px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.note-info {
+  flex: 1;
+}
+
+.note-info h3 {
+  margin-top: 0;
+  color: #2b9348;
+}
+
+.note-info ul {
+  margin-top: 5px;
+  padding-left: 20px;
+}
+
+form {
+  margin-top: 10px;
+}
+                                    
+</style>
 </head>
 <body>
 
@@ -108,20 +187,38 @@
     <h1>Browse Notes</h1>
   </header>
 
- <div class="container">
-  <h2>Available Downloads</h2>
-
-  <div class="note-card">
-    <span>📄 International Marketing Notes (IBO 02)</span>
-    <form>
-      <script src="https://checkout.razorpay.com/v1/payment-button.js"
-              data-payment_button_id="pl_QGrdNB56rMXo4v"
-              async>
-      </script>
-    </form>
+  <div class="note-preview-card">
+    <!-- Preview Title -->
+    <h3>📄 International Marketing Notes (IBO-02)</h3>
+  
+    <!-- Horizontal Layout Container -->
+    <div class="note-content" style="display: flex; gap: 20px; align-items: flex-start; flex-wrap: wrap;">
+      
+      <!-- Image Preview -->
+      <div class="preview-snippet">
+        <img src="assets/IBO_02_preview.jpg" alt="IBO-02 Notes Preview" style="max-width: 300px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);" />
+      </div>
+  
+      <!-- Description and Buy Button -->
+      <div class="note-details" style="flex: 1;">
+        <p><strong>Includes:</strong></p>
+        <ul>
+          <li>Complete Unit-wise Summary</li>
+          <li>IGNOU-oriented Important topics</li>
+          <li>Exam-focused content</li>
+        </ul>
+  
+        <!-- Buy Button -->
+        <form>
+          <script src="https://checkout.razorpay.com/v1/payment-button.js"
+                  data-payment_button_id="pl_QGrdNB56rMXo4v"
+                  async>
+          </script>
+        </form>
+      </div>
+    </div>
   </div>
-</div>
-
+  
 
 </body>
 </html>
