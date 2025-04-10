@@ -62,7 +62,7 @@
     * {
       box-sizing: border-box;
     }
-  
+
     body {
       margin: 0;
       font-family: 'Poppins', sans-serif;
@@ -71,51 +71,51 @@
       line-height: 1.6;
       scroll-behavior: smooth;
     }
-  
+
     header {
       background: linear-gradient(135deg, #5b2a70, #3e214c);
       color: white;
       text-align: center;
       padding: 60px 20px 40px;
     }
-  
+
     header img {
       width: 110px;
       border-radius: 50%;
       margin-bottom: 15px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     }
-  
+
     h1 {
       margin: 10px 0;
       font-size: 2.5em;
       font-weight: 600;
     }
-  
+
     .welcome {
       text-align: center;
       padding: 60px 20px 30px;
     }
-  
+
     .welcome h2 {
       font-size: 2.4em;
       margin-bottom: 15px;
       animation: fadeInDown 1s;
     }
-  
+
     .welcome p {
       font-size: 1.2em;
       color: #555;
       margin-bottom: 40px;
     }
-  
+
     .buttons {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
       gap: 15px;
     }
-  
+
     .buttons a {
       text-decoration: none;
       background-color: #5b2a70;
@@ -127,22 +127,22 @@
       transition: all 0.3s ease;
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
     }
-  
+
     .buttons a:hover {
       background-color: #402053;
       transform: scale(1.05);
     }
-  
+
     .notes-section {
       text-align: center;
       padding: 50px 20px;
     }
-  
+
     .notes-section h3 {
       font-size: 2em;
       margin-bottom: 30px;
     }
-  
+
     .notes-section .cards {
       display: flex;
       flex-wrap: wrap;
@@ -150,7 +150,7 @@
       gap: 30px;
       padding-top: 20px;
     }
-  
+
     .card {
       background: white;
       border-radius: 15px;
@@ -161,33 +161,33 @@
       max-width: 300px;
       transition: transform 0.3s ease, box-shadow 0.3s;
     }
-  
+
     .card:hover {
       transform: translateY(-8px);
       box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
     }
-  
+
     .card h4 {
       margin: 0 0 10px;
       font-size: 1.3em;
       color: #3e214c;
     }
-  
+
     .card p {
       color: #555;
       font-size: 0.95em;
     }
-  
+
     .youtube-section {
       text-align: center;
       margin: 60px 20px;
     }
-  
+
     .youtube-section h3 {
       font-size: 1.8em;
       margin-bottom: 25px;
     }
-  
+
     .youtube-button {
       display: inline-flex;
       align-items: center;
@@ -201,16 +201,16 @@
       gap: 10px;
       transition: background 0.3s;
     }
-  
+
     .youtube-button:hover {
       background-color: #cc0000;
     }
-  
+
     .youtube-button svg {
       width: 20px;
       height: 20px;
     }
-  
+
     footer {
       background-color: #3e214c;
       color: white;
@@ -218,27 +218,27 @@
       padding: 25px 10px;
       margin-top: 60px;
     }
-  
+
     @media (max-width: 768px) {
       h1 {
         font-size: 1.8em;
       }
-  
+
       .welcome h2 {
         font-size: 1.6em;
       }
-  
+
       .buttons a {
         width: 100%;
         text-align: center;
       }
-  
+
       .notes-section .cards {
         flex-direction: column;
         align-items: center;
       }
     }
-  
+
     .note-button {
       display: block;
       background: #5b2a70;
@@ -252,23 +252,23 @@
       transition: transform 0.3s ease, background 0.3s ease;
       margin-bottom: 20px;
     }
-  
+
     .note-button:hover {
       background: #4a1e5d;
       transform: translateY(-5px);
     }
-  
+
     .note-button h4 {
       margin: 0 0 10px;
       font-size: 20px;
     }
-  
+
     .note-button p {
       margin: 0;
       font-size: 16px;
       line-height: 1.4;
     }
-  
+
     .note-btn {
       display: inline-block; /* Changed to inline-block */
       background-color: #d9f99d;
@@ -284,7 +284,7 @@
       min-width: 300px;
       margin-bottom: 20px; /* Added margin for spacing */
     }
-  
+
     .note-btn small {
       display: block;
       font-weight: 400;
@@ -292,13 +292,13 @@
       color: #444;
       margin-top: 5px;
     }
-  
+
     .note-btn:hover {
       transform: translateY(-5px);
       box-shadow: 0 10px 20px rgba(100, 200, 100, 0.4);
       background-color: #c0f582;
     }
-  
+
     .cards {
       display: flex; /* Changed to flex to align items in a row */
       gap: 20px;
@@ -306,38 +306,160 @@
       justify-content: center; /* Center the buttons horizontally */
       flex-wrap: wrap; /* Allow buttons to wrap to the next line on smaller screens */
     }
+    .book-animation-section {
+      position: relative;
+      width: 100%;
+      max-height: 500px;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .book-animation-section video {
+      width: 100%;
+      object-fit: cover;
+      opacity: 0.8;
+      filter: brightness(1.1) saturate(1.2);
+      pointer-events: none;
+      border-radius: 12px;
+    }
+    .book-animation {
+      position: relative;
+      width: 100%;
+      height: 400px;
+      overflow: hidden;
+      margin: 40px 0;
+      border-radius: 12px;
+    }
+
+    .book-animation video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      min-width: 100%;
+      height: auto;
+      min-height: 100%;
+      transform: translate(-50%, -50%);
+      object-fit: cover;
+      opacity: 0.7;
+    }
+
+    .overlay-text {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: white;
+      font-size: 24px;
+      padding: 60px 20px;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+    }
+/* Responsive Background Video */
+.background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.2; /* Lower opacity = lighter load visually */
+  pointer-events: none;
+  filter: brightness(0.9) contrast(1.1);
+}
+
+/* Optional: Reduce loading on small screens */
+@media (max-width: 768px) {
+  .background-video {
+    display: none; /* Hide on mobile for performance */
+  }
+}
+
+/* Optional readability layer (tweak/remove as desired) */
+section, header {
+  background-color: rgba(255, 255, 255, 0.8); /* Soft white background */
+  border-radius: 10px;
+  padding: 1rem;
+  backdrop-filter: blur(2px); /* Optional blur */
+}
+.background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.2; /* or 1 for visible background */
+}
+.video-wrapper {
+  position: relative;
+  z-index: 1;
+}
+
+.video-wrapper .background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  opacity: 0.2;
+  filter: brightness(0.9) contrast(1.1);
+  pointer-events: none;
+}
+
+.video-wrapper section {
+  position: relative;
+  z-index: 2;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+  padding: 1rem;
+  backdrop-filter: blur(2px);
+  margin: 20px auto;
+  max-width: 1200px;
+}
+
   </style>
-  </head>
-  <body>
-    <header class="animate__animated animate__fadeInDown">
-      <img src="https://github.com/Ramkrishnachouhan/rsplatform/blob/main/avatar.jpg?raw=true" alt="Avatar">
-      <h1>MCom world with RS platform</h1>
-    </header>
-  
-    <section class="welcome">
-      <h2>Welcome to RSPlatform.com</h2>
-      <p>Find educational notes, ebooks, assignments, and more.</p>
-      <div class="buttons">
-        <a href="chapter.html">Browse Notes</a>
-        <a href="#">View Ebooks</a>
-      </div>
-    </section>
-  
-    <section class="notes-section">
-      <h3>Notes & Summaries</h3>
-      <div class="cards">
-        <a href="hs1.html" class="note-btn animate__animated animate__fadeInUp">📘 Higher Secondary First Year<br><small>Solved papers & summary notes</small></a>
-  
-        <a href="hs2.html" class="note-btn animate__animated animate__fadeInUp animate__delay-1s">📗 Higher Secondary Second Year<br><small>Solved papers & summary notes</small></a>
-  
-        <a href="mcom.html" class="note-btn animate__animated animate__fadeInUp animate__delay-2s">📕 M.Com (IGNOU)<br><small>Assignment solutions</small></a>
-      </div>
-    </section>
-  </body>
+</head>
+<body>
+  <header class="animate__animated animate__fadeInDown">
+    <img src="https://github.com/Ramkrishnachouhan/rsplatform/blob/main/avatar.jpg?raw=true" alt="Avatar">
+    <h1>MCom world with RS platform</h1>
+  </header>
+
+ 
+
+  <!-- Lightweight, transparent background animation -->
+<!-- Background video only for main sections -->
+<div class="video-wrapper">
+  <video class="background-video" autoplay muted loop playsinline preload="none">
+    <source src="book_animation.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <section class="welcome">
+    <h2>Welcome to RSPlatform.com</h2>
+    <p>Find educational notes, ebooks, assignments, and more.</p>
+    <div class="buttons">
+      <a href="chapter.html">Browse Notes</a>
+      <a href="#">View Ebooks</a>
+    </div>
+  </section>
+
+  <section class="notes-section">
+    <h3>Notes & Summaries</h3>
+    <div class="cards">
+      <a href="hs1.html" class="note-btn animate__animated animate__fadeInUp">📘 Higher Secondary First Year<br><small>Solved papers & summary notes</small></a>
+      <a href="hs2.html" class="note-btn animate__animated animate__fadeInUp animate__delay-1s">📗 Higher Secondary Second Year<br><small>Solved papers & summary notes</small></a>
+      <a href="mcom.html" class="note-btn animate__animated animate__fadeInUp animate__delay-2s">📕 M.Com (IGNOU)<br><small>Assignment solutions</small></a>
+    </div>
+  </section>
 
   <section class="youtube-section">
     <h3>M.Com IGNOU Lecture Video (IBO 02)</h3>
     <a class="youtube-button" href="https://youtu.be/8ofxrg-BMIY?si=QkPpMMJbAN7A4UrJ" target="_blank">
+      <!-- SVG icon -->
       <svg viewBox="0 0 24 24" fill="currentColor">
         <path d="M10 15.5l6-3.5-6-3.5v7z"></path>
         <path d="M21 8s-.2-1.4-.8-2c-.7-.8-1.6-.8-2-1C15.2 4.5 12 4.5 12 4.5h0s-3.2 0-6.2.5c-.4.2-1.3.2-2 1-.6.6-.8 2-.8 2S3 9.6 3 11.3v1.4C3 14.4 3 16 3 16s.2 1.4.8 2c.7.8 1.6.8 2 1 3 0.5 6.2.5 6.2.5s3.2 0 6.2-.5c.4-.2 1.3-.2 2-1 .6-.6.8-2 .8-2s.2-1.6.2-3.3v-1.4C21.2 9.6 21 8 21 8z"></path>
@@ -345,18 +467,13 @@
       Watch on YouTube
     </a>
   </section>
-  
-  
+</div>
 
-  <footer style="background-color:#3e214c; color:white; text-align:center; padding:20px 10px;">
+<footer style="background-color:#3e214c; color:white; text-align:center; padding:20px 10px;">
     <p>© 2025 RSPlatform.com | All rights reserved</p>
     <p>
       <a href="privacy.html" style="color:#fff; text-decoration:underline;">Privacy Policy</a> |
       <a href="terms.html" style="color:#fff; text-decoration:underline;">Terms & Conditions</a> |
       <a href="refund.html" style="color:#fff; text-decoration:underline;">Refund Policy</a> |
-      <a href="shipping.html" style="color:#fff; text-decoration:underline;">Shipping Policy</a>
-      <a href="contact.html" style="color:#fff; text-decoration:underline;">Contact Us</a>
-    </p>
-  </footer>
-  </body>
-</html>
+      <a href="shipping.html" style="color:#fff; text-decoration:underline;">Shipping Policy</a> |
+      <a href="contact.html"
