@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>All Semesters - RSPlatform</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: #f8f9fa;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    header {
+      background-color: #4b0082;
+      color: white;
+      text-align: center;
+      padding: 1.5rem 0;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .container {
+      flex: 1;
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 1.5rem;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    }
+
+    .card a {
+      display: inline-block;
+      margin-top: 1rem;
+      text-decoration: none;
+      color: white;
+      background: #4b0082;
+      padding: 0.6rem 1.2rem;
+      border-radius: 30px;
+      transition: background 0.3s ease;
+    }
+
+    .card a:hover {
+      background: #5e2b9a;
+    }
+
+    .description {
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      color: #333;
+    }
+
+    .subjects {
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+      color: #555;
+      text-align: left;
+      margin-left: 10%;
+      margin-right: 10%;
+    }
+
+    footer {
+      background-color: #4b0082;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: auto;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Choose Your Semester</h1>
+    <p>Select and explore solved papers and resources</p>
+  </header>
+
+  <div class="container">
+    <div class="card">
+      <h2>Semester 1</h2>
+      <a href="sem1.html">Explore</a>
+      <div class="description">Get started with the basics of commerce and accounting.</div>
+      <div class="subjects">
+        • Financial Accounting<br>
+        • Business Organization<br>
+        • Business Mathematics<br>
+        • Microeconomics<br>
+        • English Communication
+      </div>
+    </div>
+    <div class="card">
+      <h2>Semester 2</h2>
+      <a href="sem2.html">Explore</a>
+      <div class="description">Advance into economic theory and management principles.</div>
+      <div class="subjects">
+        • Business Law<br>
+        • Business Communication<br>
+        • Macro Economics<br>
+        • Cost Accounting<br>
+        • Environmental Studies
+      </div>
+    </div>
+    <div class="card">
+      <h2>Semester 3</h2>
+      <a href="sem3.html">Explore</a>
+      <div class="description">Focus on marketing, company law, and applied finance.</div>
+      <div class="subjects">
+        • Corporate Accounting<br>
+        • Company Law<br>
+        • Marketing Management<br>
+        • Income Tax Law<br>
+        • Human Resource Management
+      </div>
+    </div>
+    <div class="card">
+      <h2>Semester 4</h2>
+      <a href="sem4.html">Explore</a>
+      <div class="description">Explore advanced financial and legal concepts.</div>
+      <div class="subjects">
+        • Business Research Methods<br>
+        • Auditing & Assurance<br>
+        • Indian Economy<br>
+        • Financial Markets<br>
+        • Entrepreneurship
+      </div>
+    </div>
+    <div class="card">
+      <h2>Semester 5</h2>
+      <a href="sem5.html">Explore</a>
+      <div class="description">Dive into specialization and practical case studies.</div>
+      <div class="subjects">
+        • Financial Reporting<br>
+        • Strategic Management<br>
+        • Advanced Taxation<br>
+        • International Business<br>
+        • E-Commerce
+      </div>
+    </div>
+    <div class="card">
+      <h2>Semester 6</h2>
+      <a href="sem6.html">Explore</a>
+      <div class="description">Final step towards your B.Com journey, wrapping up core learnings.</div>
+      <div class="subjects">
+        • Project Work<br>
+        • Business Ethics<br>
+        • Banking Operations<br>
+        • Investment Analysis<br>
+        • Management Accounting
+      </div>
+    </div>
+  </div>
+
+
+
+  <footer>
+    &copy; 2025 RSPlatform | All rights reserved
+  </footer>
+</body>
+</html>
