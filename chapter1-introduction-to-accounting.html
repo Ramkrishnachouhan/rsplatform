@@ -194,143 +194,347 @@
         </ul>
     </section>
 
-    <section>
-        
-        <div class="box">
+     <section>
+    <div style="display: flex; align-items: flex-start; gap: 40px;">
+        <div style="flex: 2;">
+            <label for="userName"><strong>Enter Your Name:</strong></label><br>
+            <input type="text" id="userName" placeholder="Your Name" style="margin-top: 5px; padding: 5px; width: 50%;">
+            <span id="nameCheckmark" style="color: green; font-weight: bold; margin-left: 8px; display: none;">✓</span><br><br>
+
             <h3>Test Your Understanding – I</h3>
-          
-            <p>(a) Information in financial reports is based on 
-              <select id="q1">
-                <option value="">-- Select --</option>
-                <option value="evidence">evidence</option>
-                <option value="assumption">assumption</option>
-                <option value="estimation">estimation</option>
-              </select>
+
+            <p>(a) Information in financial reports is based on
+                <select id="q1">
+                    <option value="">-- Select --</option>
+                    <option value="evidence">evidence</option>
+                    <option value="assumption">assumption</option>
+                    <option value="estimation">estimation</option>
+                </select>
             </p>
-          
-            <p>(b) Internal users are the 
-              <select id="q2">
-                <option value="">-- Select --</option>
-                <option value="employees">employees</option>
-                <option value="owners">owners</option>
-                <option value="management">management</option>
-              </select>
-              of the business entity.
+
+            <p>(b) Internal users are the
+                <select id="q2">
+                    <option value="">-- Select --</option>
+                    <option value="employees">employees</option>
+                    <option value="owners">owners</option>
+                    <option value="management">management</option>
+                </select>
+                of the business entity.
             </p>
-          
-            <p>(c) A 
-              <select id="q3">
-                <option value="">-- Select --</option>
-                <option value="customer">customer</option>
-                <option value="banker">banker</option>
-                <option value="manager">manager</option>
-              </select>
-              would most likely use an entity’s financial report to determine loan eligibility.
+
+            <p>(c) A
+                <select id="q3">
+                    <option value="">-- Select --</option>
+                    <option value="customer">customer</option>
+                    <option value="banker">banker</option>
+                    <option value="manager">manager</option>
+                </select>
+                would most likely use an entity’s financial report to determine loan eligibility.
             </p>
-          
-            <p>(d) The Internet has assisted in decreasing the 
+
+            <p>(d) The Internet has assisted in decreasing the
                 <select id="q4">
-                  <option value="">-- Select --</option>
-                  <option value="time">time</option>
-                  <option value="cost">cost</option>
-                  <option value="reliability">reliability</option>
+                    <option value="">-- Select --</option>
+                    <option value="time">time</option>
+                    <option value="cost">cost</option>
+                    <option value="reliability">reliability</option>
                 </select>
                 involved in providing information.
-              </p>
-              
-            <p>(e) 
-              <select id="q5">
-                <option value="">-- Select --</option>
-                <option value="Internal">Internal</option>
-                <option value="External">External</option>
-                <option value="Primary">Primary</option>
-              </select>
-              users are groups outside the business entity.
             </p>
-          
-            <p>(f) Information is said to be relevant if it is 
-              <select id="q6">
-                <option value="">-- Select --</option>
-                <option value="recent">recent</option>
-                <option value="complete">complete</option>
-                <option value="timely">timely</option>
-              </select>
+
+            <p>(e)
+                <select id="q5">
+                    <option value="">-- Select --</option>
+                    <option value="internal">Internal</option>
+                    <option value="external">External</option>
+                    <option value="primary">Primary</option>
+                </select>
+                users are groups outside the business entity.
             </p>
-          
-            <p>(g) The process of accounting starts with 
-              <select id="q7a">
-                <option value="">-- Select --</option>
-                <option value="recording">recording</option>
-                <option value="journalizing">journalizing</option>
-                <option value="analyzing">analyzing</option>
-              </select>
-              and ends with 
-              <select id="q7b">
-                <option value="">-- Select --</option>
-                <option value="summarising">summarising</option>
-                <option value="reporting">reporting</option>
-                <option value="classifying">classifying</option>
-              </select>.
+
+            <p>(f) Information is said to be relevant if it is
+                <select id="q6">
+                    <option value="">-- Select --</option>
+                    <option value="recent">recent</option>
+                    <option value="complete">complete</option>
+                    <option value="timely">timely</option>
+                </select>
             </p>
-          
-            <p>(h) Accounting measures business transactions in terms of 
-              <select id="q8">
-                <option value="">-- Select --</option>
-                <option value="physical">physical</option>
-                <option value="monetary">monetary</option>
-                <option value="market">market</option>
-              </select>
-              units.
+
+            <p>(g) The process of accounting starts with
+                <select id="q7a">
+                    <option value="">-- Select --</option>
+                    <option value="recording">recording</option>
+                    <option value="journalizing">journalizing</option>
+                    <option value="analyzing">analyzing</option>
+                </select>
+                and ends with
+                <select id="q7b">
+                    <option value="">-- Select --</option>
+                    <option value="summarising">summarising</option>
+                    <option value="reporting">reporting</option>
+                    <option value="classifying">classifying</option>
+                </select>.
             </p>
-          
-            <p>(i) Events should be recorded in 
-              <select id="q9">
-                <option value="">-- Select --</option>
-                <option value="sequential">sequential</option>
-                <option value="chronological">chronological</option>
-                <option value="logical">logical</option>
-              </select>
-              order.
+
+            <p>(h) Accounting measures business transactions in terms of
+                <select id="q8">
+                    <option value="">-- Select --</option>
+                    <option value="physical">physical</option>
+                    <option value="monetary">monetary</option>
+                    <option value="market">market</option>
+                </select>
+                units.
             </p>
-          
-            <button onclick="checkAnswers()">Submit</button>
-            <div id="result"></div>
-          </div>
-          
-          <script>
-            function checkAnswers() {
-                const answers = {
-                    q1: "evidence",
-                    q2: "management",
-                    q3: "banker",
-                    q4: "time",
-                    q5: "external",
-                    q6: "timely",
-                    q7a: "recording",
-                    q7b: "summarising",
-                    q8: "monetary",
-                    q9: "chronological"
-                };
-        
-                let score = 0;
-        
-                if (document.getElementById('q1').value.toLowerCase() === answers.q1) score++;
-                if (document.getElementById('q2').value.toLowerCase() === answers.q2) score++;
-                if (document.getElementById('q3').value.toLowerCase() === answers.q3) score++;
-                if (document.getElementById('q4').value.toLowerCase() === answers.q4) score++;
-                if (document.getElementById('q5').value.toLowerCase() === answers.q5) score++;
-                if (document.getElementById('q6').value.toLowerCase() === answers.q6) score++;
-                if (document.getElementById('q7a').value.toLowerCase() === answers.q7a) score++;
-                if (document.getElementById('q7b').value.toLowerCase() === answers.q7b) score++;
-                if (document.getElementById('q8').value.toLowerCase() === answers.q8) score++;
-                if (document.getElementById('q9').value.toLowerCase() === answers.q9) score++;
-        
-                document.getElementById('result').innerText = `You scored ${score} out of 9`;
+
+            <p>(i) Events should be recorded in
+                <select id="q9">
+                    <option value="">-- Select --</option>
+                    <option value="sequential">sequential</option>
+                    <option value="chronological">chronological</option>
+                    <option value="logical">logical</option>
+                </select>
+                order.
+            </p>
+
+            <p id="submitTimerMessage" style="font-weight: bold; color: blue;"></p>
+            <button onclick="checkAnswers()" id="submitButton" style="display:none;">Submit</button>
+
+            <div id="result" style="margin-top: 15px;"></div>
+            <p id="cooldownMessage" style="color: red; font-weight: bold;"></p>
+        </div>
+
+        <div style="flex: 1; border: 2px solid #ccc; padding: 10px; border-radius: 8px; max-height: 500px; overflow-y: auto;">
+            <h3>Leaderboard</h3>
+            <ol id="leaderboard"></ol>
+        </div>
+    </div>
+
+    <br><br>
+    <div>
+        <h3>Provide Your Feedback</h3>
+        <label for="feedbackEmail"><strong>Your Email:</strong></label><br>
+        <input type="email" id="feedbackEmail" placeholder="Enter your verified email" style="padding: 5px; width: 50%;"><br><br>
+
+        <label for="feedbackMessage"><strong>Your Feedback:</strong></label><br>
+        <textarea id="feedbackMessage" placeholder="Write your feedback here..." rows="4" style="width: 50%; padding: 5px;"></textarea><br><br>
+
+        <button onclick="submitFeedback()">Submit Feedback</button>
+        <p id="feedbackMessageStatus" style="color: green; font-weight: bold;"></p>
+    </div>
+
+    <script>
+    const answers = {
+        q1: "evidence",
+        q2: "employees",
+        q3: "banker",
+        q4: "time",
+        q5: "external",
+        q6: "timely",
+        q7a: "journalizing", // Corrected answer
+        q7b: "reporting",   // Corrected answer
+        q8: "monetary",
+        q9: "chronological"
+    };
+
+    const cooldownDuration = 10000; // 10 seconds
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const nameInput = document.getElementById('userName');
+        const submitButton = document.getElementById('submitButton');
+        const submitTimerMessage = document.getElementById('submitTimerMessage');
+        const cooldownMessage = document.getElementById('cooldownMessage');
+        const nameCheckmark = document.getElementById('nameCheckmark');
+
+        // Checkmark for name input
+        nameInput.addEventListener('input', () => {
+            nameCheckmark.style.display = nameInput.value.trim() ? 'inline' : 'none';
+        });
+
+        // Lock submission if within cooldown
+        enforceSubmitCooldown();
+
+        // Countdown before showing submit button
+        let timeLeft = 10;
+        updateSubmitTimerMessage(timeLeft);
+
+        const timerInterval = setInterval(() => {
+            timeLeft--;
+            if (timeLeft <= 0) {
+                clearInterval(timerInterval);
+                submitButton.style.display = 'inline-block';
+                submitTimerMessage.innerText = '';
+            } else {
+                updateSubmitTimerMessage(timeLeft);
             }
-        </script>
-        
-        
-    </section>
+        }, 1000);
+
+        // Submit on Enter only if all answers are filled
+        nameInput.addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                if (submitButton.style.display === 'none') return;
+
+                const allAnswered = Object.keys(answers).every(key => {
+                    const el = document.getElementById(key);
+                    return el && el.value;
+                });
+
+                if (allAnswered) {
+                    submitButton.click();
+                } else {
+                    alert("Please answer all questions before submitting.");
+                }
+            }
+        });
+
+        // Initial leaderboard update
+        updateLeaderboard();
+    });
+
+    function updateSubmitTimerMessage(timeLeft) {
+        document.getElementById('submitTimerMessage').innerText = `Submit button will appear in ${timeLeft} seconds...`;
+    }
+
+    function checkAnswers() {
+        const name = document.getElementById('userName').value.trim();
+        const resultDiv = document.getElementById('result');
+        const submitButton = document.querySelector('button[onclick="checkAnswers()"]');
+        const cooldownMessage = document.getElementById('cooldownMessage');
+
+        if (!name) {
+            alert("Please enter your name before submitting the quiz.");
+            return;
+        }
+
+        // Prevent re-submission within cooldownDuration (10 seconds)
+        const lastSubmit = localStorage.getItem("lastSubmitTime");
+        if (lastSubmit && Date.now() - parseInt(lastSubmit, 10) < cooldownDuration) {
+            alert("You can only submit once every 10 seconds.");
+            return;
+        }
+
+        // Save time of submission
+        localStorage.setItem("lastSubmitTime", Date.now());
+
+        // Disable submit button immediately after submission
+        submitButton.disabled = true;
+
+        let score = 0;
+        Object.keys(answers).forEach((key) => {
+            const userAnswer = (document.getElementById(key).value || "").toLowerCase();
+            if (userAnswer === answers[key]) score++;
+        });
+
+        resultDiv.innerText = `${name}, you scored ${score} out of 9.\nLeaderboard will update in 5 seconds...`;
+
+        // Submit to Google Apps Script
+        fetch('https://script.google.com/macros/s/AKfycbzrAznz7Hg6HtrQDzy5lsyJnlGuV9MN2iKt9BY-gNKfU7wrfyBddO4jSbXGdG42Z6NK/exec'
+, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: `name=${encodeURIComponent(name)}&score=${score}`
+        });
+
+        // Countdown before refreshing leaderboard
+        let secondsLeft = 5;
+        const countdown = setInterval(() => {
+            if (secondsLeft > 0) {
+                resultDiv.innerText = `${name}, you scored ${score} out of 9.\nLeaderboard will update in ${secondsLeft} second${secondsLeft !== 1 ? 's' : ''}...`;
+                secondsLeft--;
+            } else {
+                clearInterval(countdown);
+                updateLeaderboard();
+                resultDiv.innerText = "";
+            }
+        }, 1000);
+
+        // Reactivate submit button and clear cooldown message after cooldown duration
+        setTimeout(() => {
+            submitButton.disabled = false;
+            localStorage.removeItem("lastSubmitTime");
+            cooldownMessage.innerText = '';
+        }, cooldownDuration);
+
+        // Display cooldown message for 10 seconds
+        showCooldownMessage();
+    }
+
+   function updateLeaderboard() {
+    const url = 'https://script.google.com/macros/s/AKfycbzrAznz7Hg6HtrQDzy5lsyJnlGuV9MN2iKt9BY-gNKfU7wrfyBddO4jSbXGdG42Z6NK/exec';
+ // Your Apps Script URL for leaderboard
+
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                const leaderboardList = document.getElementById('leaderboard');
+                leaderboardList.innerHTML = '';
+                data.forEach(entry => {
+                    const li = document.createElement('li');
+                    li.textContent = `${entry.name} – ${entry.score}/9`;
+                    leaderboardList.appendChild(li);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching leaderboard:', error);
+                // Handle error (e.g., display an error message)
+            });
+    }
+
+    function enforceSubmitCooldown() {
+        const submitButton = document.querySelector('button[onclick="checkAnswers()"]');
+        const lastSubmit = localStorage.getItem("lastSubmitTime");
+        const cooldownMessage = document.getElementById('cooldownMessage');
+
+        if (lastSubmit) {
+            const timePassed = Date.now() - parseInt(lastSubmit, 10);
+            if (timePassed < cooldownDuration) {
+                submitButton.disabled = true;
+                showCooldownMessage();
+
+                setTimeout(() => {
+                    submitButton.disabled = false;
+                    localStorage.removeItem("lastSubmitTime");
+                    cooldownMessage.innerText = '';
+                }, cooldownDuration - timePassed);
+            }
+        }
+    }
+
+    function showCooldownMessage() {
+        const cooldownMessage = document.getElementById('cooldownMessage');
+        cooldownMessage.innerText = "You must wait before submitting again.";
+    }
+
+    // Feedback submission
+    function submitFeedback() {
+  const email = document.getElementById('feedbackEmail').value.trim();
+  const feedbackMessage = document.getElementById('feedbackMessage').value.trim();
+  const feedbackStatus = document.getElementById('feedbackMessageStatus');
+
+  if (!email || !feedbackMessage) {
+      alert('Please fill in both fields before submitting feedback.');
+      return;
+  }
+
+  fetch('https://script.google.com/macros/s/AKfycbzrAznz7Hg6HtrQDzy5lsyJnlGuV9MN2iKt9BY-gNKfU7wrfyBddO4jSbXGdG42Z6NK/exec', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: `email=${encodeURIComponent(email)}&feedback=${encodeURIComponent(feedbackMessage)}`
+  })
+  .then(() => {
+      feedbackStatus.innerText = 'Thank you for your feedback!';
+      document.getElementById('feedbackEmail').value = '';
+      document.getElementById('feedbackMessage').value = '';
+  })
+  .catch(error => {
+      console.error('Error submitting feedback:', error);
+      feedbackStatus.innerText = 'Error submitting feedback. Please try again.';
+  });
+}
+
+    </script>
+</section>
 
 </main>
 
