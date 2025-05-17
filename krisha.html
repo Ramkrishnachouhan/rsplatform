@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Student Performance - RSPlatform</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f5f7fa;
+      color: #333;
+    }
+    header {
+      background: #222;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .student-info {
+      display: flex;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+    .student-info img {
+      width: 120px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-right: 20px;
+    }
+    .student-details h2 {
+      margin: 0 0 10px;
+    }
+    .summary-cards {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+    .card {
+      flex: 1;
+      min-width: 200px;
+      padding: 20px;
+      background: #eaf0fb;
+      border-left: 5px solid #2e86de;
+      border-radius: 8px;
+    }
+    .card h3 {
+      margin: 0;
+      font-size: 1.2em;
+    }
+    .card p {
+      font-size: 2em;
+      font-weight: bold;
+      color: #2e86de;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 30px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: center;
+    }
+    th {
+      background: #2e86de;
+      color: #fff;
+    }
+    .class-tests {
+      margin-top: 40px;
+    }
+    .test-photo {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .test-photo div {
+      text-align: center;
+    }
+    .test-photo img {
+      width: 200px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .actions {
+      margin-top: 30px;
+      text-align: center;
+    }
+    .actions button {
+      padding: 10px 20px;
+      background: #2e86de;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Student Performance Report</h1>
+  </header>
+
+  <div class="container">
+    <div class="student-info">
+      <img src="assets/student-photo.jpg" alt="Krisha Mandal" />
+
+      <div class="student-details">
+        <h2>Student: Krisha Mandal</h2>
+        <p>Class: 4</p>
+        <p>School: St. Mary's Higher Secondary School</p>
+      </div>
+    </div>
+
+    <div class="summary-cards">
+      <div class="card">
+        <h3>Total Subjects</h3>
+        <p>10</p>
+      </div>
+      <div class="card">
+        <h3>Average Score</h3>
+        <p>--</p>
+      </div>
+      <div class="card">
+        <h3>Best Subject</h3>
+        <p>--</p>
+      </div>
+    </div>
+
+    <h3>Subject Performance</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Subject</th>
+          <th>Marks</th>
+          <th>Remarks</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>English - 1</td><td>--</td><td>--</td></tr>
+        <tr><td>English - 2</td><td>--</td><td>--</td></tr>
+        <tr><td>Hindi</td><td>--</td><td>--</td></tr>
+        <tr><td>Assamese</td><td>--</td><td>--</td></tr>
+        <tr><td>Computer</td><td>--</td><td>--</td></tr>
+        <tr><td>Science</td><td>--</td><td>--</td></tr>
+        <tr><td>Maths</td><td>--</td><td>--</td></tr>
+        <tr><td>General Knowledge</td><td>--</td><td>--</td></tr>
+        <tr><td>Social Studies</td><td>--</td><td>--</td></tr>
+        <tr><td>Mahs</td><td>--</td><td>--</td></tr>
+      </tbody>
+    </table>
+
+    <div class="class-tests">
+      <h3>Class Test Photos</h3>
+      <div class="test-photo">
+        <div>
+          <img src="assets/test1.jpg" alt="Test 1" />
+          <p><strong>Test 1:</strong> 10½ / 11</p>
+        </div>
+        <div>
+          <img src="assets/test2.jpg" alt="Test 2" />
+          <p><strong>Test 2:</strong> 17 / 20</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <button onclick="window.print()">Print / Download Report</button>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 RSPlatform.site | All Rights Reserved</p>
+  </footer>
+</body>
+</html>
