@@ -494,6 +494,131 @@
   </style>
  </head>
  <body>
+
+   <!-- START: Stylish Slide-In Side Menu -->
+<style>
+  body.menu-open {
+    overflow: hidden;
+  }
+
+  .hamburger {
+    position: fixed;
+    top: 18px;
+    left: 18px;
+    cursor: pointer;
+    z-index: 1002;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 30px;
+    height: 3px;
+    margin: 5px 0;
+    background-color: #2e7d32;
+    border-radius: 3px;
+    transition: all 0.4s ease;
+  }
+
+  .side-menu {
+    position: fixed;
+    top: 0;
+    left: -260px;
+    width: 240px;
+    height: 100%;
+    background: linear-gradient(145deg, #e6f4ea, #c8e6c9);
+    box-shadow: 4px 0 12px rgba(0, 0, 0, 0.2);
+    padding: 80px 25px;
+    transition: left 0.4s ease;
+    z-index: 1001;
+    border-top-right-radius: 16px;
+    border-bottom-right-radius: 16px;
+  }
+
+  .side-menu a {
+    display: block;
+    margin: 20px 0;
+    font-weight: 600;
+    color: #1b5e20;
+    text-decoration: none;
+    font-size: 17px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: background 0.3s ease;
+  }
+
+  .side-menu a:hover {
+    background-color: #a5d6a7;
+    color: #004d40;
+  }
+
+  .side-menu.show {
+    left: 0;
+  }
+
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(30, 30, 30, 0.4);
+    z-index: 1000;
+    display: none;
+  }
+
+  .overlay.show {
+    display: block;
+  }
+</style>
+
+<div class="hamburger" onclick="toggleSideMenu()">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
+<div class="side-menu" id="sideMenu">
+  <div class="menu-item">
+    <span onclick="toggleSubMenu()">🎓 Student Portal ▾</span>
+    <div class="sub-menu" id="studentSubMenu">
+      <a href="student.html" onclick="closeMenu()">🟢 Online Registration</a>
+      <a href="student0.html" onclick="closeMenu()">🟢 Online Registration</a>
+      <a href="student1.html" onclick="closeMenu()">📄 Offline Registration</a>
+    </div>
+  </div>
+  <a href="https://rsplatform.site/admin.html" onclick="closeMenu()">🛠️ Admin Portal</a>
+  <a href="https://rsplatform.site/contact.html" onclick="closeMenu()">📞 Contact Us</a>
+</div>
+
+<div class="overlay" id="overlay" onclick="closeMenu()"></div>
+
+
+<script>
+  function toggleSideMenu() {
+    const menu = document.getElementById("sideMenu");
+    const overlay = document.getElementById("overlay");
+    const body = document.body;
+    menu.classList.toggle("show");
+    overlay.classList.toggle("show");
+    body.classList.toggle("menu-open");
+  }
+
+  function closeMenu() {
+    document.getElementById("sideMenu").classList.remove("show");
+    document.getElementById("overlay").classList.remove("show");
+    document.body.classList.remove("menu-open");
+  }
+
+  // Close menu if clicked outside (safety fallback)
+  document.addEventListener("click", function (event) {
+    const menu = document.getElementById("sideMenu");
+    const hamburger = document.querySelector(".hamburger");
+    if (!menu.contains(event.target) && !hamburger.contains(event.target)) {
+      closeMenu();
+    }
+  });
+</script>
+<!-- END: Stylish Slide-In Side Menu -->
   <header class="animate__animated animate__fadeInDown">
    <img src="https://github.com/Ramkrishnachouhan/rsplatform/blob/main/avatar.jpg?raw=true" alt="Avatar">
    <h1>MCom world with RS platform</h1>
