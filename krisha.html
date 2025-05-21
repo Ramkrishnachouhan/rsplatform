@@ -79,6 +79,9 @@
       background: #2e86de;
       color: #fff;
     }
+    td strong {
+      font-weight: bold;
+    }
     .class-tests {
       margin-top: 40px;
     }
@@ -116,6 +119,16 @@
       padding: 15px;
       margin-top: 40px;
     }
+    .remark-good {
+      background-color: #d4edda;
+      color: #155724;
+      font-weight: bold;
+    }
+    .remark-average {
+      background-color: #f8d7da;
+      color: #721c24;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
@@ -126,7 +139,6 @@
   <div class="container">
     <div class="student-info">
       <img src="assets/student-photo.jpg" alt="Krisha Mandal" />
-
       <div class="student-details">
         <h2>Student: Krisha Mandal</h2>
         <p>Class: 4</p>
@@ -137,7 +149,7 @@
     <div class="summary-cards">
       <div class="card">
         <h3>Total Subjects</h3>
-        <p>10</p>
+        <p>9</p>
       </div>
       <div class="card">
         <h3>Average Score</h3>
@@ -154,21 +166,21 @@
       <thead>
         <tr>
           <th>Subject</th>
-          <th>Marks</th>
+          <th>Marks Obtained</th>
+          <th>Total Marks</th>
           <th>Remarks</th>
         </tr>
       </thead>
       <tbody>
-        <tr><td>English - 1</td><td>17</td><td>VERY GOOD</td></tr>
-        <tr><td>English - 2</td><td>17½</td><td>VERY GOOD</td></tr>
-        <tr><td>Hindi</td><td>--</td><td>--</td></tr>
-        <tr><td>Assamese</td><td>--</td><td>--</td></tr>
-        <tr><td>Computer</td><td>--</td><td>--</td></tr>
-        <tr><td>Science</td><td>--</td><td>--</td></tr>
-        <tr><td>Maths</td><td>12</td><td>AVERAGE</td></tr>
-        <tr><td>General Knowledge</td><td>--</td><td>--</td></tr>
-        <tr><td>Social Studies</td><td>--</td><td>--</td></tr>
-        <tr><td>Mahs</td><td>--</td><td>--</td></tr>
+        <tr><td><strong>English - 1</strong></td><td><strong>17</strong></td><td>20</td><td class="remark-good">VERY GOOD</td></tr>
+        <tr><td><strong>English - 2</strong></td><td><strong>17.5</strong></td><td>20</td><td class="remark-good">VERY GOOD</td></tr>
+        <tr><td><strong>Hindi</strong></td><td><strong>--</strong></td><td>20</td><td>--</td></tr>
+        <tr><td><strong>Assamese</strong></td><td><strong>--</strong></td><td>20</td><td>--</td></tr>
+        <tr><td><strong>Computer</strong></td><td><strong>--</strong></td><td>20</td><td>--</td></tr>
+        <tr><td><strong>Science</strong></td><td><strong>--</strong></td><td>20</td><td>--</td></tr>
+        <tr><td><strong>Maths</strong></td><td><strong>12</strong></td><td>20</td><td class="remark-average">AVERAGE</td></tr>
+        <tr><td><strong>General Knowledge</strong></td><td><strong>--</strong></td><td>20</td><td>--</td></tr>
+        <tr><td><strong>Social Studies</strong></td><td><strong>--</strong></td><td>20</td><td>--</td></tr>
       </tbody>
     </table>
 
