@@ -31,6 +31,8 @@
       display: flex;
       align-items: center;
       margin-bottom: 30px;
+      justify-content: space-between; /* Added for better alignment of student info and button */
+      flex-wrap: wrap; /* Allows wrapping on smaller screens */
     }
     .student-info img {
       width: 120px;
@@ -38,6 +40,13 @@
       object-fit: cover;
       border-radius: 10px;
       margin-right: 20px;
+    }
+    .student-details-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex: 1;
+      flex-wrap: wrap; /* Allows wrapping within the details wrapper */
     }
     .student-details h2 {
       margin: 0 0 10px;
@@ -119,20 +128,62 @@
       padding: 15px;
       margin-top: 40px;
     }
+    .homework-button button {
+      padding: 10px 15px;
+      background: #2e86de; /* Changed from green to blue */
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+      white-space: nowrap;
+    }
+    .homework-button button:hover {
+      background-color: #1b4f72; /* A darker shade for hover effect */
+    }
     .remark-good {
       background-color: #d4edda;
       color: #155724;
       font-weight: bold;
     }
     .remark-average {
-      background-color: #f8d7da;
-      color: #721c24;
+      background-color: #ffeeba; /* light yellow */
+      color: #856404; /* dark yellow text */
       font-weight: bold;
     }
     .remark-poor {
-  background-color: #f8d7da; /* light red */
-  color: #721c24;            /* dark red text */
-  font-weight: bold;
+      background-color: #f8d7da; /* light red */
+      color: #721c24; /* dark red text */
+      font-weight: bold;
+    }
+    .print-download {
+      text-align: center;
+      margin: 40px 0 20px;
+    }
+    .print-download button {
+      padding: 12px 25px;
+      background: #2e86de;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    .print-download button:hover {
+      background-color: #1b4f72;
+    }
+    .homework-link-button {
+  display: inline-block;
+  padding: 10px 15px;
+  background: #2e86de;
+  color: white;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 16px;
+  white-space: nowrap;
+}
+.homework-link-button:hover {
+  background-color: #1b4f72;
 }
 
   </style>
@@ -145,21 +196,25 @@
   <div class="container">
     <div class="student-info">
       <img src="assets/student-photo.jpg" alt="Krisha Mandal" />
-      <div class="student-details">
-        <h2>Student: Krisha Mandal</h2>
-        <p>Class: 4</p>
-        <p>School: St. Mary's Higher Secondary School</p>
-      </div>
-    </div>
+      <div class="student-details-wrapper">
+        <div class="student-details">
+          <h2>Student: Krisha Mandal</h2>
+          <p>Class: 4</p>
+          <p>School: St. Mary's Higher Secondary School</p>
+        </div>
+        <div class="homework-button">
+          <a href="homework.html" class="homework-link-button">📘 Homework</a>
 
-    <div class="summary-cards">
+        </div>
+      </div>
+    </div> <div class="summary-cards">
       <div class="card">
         <h3>Total Subjects</h3>
         <p>9</p>
       </div>
       <div class="card">
         <h3>Average Score</h3>
-        <p>69.5</p>
+        <p>84</p>
       </div>
       <div class="card">
         <h3>Best Subject</h3>
@@ -182,11 +237,11 @@
         <tr><td><strong>English - 2</strong></td><td><strong>17.5</strong></td><td>20</td><td class="remark-good">VERY GOOD</td></tr>
         <tr><td><strong>Hindi</strong></td><td><strong>--</strong></td><td>20</td><td>--</td></tr>
         <tr><td><strong>Assamese</strong></td><td><strong>--</strong></td><td>20</td><td>--</td></tr>
-        <tr><td><strong>Computer</strong></td><td><strong>6</strong></td><td>20</td><td class="remark-poor">POOR</td>
+        <tr><td><strong>Computer</strong></td><td><strong>6</strong></td><td>20</td><td class="remark-poor">POOR</td></tr>
         <tr><td><strong>Science</strong></td><td><strong>17</strong></td><td>20</td><td class="remark-good">VERY GOOD</td></tr>
         <tr><td><strong>Maths</strong></td><td><strong>12</strong></td><td>20</td><td class="remark-average">AVERAGE</td></tr>
         <tr><td><strong>General Knowledge</strong></td><td><strong>--</strong></td><td>20</td><td>--</td></tr>
-        <tr><td><strong>Social Studies</strong></td><td><strong>--</strong></td><td>20</td><td>--</td></tr>
+        <tr><td><strong>Social Studies</strong></td><td><strong>14.5</strong></td><td>20</td><td class="remark-average">AVERAGE</td></tr>
       </tbody>
     </table>
 
@@ -204,9 +259,10 @@
       </div>
     </div>
 
-    <div class="actions">
-      <button onclick="window.print()">Print / Download Report</button>
+    <div class="print-download">
+      <button onclick="window.print()">🖨️ Print / Download Report</button>
     </div>
+
   </div>
 
   <footer>
