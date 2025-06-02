@@ -17,6 +17,8 @@
       text-align: center;
       padding: 20px;
       border-bottom: 2px solid #1a73e8;
+      position: relative;
+      z-index: 10;
     }
 
     header img {
@@ -84,17 +86,102 @@
       color: #666;
       font-size: 14px;
     }
+
+    /* Registered Students Panel */
+    #student-list {
+      position: fixed;
+      top: 10%;
+      left: 20px;
+      width: 320px;
+      max-height: 80vh;
+      background: linear-gradient(135deg, #1a73e8cc, #4a90e2cc);
+      padding: 20px 25px;
+      border-radius: 15px;
+      box-shadow: 0 12px 25px rgba(26, 115, 232, 0.5);
+      color: white;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      overflow-y: auto;
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      z-index: 1000;
+    }
+
+    #student-list.hide {
+      transform: translateX(-110%);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    #student-list h3 {
+      margin: 0 0 15px 0;
+      font-size: 22px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      user-select: none;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+
+    #student-list h3::before {
+      content: "👩‍🎓";
+      font-size: 28px;
+    }
+
+    #student-names {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    #student-names li {
+      background: rgba(255 255 255 / 0.15);
+      margin-bottom: 10px;
+      padding: 12px 18px;
+      border-radius: 10px;
+      font-size: 17px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      transition: background 0.3s ease;
+    }
+
+    #student-names li:hover {
+      background: rgba(255 255 255 / 0.3);
+    }
+
+    @media (max-width: 600px) {
+      #student-list {
+        width: 90vw;
+        left: 50%;
+        top: auto;
+        bottom: 20px;
+        transform: translateX(-50%);
+        max-height: 50vh;
+        border-radius: 12px;
+      }
+
+      #student-list.hide {
+        transform: translateY(110%);
+        opacity: 0;
+        pointer-events: none;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <!-- 🔷 Logo and Title -->
   <header>
-    <img src="assets/logo.png" alt="RS Coaching Centre Logo" style="max-height: 100px;">
-
-
+    <img src="assets/logo.png" alt="RS Coaching Centre Logo" />
     <h1>RS Coaching Centre – Admissions Open 2025–26</h1>
   </header>
+
+  <div id="student-list" aria-live="polite" aria-atomic="true" aria-label="Registered students list">
+    <h3 id="student-toggle" tabindex="0" role="button" aria-expanded="true" aria-controls="student-names">
+      Registered Students
+    </h3>
+    <ul id="student-names"></ul>
+  </div>
 
   <div class="container">
     <h2>Offline Registration</h2>
@@ -113,20 +200,65 @@
     </div>
 
     <p>📅 Morning and Evening batches available</p>
-    <p>🌐 Visit our website: <a href="https://rsplatform.site" target="_blank">rsplatform.site</a></p>
+    <p>🌐 Visit our website: <a href="https://rsplatform.site" target="_blank" rel="noopener noreferrer">rsplatform.site</a></p>
 
-    <!-- 🔍 Google Maps Embed -->
-    <iframe 
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114777.45366110238!2d91.6493367!3d26.1529556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375a5b286d66c37b%3A0xa7ed99c7099c93b9!2sBishnu%20Path%2C%20Dhirenpara%2C%20Fatasil%20Ambari%2C%20Guwahati%2C%20Assam%20781001!5e0!3m2!1sen!2sin!4v1715958693932!5m2!1sen!2sin" 
-      allowfullscreen="" 
-      loading="lazy" 
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d114777.45366110238!2d91.6493367!3d26.1529556!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x375a5b286d66c37b%3A0xa7ed99c7099c93b9!2sBishnu%20Path%2C%20Dhirenpara%2C%20Fatasil%20Ambari%2C%20Guwahati%2C%20Assam%20781001!5e0!3m2!1sen!2sin!4v1715958693932!5m2!1sen!2sin"
+      allowfullscreen=""
+      loading="lazy"
       referrerpolicy="no-referrer-when-downgrade">
     </iframe>
   </div>
 
   <footer>
-    &copy; 2025 RS Coaching Centre. All rights reserved.
+    © 2025 RS Coaching Centre. All rights reserved.
   </footer>
 
+  <script>
+    const students = JSON.parse(localStorage.getItem('studentList')) || [];
+    const list = document.getElementById('student-names');
+    const studentListSection = document.getElementById('student-list');
+    const toggleHeader = document.getElementById('student-toggle');
+
+    // Cleanly handle both { name: "John" } and "John"
+    const validNames = students.map(item => {
+      if (typeof item === 'string') return item;
+      if (typeof item === 'object' && item !== null && item.name) return item.name;
+      return null;
+    }).filter(name => !!name);
+
+    if (validNames.length > 0) {
+      validNames.forEach(name => {
+        const displayName = name.length > 30 ? name.substring(0, 27) + '...' : name;
+        const li = document.createElement('li');
+        li.textContent = displayName;
+        list.appendChild(li);
+      });
+    } else {
+      const li = document.createElement('li');
+      li.textContent = "No students registered yet.";
+      list.appendChild(li);
+    }
+
+    // Toggle list panel
+    function toggleList() {
+      const isVisible = !studentListSection.classList.contains('hide');
+      if (isVisible) {
+        studentListSection.classList.add('hide');
+        toggleHeader.setAttribute('aria-expanded', 'false');
+      } else {
+        studentListSection.classList.remove('hide');
+        toggleHeader.setAttribute('aria-expanded', 'true');
+      }
+    }
+
+    toggleHeader.addEventListener('click', toggleList);
+    toggleHeader.addEventListener('keydown', e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleList();
+      }
+    });
+  </script>
 </body>
 </html>
