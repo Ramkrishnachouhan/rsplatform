@@ -1,56 +1,854 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RS Coaching Center Admin Portal</title>
-  <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      background: linear-gradient(135deg, #5b2a70, #3b1554);
-      color: white;
-      text-align: center;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>RS Coaching Centre - Portal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f0f4ff 0%, #d9e4ff 100%); /* New gradient background */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .header-glow {
+            text-shadow: 0 0 10px rgba(99, 102, 241, 0.6); /* New header glow effect */
+        }
+        .chart-container {
+            max-width: 700px;
+            margin: auto; /* Centered */
+            background: white;
+            padding: 2rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 12px 30px rgba(99, 102, 241, 0.2);
+            transition: box-shadow 0.3s ease;
+        }
+        .chart-container:hover {
+            box-shadow: 0 16px 40px rgba(99, 102, 241, 0.35);
+        }
 
-    .container {
-      background-color: rgba(0, 0, 0, 0.3);
-      padding: 40px;
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    }
+        /* Modal styles (retained and slightly enhanced) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1000; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgba(0,0,0,0.7); /* Darker overlay */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 40px; /* Increased padding */
+            border-radius: 16px; /* More rounded */
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3); /* Stronger shadow */
+            width: 90%;
+            max-width: 450px; /* Slightly wider */
+            text-align: center;
+            position: relative; /* For close button positioning */
+            animation: fadeIn 0.3s ease-out; /* Fade in animation */
+        }
+        .close-button {
+            color: #aaa;
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 32px; /* Bigger close button */
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+        .close-button:hover,
+        .close-button:focus {
+            color: #333;
+        }
 
-    h1 {
-      font-size: 2.5em;
-      margin-bottom: 10px;
-    }
-
-    p {
-      font-size: 1.2em;
-    }
-
-    .status {
-      margin-top: 20px;
-      font-size: 1em;
-      background-color: #ffcc00;
-      color: #333;
-      padding: 10px 20px;
-      border-radius: 10px;
-      display: inline-block;
-      font-weight: bold;
-    }
-  </style>
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
-<body>
-  <div class="container">
-    <h1>RS Coaching Center Admin Portal</h1>
-    <p>This section is under development.</p>
-    <div class="status">🚧 Work Still In Progress 🚧</div>
-  </div>
+<body class="flex-grow flex flex-col">
+    <header class="bg-indigo-700 text-white py-8 shadow-lg">
+        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+            <h1 class="text-4xl font-extrabold header-glow tracking-wide">RS Coaching Center - Portal</h1>
+            <button id="admin-login-button" class="bg-indigo-900 hover:bg-indigo-800 px-5 py-3 rounded-xl text-lg font-semibold transition transform hover:scale-105">
+                Admin Entrance
+            </button>
+        </div>
+    </header>
+
+    <div id="admin-login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="close-modal">&times;</span>
+            <h2 class="text-3xl font-extrabold mb-8 text-gray-800">Secure Admin Login</h2>
+            <form id="login-form" class="space-y-6">
+                <div>
+                    <label for="username" class="block font-medium text-gray-700 text-left mb-2">Username</label>
+                    <input type="text" id="username" required class="w-full p-3 rounded-lg border-2 border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 transition duration-200" placeholder="Enter username"/>
+                </div>
+                <div>
+                    <label for="password" class="block font-medium text-gray-700 text-left mb-2">Password</label>
+                    <input type="password" id="password" required class="w-full p-3 rounded-lg border-2 border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 transition duration-200" placeholder="Enter password"/>
+                </div>
+                <button type="submit" class="w-full bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition duration-300 font-bold text-lg transform hover:scale-105">Login to Admin Panel</button>
+                <p id="login-message" class="text-red-500 mt-4 font-medium"></p>
+            </form>
+        </div>
+    </div>
+
+    <main id="public-dashboard" class="flex-grow max-w-6xl mx-auto px-8 py-16 flex flex-col items-center gap-12">
+        <section class="text-center max-w-3xl">
+            <h2 class="text-5xl font-extrabold text-indigo-900 mb-6 leading-tight">
+                Welcome to <span class="text-indigo-600">RSPlatform.site</span>!
+            </h2>
+            <p class="text-xl text-gray-700 leading-relaxed mb-10">
+                Your hub for academic excellence. Track your **offline performance** and stay updated with **online progress** effortlessly.
+            </p>
+        </section>
+
+        <section class="chart-container">
+            <h3 class="text-3xl font-bold text-indigo-900 mb-8 text-center">🏆 Top Student Performance</h3>
+            <canvas id="studentChart" width="700" height="400"></canvas>
+        </section>
+
+        <section class="bg-white p-8 rounded-3xl shadow-lg max-w-3xl mx-auto w-full">
+            <h3 class="text-2xl font-bold text-gray-800 mb-6 text-center">Registered Students</h3>
+            <ul id="public-student-names" class="space-y-2 max-h-64 overflow-y-auto">
+                <li class="text-gray-500 italic text-center p-2">Loading students...</li>
+            </ul>
+        </section>
+
+        <section class="text-center mt-12">
+            <p class="text-lg text-gray-600">For any inquiries or to learn more, please contact us.</p>
+            <a href="#" class="inline-block mt-6 bg-indigo-600 text-white px-10 py-4 rounded-full font-bold text-lg shadow-lg hover:bg-indigo-700 transition duration-300 transform hover:scale-105">
+                Contact Us
+            </a>
+        </section>
+    </main>
+
+    <main id="admin-panel" class="max-w-6xl mx-auto mt-10 px-6 hidden">
+        <div class="flex justify-between items-center mb-8">
+            <h2 class="text-3xl font-extrabold text-gray-900">Admin Panel Dashboard</h2>
+            <button id="admin-logout-button" class="bg-red-600 hover:bg-red-700 text-white px-5 py-3 rounded-lg transition duration-300 transform hover:scale-105 shadow-lg">
+                Logout
+            </button>
+        </div>
+
+        <section class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-10">
+            <div class="bg-gradient-to-r from-indigo-500 to-purple-600 p-6 rounded-2xl shadow-xl text-white flex flex-col justify-center items-center">
+                <h3 class="text-lg font-semibold mb-2">Total Homework</h3>
+                <p id="total-homework" class="text-4xl font-extrabold">0</p>
+            </div>
+            <div class="bg-gradient-to-r from-green-500 to-teal-600 p-6 rounded-2xl shadow-xl text-white flex flex-col justify-center items-center">
+                <h3 class="text-lg font-semibold mb-2">Completed</h3>
+                <p id="count-complete" class="text-4xl font-extrabold">0</p>
+            </div>
+            <div class="bg-gradient-to-r from-yellow-400 to-orange-500 p-6 rounded-2xl shadow-xl text-white flex flex-col justify-center items-center">
+                <h3 class="text-lg font-semibold mb-2">Needs Soon</h3>
+                <p id="count-needs-soon" class="text-4xl font-extrabold">0</p>
+            </div>
+        </section>
+
+        <section class="bg-white p-8 rounded-3xl shadow-lg mb-12">
+            <h3 class="text-2xl font-bold text-gray-800 mb-6">Homework Completion Status</h3>
+            <canvas id="homeworkChart" class="w-full max-w-4xl mx-auto"></canvas>
+        </section>
+
+        <section class="bg-white p-8 rounded-3xl shadow-lg mb-10">
+            <h3 class="text-2xl font-semibold mb-6 text-gray-800">Add New Homework</h3>
+            <form id="homework-form" class="space-y-6 max-w-3xl mx-auto">
+                <div>
+                    <label for="date" class="block font-medium text-gray-700 mb-2">Date</label>
+                    <input type="date" id="date" required class="w-full p-3 rounded-lg border border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 transition" />
+                </div>
+                <div>
+                    <label for="homework" class="block font-medium text-gray-700 mb-2">Homework Details</label>
+                    <textarea id="homework" rows="4" required class="w-full p-3 rounded-lg border border-gray-300 focus:ring-indigo-500 focus:border-indigo-500 transition"></textarea>
+                </div>
+                <div>
+                    <label for="assign-students" class="block font-medium text-gray-700 mb-2">Assign to Students</label>
+                    <select id="assign-students" multiple class="w-full p-3 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 transition h-40">
+                        </select>
+                    <p class="text-sm text-gray-500 mt-1">Hold Ctrl/Cmd to select multiple students.</p>
+                </div>
+                <button type="submit" class="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700 transition font-semibold shadow-lg transform hover:scale-105">Add Homework</button>
+            </form>
+        </section>
+
+        <section class="bg-white p-8 rounded-3xl shadow-lg max-w-3xl mx-auto mb-10">
+            <h3 class="text-2xl font-semibold mb-6 text-gray-800">Add Offline Registered Student</h3>
+            <form id="student-form" class="space-y-6">
+                <div>
+                    <label for="student-name" class="block font-medium text-gray-700 mb-2">Student Name</label>
+                    <input type="text" id="student-name" name="name" required class="w-full p-3 rounded-lg border border-gray-300 focus:ring-green-500 focus:border-green-500 transition" />
+                </div>
+                <button type="submit" class="bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition font-semibold shadow-lg transform hover:scale-105">Add Student</button>
+                <p id="student-response-message" class="text-center mt-4"></p>
+            </form>
+        </section>
+
+        <section class="bg-white p-8 rounded-3xl shadow-lg max-w-3xl mx-auto mb-10">
+            <h3 class="text-2xl font-semibold mb-6 text-gray-800">Record Student Performance</h3>
+            <form id="performance-form" class="space-y-6">
+                <div>
+                    <label for="select-student" class="block font-medium text-gray-700 mb-2">Select Student</label>
+                    <select id="select-student" required class="w-full p-3 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 transition">
+                        <option value="">-- Select a student --</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="performance-score" class="block font-medium text-gray-700 mb-2">Score (%)</label>
+                    <input type="number" id="performance-score" min="0" max="100" required class="w-full p-3 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 transition" placeholder="Enter score (0-100)" />
+                </div>
+                <button type="submit" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition font-semibold shadow-lg transform hover:scale-105">Record Score</button>
+            </form>
+        </section>
+
+        <section class="bg-white p-8 rounded-3xl shadow-lg max-w-3xl mx-auto mb-10">
+            <h3 class="text-2xl font-semibold mb-6 text-gray-800">Registered Students</h3>
+            <ul id="student-list-display" class="space-y-3 max-h-64 overflow-y-auto"></ul>
+        </section>
+
+        <section class="bg-white p-8 rounded-3xl shadow-lg max-w-4xl mx-auto">
+            <h3 class="text-2xl font-semibold mb-6 text-gray-800">All Homework</h3>
+            <ul id="homework-list" class="space-y-4 max-h-80 overflow-y-auto"></ul>
+        </section>
+    </main>
+
+    <script>
+        // --- Admin Login Logic ---
+        const adminLoginButton = document.getElementById('admin-login-button');
+        const adminLoginModal = document.getElementById('admin-login-modal');
+        const closeModalButton = document.getElementById('close-modal');
+        const loginForm = document.getElementById('login-form');
+        const loginMessage = document.getElementById('login-message');
+        const publicDashboard = document.getElementById('public-dashboard');
+        const adminPanel = document.getElementById('admin-panel');
+        const adminLogoutButton = document.getElementById('admin-logout-button');
+
+        // Hardcoded admin credentials for demonstration (replace with secure backend in production)
+        const ADMIN_USERS = {
+            "owner1": "ownerpass123",
+            "owner2": "ownerpass456"
+        };
+
+        let homeworkChart; // Chart instance for admin panel
+        let studentChartInstance; // Chart instance for public dashboard
+
+        let students; // Declare students here
+
+        // Function to load students from localStorage with data structure validation
+        function loadStudents() {
+            const storedStudents = JSON.parse(localStorage.getItem('studentList'));
+            if (Array.isArray(storedStudents) && storedStudents.every(s => typeof s === 'object' && s !== null && s.name && s.id)) {
+                // Data is in the expected object format
+                students = storedStudents;
+            } else {
+                // Data is not in the expected format (e.g., old string array or malformed)
+                console.warn("Detected old or malformed student data in localStorage. Clearing and reinitializing student list.");
+                localStorage.removeItem('studentList'); // Clear old data
+                students = []; // Start with an empty array
+            }
+        }
+
+        // Call loadStudents initially to populate the 'students' array
+        loadStudents();
+
+
+        // Function to initialize/update the public dashboard student chart
+        function initStudentChart() {
+            if (studentChartInstance) {
+                studentChartInstance.destroy(); // Destroy existing chart if it exists
+            }
+
+            // Filter students who have a score and sort by score (descending) for top performers
+            const topPerformers = students
+                .filter(s => s.latestScore !== null && s.latestScore !== undefined)
+                .sort((a, b) => b.latestScore - a.latestScore)
+                .slice(0, 5); // Show top 5 students
+
+            const ctx = document.getElementById('studentChart').getContext('2d');
+            studentChartInstance = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: topPerformers.map(s => s.name),
+                    datasets: [{
+                        label: 'Score (%)',
+                        data: topPerformers.map(s => s.latestScore),
+                        backgroundColor: 'rgba(99, 102, 241, 0.7)',
+                        borderColor: 'rgba(79, 70, 229, 1)',
+                        borderWidth: 1,
+                        borderRadius: 8,
+                        hoverBackgroundColor: 'rgba(79, 70, 229, 0.85)',
+                        hoverBorderColor: 'rgba(67, 56, 202, 1)',
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            ticks: {
+                                stepSize: 10,
+                                color: '#4B5563',
+                                font: { weight: '600' }
+                            },
+                            grid: {
+                                color: '#E0E7FF'
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                color: '#374151',
+                                font: { weight: '700', size: 14 }
+                            },
+                            grid: {
+                                display: false
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            backgroundColor: '#4F46E5',
+                            titleFont: { weight: 'bold', size: 16 },
+                            bodyFont: { size: 14 },
+                            padding: 10,
+                            cornerRadius: 8,
+                        }
+                    },
+                    animation: {
+                        duration: 1000,
+                        easing: 'easeOutQuart',
+                    },
+                }
+            });
+        }
+
+        // Function to fetch and display public student names from SheetDB
+        const publicStudentNamesList = document.getElementById('public-student-names');
+        const SHEETDB_API_URL = 'https://sheetdb.io/api/v1/n1p57urk4wryg'; // Replace with your actual SheetDB API URL
+
+        async function loadPublicStudentNames() {
+            publicStudentNamesList.innerHTML = '<li class="text-gray-500 italic text-center p-2">Loading students...</li>';
+            try {
+                const response = await fetch(SHEETDB_API_URL);
+                if (!response.ok) {
+                    throw new Error(`SheetDB API error: ${response.status} ${response.statusText}`);
+                }
+                const data = await response.json();
+                
+                publicStudentNamesList.innerHTML = ''; // Clear loading message
+
+                if (data.length === 0) {
+                    publicStudentNamesList.innerHTML = '<li class="text-gray-500 italic text-center p-2">No students registered yet.</li>';
+                } else {
+                    data.forEach(student => {
+                        if (student && student.name) { // Ensure student object and name property exist
+                            const li = document.createElement('li');
+                            li.className = 'bg-gray-50 text-gray-800 px-4 py-2 rounded-lg shadow-sm flex justify-between items-center';
+                            li.innerHTML = `
+                                <span class="font-medium">${student.name}</span>
+                                <span class="text-xs text-gray-500">Registered: ${student.RegisteredAt || 'N/A'}</span>
+                            `;
+                            publicStudentNamesList.appendChild(li);
+                        }
+                    });
+                }
+            } catch (error) {
+                console.error("❌ Failed to load students from Google Sheet:", error);
+                publicStudentNamesList.innerHTML = `<li class="text-red-500 text-center p-2">Failed to load student list. Please try again later.</li>`;
+            }
+        }
+
+
+        // Function to update UI based on login status
+        function updateUI() {
+            if (sessionStorage.getItem('isAdminLoggedIn') === 'true') {
+                publicDashboard.classList.add('hidden');
+                adminPanel.classList.remove('hidden');
+                renderHomework(); // Render admin data after successful login
+                renderStudents(); // Render admin data after successful login
+                populateAssignmentDropdown(); // Populate the new assignment dropdown
+                updateDashboardStats(); // Initialize/Update admin dashboard stats and chart
+            } else {
+                publicDashboard.classList.remove('hidden');
+                adminPanel.classList.add('hidden');
+                initStudentChart(); // Initialize student chart for public dashboard
+                loadPublicStudentNames(); // Load public student names
+            }
+        }
+
+        // Initial UI update on page load
+        updateUI();
+
+        adminLoginButton.addEventListener('click', () => {
+            adminLoginModal.style.display = 'flex'; // Show modal
+        });
+
+        closeModalButton.addEventListener('click', () => {
+            adminLoginModal.style.display = 'none'; // Hide modal
+            loginMessage.textContent = ''; // Clear any messages
+            loginForm.reset(); // Clear form
+        });
+
+        // Close modal if user clicks outside of it
+        window.addEventListener('click', (event) => {
+            if (event.target == adminLoginModal) {
+                adminLoginModal.style.display = 'none';
+                loginMessage.textContent = '';
+                loginForm.reset();
+            }
+        });
+
+        loginForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (ADMIN_USERS[username] && ADMIN_USERS[username] === password) {
+                sessionStorage.setItem('isAdminLoggedIn', 'true'); // Store login state
+                adminLoginModal.style.display = 'none'; // Hide modal
+                updateUI(); // Update UI after successful login
+                loginForm.reset();
+                loginMessage.textContent = '';
+            } else {
+                loginMessage.textContent = 'Invalid username or password.';
+            }
+        });
+
+        adminLogoutButton.addEventListener('click', () => {
+            sessionStorage.removeItem('isAdminLoggedIn'); // Clear login state
+            updateUI(); // Update UI after logout
+        });
+
+        // --- Admin Panel Homework Logic ---
+        const homeworkForm = document.getElementById('homework-form');
+        const homeworkList = document.getElementById('homework-list');
+        const assignStudentsDropdown = document.getElementById('assign-students'); // NEW: Get the assignment dropdown
+
+        let homeworkArray = JSON.parse(localStorage.getItem('homeworkList')) || [];
+
+        function saveHomework() {
+            localStorage.setItem('homeworkList', JSON.stringify(homeworkArray));
+        }
+
+        function getStatusColor(status) {
+            switch (status) {
+                case 'Complete':
+                    return 'bg-green-100 text-green-800';
+                case 'Needs Soon':
+                    return 'bg-yellow-100 text-yellow-800';
+                case 'Incomplete':
+                default:
+                    return 'bg-red-100 text-red-800';
+            }
+        }
+
+        function getStudentNamesByIds(studentIds) {
+            if (!studentIds || studentIds.length === 0) {
+                return 'All Students'; // Default if no specific students are assigned
+            }
+            return studentIds.map(id => {
+                const student = students.find(s => s.id === id);
+                return student ? student.name : `Unknown Student (${id})`;
+            }).join(', ');
+        }
+
+        function renderHomework() {
+            homeworkList.innerHTML = '';
+            homeworkArray.forEach((item, index) => {
+                const li = document.createElement('li');
+                li.className = 'bg-white p-4 rounded-xl shadow flex flex-col sm:flex-row sm:items-center justify-between gap-3';
+
+                const statusColor = getStatusColor(item.status || 'Incomplete');
+                const assignedToNames = getStudentNamesByIds(item.assignedTo); // Get names of assigned students
+
+                li.innerHTML = `
+                    <div class="flex-grow">
+                        <p class="text-sm text-gray-500">${item.date}</p>
+                        <p class="mt-1 text-gray-800 whitespace-pre-line">
+                            <span class="font-bold text-lg text-indigo-700">${index + 1}.</span> ${item.text}
+                        </p>
+                        <span class="inline-block mt-2 px-3 py-1 rounded-full text-sm font-semibold ${statusColor}">
+                            ${item.status || 'Incomplete'}
+                        </span>
+                        <p class="text-sm text-gray-600 mt-2">Assigned to: <span class="font-semibold">${assignedToNames}</span></p>
+                    </div>
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-2 mt-3 sm:mt-0">
+                        <div class="flex gap-2">
+                            <button onclick="updateStatus(${index}, 'Incomplete')" class="text-xs bg-red-200 hover:bg-red-300 text-red-800 px-3 py-1 rounded-md transition duration-200">Mark Incomplete</button>
+                            <button onclick="updateStatus(${index}, 'Complete')" class="text-xs bg-green-200 hover:bg-green-300 text-green-800 px-3 py-1 rounded-md transition duration-200">Mark Complete</button>
+                            <button onclick="updateStatus(${index}, 'Needs Soon')" class="text-xs bg-yellow-200 hover:bg-yellow-300 text-yellow-800 px-3 py-1 rounded-md transition duration-200">Needs Soon</button>
+                        </div>
+                        <div class="flex gap-2 mt-2 sm:mt-0">
+                            <button class="text-sm bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded-md transition duration-200" onclick="editHomework(${index})">Edit</button>
+                            <button class="text-sm bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded-md transition duration-200" onclick="deleteHomework(${index})">Delete</button>
+                        </div>
+                    </div>
+                `;
+                homeworkList.appendChild(li);
+            });
+            updateDashboardStats();
+        }
+
+        // Modified editHomework to account for new data structure (simple prompt for text)
+        function editHomework(index) {
+            const currentHomework = homeworkArray[index];
+            const newText = prompt("Edit the homework details:", currentHomework.text);
+            if (newText !== null && newText.trim() !== "") {
+                currentHomework.text = newText.trim();
+                // For editing assigned students, a more complex UI would be needed (like a modal)
+                // For simplicity, we'll only allow text edit via prompt
+                saveHomework();
+                renderHomework();
+            }
+        }
+
+        function deleteHomework(index) {
+            if (confirm("Are you sure you want to delete this homework?")) {
+                homeworkArray.splice(index, 1);
+                saveHomework();
+                renderHomework();
+            }
+        }
+
+        function updateStatus(index, newStatus) {
+            homeworkArray[index].status = newStatus;
+            saveHomework();
+            renderHomework();
+        }
+
+        homeworkForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const date = document.getElementById('date').value;
+            const text = document.getElementById('homework').value;
+            // NEW: Get selected student IDs
+            const selectedStudentIds = Array.from(assignStudentsDropdown.selectedOptions).map(option => option.value);
+
+            const newItem = {
+                date,
+                text,
+                status: 'Incomplete',
+                assignedTo: selectedStudentIds // Store the array of assigned student IDs
+            };
+            homeworkArray.push(newItem);
+            saveHomework();
+            renderHomework();
+            homeworkForm.reset();
+            assignStudentsDropdown.value = ""; // Reset dropdown after submission
+        });
+
+
+        // --- Student Registration & Performance Logic ---
+        const studentForm = document.getElementById('student-form');
+        const studentNameInput = document.getElementById('student-name');
+        const studentResponseMessage = document.getElementById('student-response-message');
+        const studentListEl = document.getElementById('student-list-display');
+        const performanceForm = document.getElementById('performance-form');
+        const selectStudentDropdown = document.getElementById('select-student');
+
+        function saveStudents() {
+            localStorage.setItem('studentList', JSON.stringify(students));
+            populateStudentDropdown(); // Re-populate dropdown after saving students
+            populateAssignmentDropdown(); // NEW: Re-populate assignment dropdown
+        }
+
+        function generateUniqueId() {
+            return 'S' + Date.now().toString().slice(-6) + Math.floor(Math.random() * 100);
+        }
+
+        function renderStudents() {
+            studentListEl.innerHTML = '';
+            if (students.length === 0) {
+                studentListEl.innerHTML = '<li class="text-gray-500 italic p-2">No students registered yet.</li>';
+                return;
+            }
+            students.forEach((student) => {
+                // Validate student object structure to prevent errors from old/malformed data
+                if (typeof student !== 'object' || student === null || !student.name || !student.id) {
+                    console.warn("Skipping malformed student data:", student);
+                    return; // Skip rendering malformed data
+                }
+
+                const li = document.createElement('li');
+                li.className = 'flex justify-between items-center bg-gray-100 px-4 py-2 rounded shadow-sm';
+
+                const scoreDisplay = student.latestScore !== null && student.latestScore !== undefined
+                                                ? `<span class="font-bold text-blue-700">${student.latestScore}%</span>`
+                                                : `<span class="text-gray-500 italic">No score</span>`;
+
+                li.innerHTML = `
+                    <div class="flex flex-col">
+                        <span>${student.name} (<span class="text-sm text-gray-600">${student.id}</span>)</span>
+                        <span class="text-sm text-gray-700">Latest Score: ${scoreDisplay}</span>
+                    </div>
+                    <button class="text-red-600 hover:text-red-800 font-semibold" onclick="deleteStudent('${student.id}')">Delete</button>
+                `;
+                studentListEl.appendChild(li);
+            });
+            populateStudentDropdown(); // Ensure dropdown is updated when students list renders
+            populateAssignmentDropdown(); // NEW: Ensure assignment dropdown is updated
+        }
+
+        function deleteStudent(id) {
+            // IMPORTANT: Do not use confirm() or alert() directly. Use a custom modal UI.
+            // For this example, we'll use confirm for simplicity, but in a real app, replace with a custom modal.
+            if (confirm(`Are you sure you want to delete student with ID: ${id}? This will also unassign them from any homework.`)) {
+                students = students.filter(student => student.id !== id); // Filter by ID
+                
+                // NEW: Also remove this student's ID from any homework assignments
+                homeworkArray.forEach(hw => {
+                    if (hw.assignedTo) {
+                        hw.assignedTo = hw.assignedTo.filter(studentId => studentId !== id);
+                    }
+                });
+                saveStudents(); // Save updated student list
+                saveHomework(); // Save updated homework list (after unassigning)
+                
+                renderStudents(); // Re-render the list and dropdown
+                initStudentChart(); // Update public chart if student deleted
+                loadPublicStudentNames(); // Update public list as well
+            }
+        }
+
+        function populateStudentDropdown() {
+            selectStudentDropdown.innerHTML = '<option value="">-- Select a student --</option>';
+            students.forEach(student => {
+                // Ensure student is a valid object before adding to dropdown
+                if (typeof student === 'object' && student !== null && student.id && student.name) {
+                    const option = document.createElement('option');
+                    option.value = student.id;
+                    option.textContent = `${student.name} (${student.id})`;
+                    selectStudentDropdown.appendChild(option);
+                }
+            });
+        }
+
+        // NEW FUNCTION: Populate the "Assign to Students" dropdown
+        function populateAssignmentDropdown() {
+            assignStudentsDropdown.innerHTML = ''; // Clear existing options
+            // Add an option to select "All Students"
+            const allStudentsOption = document.createElement('option');
+            allStudentsOption.value = 'all';
+            allStudentsOption.textContent = 'All Students (Default)';
+            assignStudentsDropdown.appendChild(allStudentsOption);
+
+            students.forEach(student => {
+                if (typeof student === 'object' && student !== null && student.id && student.name) {
+                    const option = document.createElement('option');
+                    option.value = student.id;
+                    option.textContent = student.name;
+                    assignStudentsDropdown.appendChild(option);
+                }
+            });
+        }
+
+
+        studentForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            const name = studentNameInput.value.trim();
+
+            if (!name) {
+                studentResponseMessage.className = 'text-red-500 mt-4';
+                studentResponseMessage.textContent = "Please enter a valid student name.";
+                return;
+            }
+
+            // Format timestamp as YYYY-MM-DD HH:MM:SS
+            const registeredAt = new Date().toISOString().replace('T', ' ').split('.')[0];
+
+            // Send data to SheetDB API
+            fetch(SHEETDB_API_URL, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    data: [{
+                        name: name,
+                        RegisteredAt: registeredAt // Use the 'RegisteredAt' column name as per your SheetDB setup
+                    }]
+                })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    // Try to parse error message from JSON if available
+                    return response.json().then(err => {
+                        throw new Error("SheetDB API error: " + JSON.stringify(err));
+                    });
+                }
+                return response.json(); // Parse successful JSON response
+            })
+            .then(data => {
+                // Assuming SheetDB returns the data including the 'id' if you have an ID column
+                // If SheetDB doesn't return an ID, you might need to reconsider ID generation or rely solely on SheetDB's row index.
+                // For now, we'll generate a local ID as a fallback/initial assignment.
+                const newStudentId = data.id || generateUniqueId(); // Use SheetDB ID if available, else generate local
+                
+                const newStudent = {
+                    id: newStudentId, // Using the ID from SheetDB or generated locally
+                    name: name,
+                    latestScore: null, // Initialize score to null
+                    RegisteredAt: registeredAt
+                };
+                
+                students.push(newStudent);
+                saveStudents(); // Save to localStorage
+                renderStudents(); // Update admin student list and dropdowns
+                loadPublicStudentNames(); // Update public list
+                studentNameInput.value = '';
+                studentResponseMessage.className = 'text-green-500 mt-4';
+                studentResponseMessage.textContent = "Student registered successfully!";
+                setTimeout(() => studentResponseMessage.textContent = '', 3000); // Clear message
+            })
+            .catch(error => {
+                console.error('Error adding student to SheetDB:', error);
+                studentResponseMessage.className = 'text-red-500 mt-4';
+                studentResponseMessage.textContent = `Error registering student: ${error.message}`;
+            });
+        });
+
+
+        performanceForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const studentId = selectStudentDropdown.value;
+            const score = parseInt(document.getElementById('performance-score').value, 10);
+
+            if (!studentId) {
+                alert("Please select a student.");
+                return;
+            }
+            if (isNaN(score) || score < 0 || score > 100) {
+                alert("Please enter a valid score between 0 and 100.");
+                return;
+            }
+
+            const studentIndex = students.findIndex(s => s.id === studentId);
+            if (studentIndex > -1) {
+                students[studentIndex].latestScore = score;
+                saveStudents();
+                renderStudents(); // Re-render to show updated score
+                initStudentChart(); // Update public chart
+                alert(`Performance recorded for ${students[studentIndex].name}: ${score}%`);
+                performanceForm.reset();
+            } else {
+                alert("Student not found.");
+            }
+        });
+
+        // --- Dashboard Stats and Homework Chart Logic ---
+        const totalHomeworkEl = document.getElementById('total-homework');
+        const countCompleteEl = document.getElementById('count-complete');
+        const countNeedsSoonEl = document.getElementById('count-needs-soon');
+
+        function updateDashboardStats() {
+            const total = homeworkArray.length;
+            const complete = homeworkArray.filter(item => item.status === 'Complete').length;
+            const needsSoon = homeworkArray.filter(item => item.status === 'Needs Soon').length;
+
+            totalHomeworkEl.textContent = total;
+            countCompleteEl.textContent = complete;
+            countNeedsSoonEl.textContent = needsSoon;
+
+            renderHomeworkChart(total, complete, needsSoon);
+        }
+
+        function renderHomeworkChart(total, complete, needsSoon) {
+            if (homeworkChart) {
+                homeworkChart.destroy(); // Destroy existing chart if it exists
+            }
+
+            const ctx = document.getElementById('homeworkChart').getContext('2d');
+            homeworkChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Completed', 'Needs Soon', 'Incomplete'],
+                    datasets: [{
+                        data: [complete, needsSoon, total - complete - needsSoon],
+                        backgroundColor: [
+                            'rgba(34, 197, 94, 0.7)', // Green for Complete
+                            'rgba(250, 204, 21, 0.7)', // Yellow for Needs Soon
+                            'rgba(239, 68, 68, 0.7)' // Red for Incomplete
+                        ],
+                        borderColor: [
+                            'rgba(34, 197, 94, 1)',
+                            'rgba(250, 204, 21, 1)',
+                            'rgba(239, 68, 68, 1)'
+                        ],
+                        borderWidth: 1,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                            labels: {
+                                font: {
+                                    size: 14,
+                                    weight: 'bold'
+                                },
+                                color: '#333'
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed !== null) {
+                                        label += context.parsed;
+                                    }
+                                    return label;
+                                }
+                            },
+                            backgroundColor: '#4F46E5',
+                            titleFont: { weight: 'bold', size: 16 },
+                            bodyFont: { size: 14 },
+                            padding: 10,
+                            cornerRadius: 8,
+                        }
+                    },
+                    animation: {
+                        animateRotate: true,
+                        animateScale: true,
+                        duration: 1000,
+                        easing: 'easeOutQuart',
+                    }
+                }
+            });
+        }
+
+        // Call initial rendering functions when the page loads, but only if admin is logged in for admin sections
+        document.addEventListener('DOMContentLoaded', () => {
+            loadStudents(); // Load students data first
+            loadPublicStudentNames(); // Load public names from SheetDB
+            initStudentChart(); // Initialize public student chart
+            if (sessionStorage.getItem('isAdminLoggedIn') === 'true') {
+                renderStudents(); // This will also call populateStudentDropdown and populateAssignmentDropdown
+                renderHomework();
+                updateDashboardStats();
+            }
+        });
+    </script>
 </body>
 </html>
