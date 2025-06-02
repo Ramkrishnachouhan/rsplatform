@@ -1,152 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>View My Homework</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #f9fafb;
-      color: #1f2937;
-    }
-
-    .card {
-      background-color: white;
-      border: 1px solid #e5e7eb;
-      border-radius: 0.75rem;
-      padding: 2rem;
-      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03);
-    }
-
-    .status-badge {
-      display: inline-block;
-      padding: 0.3rem 0.75rem;
-      font-size: 0.875rem;
-      font-weight: 600;
-      border-radius: 9999px;
-    }
-
-    .status-complete { background-color: #ecfdf5; color: #047857; }
-    .status-needs-soon { background-color: #fef3c7; color: #92400e; }
-    .status-incomplete { background-color: #fee2e2; color: #991b1b; }
-  </style>
-</head>
-<body>
-  <header class="bg-indigo-600 text-white py-6 shadow">
-    <div class="max-w-5xl mx-auto px-4">
-      <h1 class="text-3xl font-bold">Student Homework Viewer</h1>
-      <p class="text-sm text-indigo-100 mt-1">View assignments based on student selection</p>
-    </div>
-  </header>
-
-  <main class="max-w-3xl mx-auto px-4 py-12">
-    <div class="card">
-      <h2 class="text-2xl font-semibold mb-4">📘 Assigned Homework</h2>
-      <p class="text-gray-600 mb-6">Select a student to see their assigned homework below.</p>
-
-      <div class="mb-6">
-        <label for="student-homework-selector" class="block text-sm font-medium text-gray-700 mb-1">Student Name</label>
-        <select id="student-homework-selector" class="w-full border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
-          <option value="">-- Please select a student --</option>
-        </select>
-      </div>
-
-      <div id="student-homework-list" class="space-y-4">
-        <p class="text-center text-gray-500">Select a student above to view homework.</p>
-      </div>
-
-      <div class="mt-8 text-center">
-        <a href="index.html" class="text-indigo-600 hover:text-indigo-800 font-semibold text-sm transition">← Back to Home</a>
-      </div>
-    </div>
-  </main>
-
-  <script>
-    let students = [];
-    let homeworkArray = [];
-
-    function loadStudents() {
-      try {
-        const storedStudents = JSON.parse(localStorage.getItem('studentList'));
-        students = Array.isArray(storedStudents)
-          ? storedStudents.filter(student => student.name !== "Krisha Mandal")
-          : [];
-      } catch (e) {
-        console.error("Error loading students:", e);
-        students = [];
-      }
-    }
-
-    function loadHomework() {
-      try {
-        const storedHomework = JSON.parse(localStorage.getItem('homeworkList'));
-        homeworkArray = Array.isArray(storedHomework) ? storedHomework : [];
-      } catch (e) {
-        console.error("Error loading homework:", e);
-        homeworkArray = [];
-      }
-    }
-
-    function populateStudentHomeworkSelector() {
-      const selector = document.getElementById('student-homework-selector');
-      selector.innerHTML = '<option value="">-- Please select a student --</option>';
-      students.forEach(student => {
-        const option = document.createElement('option');
-        option.value = student.id;
-        option.textContent = student.name;
-        selector.appendChild(option);
-      });
-    }
-
-    function displayStudentHomework(studentId) {
-      const container = document.getElementById('student-homework-list');
-      container.innerHTML = '';
-
-      if (!studentId) {
-        container.innerHTML = '<p class="text-center text-gray-500">Select a student above to view homework.</p>';
-        return;
-      }
-
-      const assigned = homeworkArray.filter(hw =>
-        hw.assignedTo && (hw.assignedTo.includes('all') || hw.assignedTo.includes(studentId))
-      );
-
-      if (assigned.length === 0) {
-        container.innerHTML = '<p class="text-center text-gray-600">No homework assigned to this student yet.</p>';
-        return;
-      }
-
-      assigned.forEach(hw => {
-        const div = document.createElement('div');
-        div.className = 'border border-gray-200 rounded-md p-4 bg-gray-50';
-
-        let statusClass = 'status-incomplete';
-        switch (hw.status) {
-          case 'Complete': statusClass = 'status-complete'; break;
-          case 'Needs Soon': statusClass = 'status-needs-soon'; break;
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>View My Homework</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb;
+            color: #1f2937;
         }
 
-        div.innerHTML = `
-          <p class="text-sm text-gray-500">${hw.date}</p>
-          <p class="text-gray-800 font-medium text-lg">${hw.text}</p>
-          <span class="status-badge ${statusClass}">${hw.status || 'Incomplete'}</span>
-        `;
-        container.appendChild(div);
-      });
-    }
+        .card {
+            background-color: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.03);
+        }
 
-    document.addEventListener('DOMContentLoaded', () => {
-      loadStudents();
-      loadHomework();
-      populateStudentHomeworkSelector();
-      document.getElementById('student-homework-selector').addEventListener('change', e => {
-        displayStudentHomework(e.target.value);
-      });
-    });
-  </script>
+        .status-badge {
+            display: inline-block;
+            padding: 0.3rem 0.75rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            border-radius: 9999px;
+        }
+
+        .status-complete { background-color: #ecfdf5; color: #047857; }
+        .status-needs-soon { background-color: #fef3c7; color: #92400e; }
+        .status-incomplete { background-color: #fee2e2; color: #991b1b; }
+    </style>
+</head>
+<body>
+    <header class="bg-indigo-600 text-white py-6 shadow">
+        <div class="max-w-5xl mx-auto px-4">
+            <h1 class="text-3xl font-bold">Student Homework Viewer</h1>
+            <p class="text-sm text-indigo-100 mt-1">View assignments based on student selection</p>
+        </div>
+    </header>
+
+    <main class="max-w-3xl mx-auto px-4 py-12">
+        <div class="card">
+            <h2 class="text-2xl font-semibold mb-4">📘 Assigned Homework</h2>
+            <p class="text-gray-600 mb-6">Select a student to see their assigned homework below.</p>
+
+            <div class="mb-6">
+                <label for="student-homework-selector" class="block text-sm font-medium text-gray-700 mb-1">Student Name</label>
+                <select id="student-homework-selector" class="w-full border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500">
+                    <option value="">-- Please select a student --</option>
+                    </select>
+            </div>
+
+            <div id="student-homework-list" class="space-y-4">
+                <p class="text-center text-gray-500">Select a student above to view homework.</p>
+            </div>
+
+            <div class="mt-8 text-center">
+                <a href="index.html" class="text-indigo-600 hover:text-indigo-800 font-semibold text-sm transition">← Back to Home</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        let students = [];
+        let homeworkArray = [];
+
+        // Function to safely load data from localStorage
+        function loadDataFromLocalStorage(key) {
+            try {
+                const data = JSON.parse(localStorage.getItem(key));
+                return Array.isArray(data) ? data : [];
+            } catch (e) {
+                console.error(`Error loading ${key} from localStorage:`, e);
+                return [];
+            }
+        }
+
+        function loadStudents() {
+            // Load all students, then filter out "Krisha Mandal"
+            const allStudents = loadDataFromLocalStorage('studentList');
+            students = allStudents.filter(student => student.name !== "Krisha Mandal");
+            // If you want Krisha to appear in the dropdown too, remove the .filter() line.
+        }
+
+        function loadHomework() {
+            homeworkArray = loadDataFromLocalStorage('homeworkList');
+        }
+
+        function populateStudentHomeworkSelector() {
+            const selector = document.getElementById('student-homework-selector');
+            selector.innerHTML = '<option value="">-- Please select a student --</option>'; // Always start with default option
+
+            if (students.length === 0) {
+                console.warn("No students loaded. Ensure 'studentList' is populated in localStorage.");
+                // Optionally add a disabled option to indicate no students
+                const noStudentsOption = document.createElement('option');
+                noStudentsOption.value = "";
+                noStudentsOption.textContent = "No students available";
+                noStudentsOption.disabled = true;
+                selector.appendChild(noStudentsOption);
+                return;
+            }
+
+            students.forEach(student => {
+                const option = document.createElement('option');
+                option.value = student.id;
+                option.textContent = student.name;
+                selector.appendChild(option);
+            });
+        }
+
+        function displayStudentHomework(studentId) {
+            const container = document.getElementById('student-homework-list');
+            container.innerHTML = ''; // Clear previous content
+
+            if (!studentId) {
+                container.innerHTML = '<p class="text-center text-gray-500">Select a student above to view homework.</p>';
+                return;
+            }
+
+            const assigned = homeworkArray.filter(hw =>
+                hw.assignedTo && (hw.assignedTo.includes('all') || hw.assignedTo.includes(studentId))
+            );
+
+            if (assigned.length === 0) {
+                container.innerHTML = '<p class="text-center text-gray-600">No homework assigned to this student yet.</p>';
+                return;
+            }
+
+            assigned.forEach(hw => {
+                const div = document.createElement('div');
+                div.className = 'border border-gray-200 rounded-md p-4 bg-gray-50';
+
+                let statusClass = 'status-incomplete'; // Default
+                switch (hw.status) {
+                    case 'Complete': statusClass = 'status-complete'; break;
+                    case 'Needs Soon': statusClass = 'status-needs-soon'; break;
+                    // 'Incomplete' or undefined falls through to default
+                }
+
+                div.innerHTML = `
+                    <p class="text-sm text-gray-500">${hw.date || 'No Date'}</p>
+                    <p class="text-gray-800 font-medium text-lg">${hw.text || 'No Description'}</p>
+                    <span class="status-badge ${statusClass}">${hw.status || 'Incomplete'}</span>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            loadStudents(); // Load students data
+            loadHomework(); // Load homework data
+            populateStudentHomeworkSelector(); // Populate the dropdown
+
+            // Add event listener to the dropdown
+            document.getElementById('student-homework-selector').addEventListener('change', e => {
+                displayStudentHomework(e.target.value);
+            });
+        });
+    </script>
 </body>
 </html>
-
