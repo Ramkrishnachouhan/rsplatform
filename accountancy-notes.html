@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class 11 Accountancy - Chapter 1 Notes | RSPlatform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #4361ee;
+      --primary-light: #4895ef;
+      --secondary: #3f37c9;
+      --accent: #f72585;
+      --accent-light: #ff70a6;
+      --light: #f8f9fa;
+      --dark: #212529;
+      --gray: #6c757d;
+      --light-gray: #e9ecef;
+      --success: #4cc9f0;
+      --warning: #f8961e;
+      --card-bg: #ffffff;
+      --body-bg: #f5f7ff;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.8;
+      color: var(--dark);
+      background-color: var(--body-bg);
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+      background-image: radial-gradient(circle at 10% 20%, rgba(233, 236, 239, 0.3) 0%, transparent 20%),
+                        radial-gradient(circle at 90% 80%, rgba(233, 236, 239, 0.3) 0%, transparent 20%);
+    }
+    
+    .header {
+      text-align: center;
+      margin-bottom: 40px;
+      padding: 40px 25px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(67, 97, 238, 0.2);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .header::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" fill="white" opacity="0.05"><circle cx="25" cy="25" r="5"/><circle cx="75" cy="75" r="5"/><circle cx="75" cy="25" r="5"/><circle cx="25" cy="75" r="5"/></svg>');
+    }
+    
+    h1 {
+      margin: 0;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      position: relative;
+      z-index: 1;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+    
+    .subtitle {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      margin-top: 15px;
+      position: relative;
+      z-index: 1;
+      font-weight: 300;
+      letter-spacing: 0.5px;
+    }
+    
+    /* Continue Learning Button Styles */
+    .chapter-nav {
+      display: flex;
+      justify-content: flex-end;
+      margin: -20px 0 30px;
+    }
+    
+    .chapter-button {
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      color: white;
+      padding: 12px 20px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+    }
+    
+    .chapter-button:hover {
+      background: linear-gradient(135deg, var(--accent-light), var(--accent));
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(247, 37, 133, 0.3);
+    }
+    
+    .chapter-button i {
+      margin-left: 8px;
+      font-size: 1.1em;
+    }
+    
+    .chapter-info {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 30px;
+      background: var(--card-bg);
+      padding: 15px 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    
+    .chapter-info-item {
+      display: flex;
+      align-items: center;
+    }
+    
+    .chapter-info-item i {
+      margin-right: 10px;
+      color: var(--primary);
+      font-size: 1.2rem;
+    }
+    
+    .question-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+      gap: 25px;
+      margin-bottom: 40px;
+    }
+    
+    .question-card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 30px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+      border-top: 4px solid var(--accent);
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    
+    .question-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+    
+    .question-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-light));
+    }
+    
+    .question-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--accent), var(--accent-light));
+      color: white;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      text-align: center;
+      font-weight: bold;
+      margin-right: 12px;
+      font-size: 1.1rem;
+      box-shadow: 0 3px 6px rgba(247, 37, 133, 0.3);
+    }
+    
+    h2 {
+      display: inline;
+      color: var(--secondary);
+      font-size: 1.4rem;
+      font-weight: 600;
+      vertical-align: middle;
+    }
+    
+    .answer {
+      margin-top: 20px;
+      padding-left: 20px;
+      border-left: 3px solid var(--light-gray);
+    }
+    
+    .highlight {
+      background: linear-gradient(120deg, rgba(248, 150, 30, 0.2) 0%, rgba(248, 150, 30, 0.1) 100%);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-weight: 500;
+      color: var(--dark);
+    }
+    
+    .comparison {
+      background: var(--light);
+      padding: 20px;
+      border-radius: 8px;
+      margin: 20px 0;
+      border: 1px solid var(--light-gray);
+    }
+    
+    .comparison-item {
+      display: flex;
+      margin-bottom: 12px;
+      padding-bottom: 12px;
+      border-bottom: 1px dashed var(--light-gray);
+    }
+    
+    .comparison-item:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    
+    .comparison-title {
+      font-weight: 600;
+      min-width: 140px;
+      color: var(--primary);
+    }
+    
+    ul.feature-list {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    
+    ul.feature-list li {
+      padding: 8px 0;
+      position: relative;
+      padding-left: 35px;
+    }
+    
+    ul.feature-list li::before {
+      content: "";
+      position: absolute;
+      left: 5px;
+      top: 14px;
+      width: 12px;
+      height: 12px;
+      background-color: var(--accent);
+      border-radius: 50%;
+    }
+    
+    .download-section {
+      text-align: center;
+      margin: 50px 0;
+      background: var(--card-bg);
+      padding: 40px;
+      border-radius: 16px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+    }
+    
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--primary), var(--primary-light));
+      color: white;
+      padding: 15px 35px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+      box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+      font-size: 1.1rem;
+    }
+    
+    .download-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(67, 97, 238, 0.4);
+      background: linear-gradient(135deg, var(--primary-light), var(--primary));
+    }
+    
+    .download-btn i {
+      margin-right: 10px;
+    }
+    
+    .info-text {
+      color: var(--gray);
+      margin-top: 15px;
+      font-size: 0.95rem;
+    }
+    
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      color: var(--gray);
+      font-size: 0.95rem;
+      padding: 30px 0;
+      border-top: 1px solid var(--light-gray);
+    }
+    
+    .footer-link {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    
+    .footer-link:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+    
+    /* Bottom navigation */
+    .bottom-nav {
+      text-align: center;
+      margin-top: 40px;
+    }
+    
+    @media (max-width: 768px) {
+      body {
+        padding: 15px;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      .question-container {
+        grid-template-columns: 1fr;
+      }
+      
+      .question-card {
+        padding: 25px 20px;
+      }
+      
+      .chapter-info {
+        flex-direction: column;
+        gap: 10px;
+      }
+      
+      .chapter-button {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+      }
+    }
+      /* Updated Download Section */
+.download-section {
+  text-align: center;
+  margin: 50px 0 40px;
+  background: var(--card-bg);
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+  border: 1px solid var(--light-gray);
+}
+
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  color: white;
+  padding: 15px 35px;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s;
+  box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+  font-size: 1.1rem;
+  border: none;
+  cursor: pointer;
+}
+
+.download-btn i {
+  margin-right: 12px;
+  font-size: 1.2em;
+}
+
+.download-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(67, 97, 238, 0.4);
+  background: linear-gradient(135deg, var(--primary-light), var(--primary));
+}
+
+.info-text {
+  color: var(--gray);
+  margin-top: 20px;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* Enhanced Footer */
+footer {
+  text-align: center;
+  margin-top: 60px;
+  padding: 40px 0;
+  border-top: 1px solid var(--light-gray);
+}
+
+.footer-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.footer-navigation {
+  margin-top: 25px;
+}
+
+.footer-cta {
+  display: inline-flex;
+  align-items: center;
+  color: var(--primary);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s;
+  padding: 8px 16px;
+  border-radius: 6px;
+}
+
+.footer-cta:hover {
+  color: var(--accent);
+  background: rgba(67, 97, 238, 0.05);
+  transform: translateX(5px);
+}
+
+.footer-cta i {
+  margin-left: 8px;
+  transition: transform 0.3s;
+}
+
+.footer-cta:hover i {
+  transform: translateX(3px);
+}
+
+.footer-links {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.footer-links span {
+  color: var(--gray);
+  font-size: 0.8em;
+}
+
+.footer-link {
+  color: var(--gray);
+  text-decoration: none;
+  transition: color 0.3s;
+  font-size: 0.9rem;
+}
+
+.footer-link:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .download-section {
+    padding: 30px 20px;
+  }
+  
+  .download-btn {
+    padding: 12px 25px;
+    font-size: 1rem;
+  }
+  
+  .footer-cta {
+    font-size: 0.95rem;
+  }
+}
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <div class="header">
+    <h1>Accountancy Class 11</h1>
+    <p class="subtitle">Mastering Financial Fundamentals | Chapter 1: Introduction to Accounting</p>
+  </div>
+  
+  <!-- Continue Learning Button (Top) -->
+  <div class="chapter-nav">
+    <a href="chapter2.html" class="chapter-button">
+      Continue Learning → Chapter 2: Theory Base of Accounting
+      <i class="fas fa-arrow-right"></i>
+    </a>
+  </div>
+  
+  <div class="chapter-info">
+    <div class="chapter-info-item">
+      <i class="fas fa-book-open"></i>
+      <span>Chapter 1: Introduction to Accounting</span>
+    </div>
+    <div class="chapter-info-item">
+      <i class="fas fa-clock"></i>
+      <span>Estimated Reading Time: 45 minutes</span>
+    </div>
+  </div>
+  <div class="chapter-info">
+    <div class="chapter-info-item">
+      <i>📚</i>
+      <span>Chapter 1: Introduction to Accounting</span>
+    </div>
+    <div class="chapter-info-item">
+      <i>🕒</i>
+      <span>Estimated Study Time: 2-3 Hours</span>
+    </div>
+    <div class="chapter-info-item">
+      <i>🔢</i>
+      <span>15 Key Questions</span>
+    </div>
+  </div>
+  
+  <div class="question-container">
+    <div class="question-card">
+      <span class="question-number">1</span>
+      <h2>Define Accounting.</h2>
+      <div class="answer">
+        <p>Accounting is the systematic process of recording, analyzing, and interpreting financial transactions of a business. It serves as the language of business, providing stakeholders with crucial information about the organization's financial health and performance.</p>
+      </div>
+    </div>
+    
+    <div class="question-card">
+      <span class="question-number">2</span>
+      <h2>State the end product of financial accounting.</h2>
+      <div class="answer">
+        <p>The culmination of financial accounting processes results in two essential documents:</p>
+        <ul class="feature-list">
+          <li><span class="highlight">Profit and Loss Statement</span> - Reveals operational performance over a period</li>
+          <li><span class="highlight">Balance Sheet</span> - Snapshots the financial position at a point in time</li>
+        </ul>
+        <p>Together, these form the financial reporting foundation.</p>
+      </div>
+    </div>
+    
+    <div class="question-card">
+      <span class="question-number">3</span>
+      <h2>Enumerate main objectives of accounting.</h2>
+      <div class="answer">
+        <p>Accounting serves multiple critical purposes in business:</p>
+        <ul class="feature-list">
+          <li>Maintaining <span class="highlight">complete financial records</span> for compliance and analysis</li>
+          <li>Determining <span class="highlight">profitability</span> through systematic calculation</li>
+          <li>Revealing <span class="highlight">financial position</span> via balance sheet preparation</li>
+          <li>Providing <span class="highlight">decision-making data</span> to stakeholders</li>
+          <li>Ensuring <span class="highlight">regulatory compliance</span> with tax laws</li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="question-card">
+      <span class="question-number">4</span>
+      <h2>Who are the users of accounting information?</h2>
+      <div class="answer">
+        <p>Accounting information serves diverse stakeholders:</p>
+        <div class="comparison">
+          <div class="comparison-item">
+            <div class="comparison-title">Internal Users:</div>
+            <div>Management teams, employees, and owners who utilize data for operational decisions and strategic planning.</div>
+          </div>
+          <div class="comparison-item">
+            <div class="comparison-title">External Users:</div>
+            <div>Investors, creditors, regulatory agencies, and customers who assess financial health and compliance.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="question-card">
+      <span class="question-number">5</span>
+      <h2>State the nature of accounting information required by long-term lenders.</h2>
+      <div class="answer">
+        <p>Financial institutions evaluating long-term credit exposure seek:</p>
+        <ul class="feature-list">
+          <li><span class="highlight">Solvency analysis</span> - Debt repayment capacity metrics</li>
+          <li><span class="highlight">Asset quality</span> - Collateral valuation and composition</li>
+          <li><span class="highlight">Cash flow projections</span> - Future repayment capability</li>
+          <li><span class="highlight">Financial ratios</span> - Leverage and coverage metrics</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question-card">
+      <span class="question-number">6</span>
+      <h2>Who are the external users of information?</h2>
+      <div class="answer">
+        <p>External stakeholders relying on financial reports include:</p>
+        <ul class="feature-list">
+          <li><span class="highlight">Investors</span> - Assessing return potential</li>
+          <li><span class="highlight">Creditors</span> - Evaluating creditworthiness</li>
+          <li><span class="highlight">Regulators</span> - Ensuring legal compliance</li>
+          <li><span class="highlight">Tax authorities</span> - Verifying tax obligations</li>
+          <li><span class="highlight">Researchers</span> - Analyzing industry trends</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question-card">
+      <span class="question-number">7</span>
+      <h2>Enumerate information needs of management.</h2>
+      <div class="answer">
+        <p>Executive teams require accounting data for:</p>
+        <ul class="feature-list">
+          <li><span class="highlight">Performance evaluation</span> - Departmental profitability</li>
+          <li><span class="highlight">Budget formulation</span> - Financial planning</li>
+          <li><span class="highlight">Cost control</span> - Expense management</li>
+          <li><span class="highlight">Strategic decisions</span> - Expansion/diversification</li>
+          <li><span class="highlight">Resource allocation</span> - Capital investment</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question-card">
+      <span class="question-number">8</span>
+      <h2>Give any three examples of revenues.</h2>
+      <div class="answer">
+        <p>Revenue streams demonstrate business earnings:</p>
+        <ul class="feature-list">
+          <li><span class="highlight">Operating Revenue</span> - Core business sales</li>
+          <li><span class="highlight">Service Revenue</span> - Professional fees</li>
+          <li><span class="highlight">Ancillary Revenue</span> - Interest/royalties</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question-card">
+      <span class="question-number">9</span>
+      <h2>Distinguish between the following:</h2>
+      <div class="answer">
+        <div class="comparison">
+          <div class="comparison-item">
+            <div class="comparison-title">Debtors vs. Creditors:</div>
+            <div>Debtors represent accounts receivable (assets), while creditors signify accounts payable (liabilities).</div>
+          </div>
+          <div class="comparison-item">
+            <div class="comparison-title">Profit vs. Gain:</div>
+            <div>Profit stems from core operations, whereas gains arise from peripheral activities like asset sales.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="question-card">
+      <span class="question-number">10</span>
+      <h2>'Accounting information should be comparable'. Do you agree?</h2>
+      <div class="answer">
+        <p>Comparability is fundamental to financial reporting because:</p>
+        <ul class="feature-list">
+          <li>Enables <span class="highlight">trend analysis</span> across periods</li>
+          <li>Facilitates <span class="highlight">cross-company benchmarking</span></li>
+          <li>Supports <span class="highlight">investment decisions</span></li>
+          <li>Enhances <span class="highlight">regulatory oversight</span></li>
+        </ul>
+        <p>Standardized accounting principles ensure this critical quality.</p>
+      </div>
+    </div>
+
+    <div class="question-card">
+      <span class="question-number">11</span>
+      <h2>If the accounting information is not clearly presented, which qualitative characteristic is violated?</h2>
+      <div class="answer">
+        <p>The <span class="highlight">Understandability</span> principle is compromised when financial data lacks clarity. This fundamental qualitative characteristic requires information to be:</p>
+        <ul class="feature-list">
+          <li>Clearly <span class="highlight">classified</span> and <span class="highlight">presented</span></li>
+          <li>Free from <span class="highlight">unnecessary complexity</span></li>
+          <li>Accessible to <span class="highlight">users with business knowledge</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="question-card">
+      <span class="question-number">12</span>
+      <h2>"The role of accounting has changed over time"—Do you agree? Explain.</h2>
+      <div class="answer">
+        <p>Accounting has evolved significantly from its origins:</p>
+        <div class="comparison">
+          <div class="comparison-item">
+            <div class="comparison-title">Traditional Role:</div>
+            <div>Historical record-keeping and compliance focus</div>
+          </div>
+          <div class="comparison-item">
+            <div class="comparison-title">Modern Role:</div>
+            <div>Strategic business advisory, predictive analytics, and decision support</div>
+          </div>
+        </div>
+        <p>Contemporary accounting now encompasses sustainability reporting, data analytics, and technological integration.</p>
+      </div>
+    </div>
+
+    <div class="question-card">
+      <span class="question-number">13</span>
+      <h2>Define the following accounting terms:</h2>
+      <div class="answer">
+        <div class="comparison">
+          <div class="comparison-item">
+            <div class="comparison-title">Fixed Assets:</div>
+            <div>Long-term tangible resources used in operations (PP&E)</div>
+          </div>
+          <div class="comparison-item">
+            <div class="comparison-title">Revenue:</div>
+            <div>Economic benefits from ordinary business activities</div>
+          </div>
+          <div class="comparison-item">
+            <div class="comparison-title">Expenses:</div>
+            <div>Outflows incurred to generate revenue</div>
+          </div>
+          <div class="comparison-item">
+            <div class="comparison-title">Short-term Liability:</div>
+            <div>Obligations due within the operating cycle</div>
+          </div>
+          <div class="comparison-item">
+            <div class="comparison-title">Capital:</div>
+            <div>Owner's investment in the business entity</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="question-card">
+      <span class="question-number">14</span>
+      <h2>Define revenues and expenses.</h2>
+      <div class="answer">
+        <div class="comparison">
+          <div class="comparison-item">
+            <div class="comparison-title">Revenue:</div>
+            <div>Inflows from core operations that increase equity</div>
+          </div>
+          <div class="comparison-item">
+            <div class="comparison-title">Expenses:</div>
+            <div>Outflows from operations that decrease equity</div>
+          </div>
+        </div>
+        <p>The matching principle governs their recognition in financial periods.</p>
+      </div>
+    </div>
+    
+    <div class="question-card">
+      <span class="question-number">15</span>
+      <h2>Why should business students study accounting?</h2>
+      <div class="answer">
+        <p>Accounting literacy provides business students with:</p>
+        <ul class="feature-list">
+          <li><span class="highlight">Financial fluency</span> - The language of business</li>
+          <li><span class="highlight">Analytical skills</span> - Interpreting financial data</li>
+          <li><span class="highlight">Decision frameworks</span> - Quantitative evaluation</li>
+          <li><span class="highlight">Regulatory awareness</span> - Compliance understanding</li>
+          <li><span class="highlight">Career versatility</span> - Foundational business knowledge</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="long-answer-section">
+  <style>
+    .long-answer-section {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+    .section-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+    .section-icon {
+      font-size: 2em;
+      margin-right: 15px;
+      color: #3498db;
+    }
+    .section-title {
+      color: #2c3e50;
+      margin: 0;
+    }
+    .long-answer-card {
+      background: #ffffff;
+      border-left: 6px solid #3498db;
+      padding: 25px;
+      margin-bottom: 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      position: relative;
+      overflow: hidden;
+    }
+    .long-question-number {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 1.5em;
+      color: rgba(52, 152, 219, 0.2);
+      font-weight: bold;
+    }
+    .long-question-title {
+      font-size: 1.3em;
+      color: #2c3e50;
+      margin-top: 0;
+      padding-bottom: 10px;
+      border-bottom: 1px solid #ecf0f1;
+    }
+    .long-answer-content {
+      color: #34495e;
+      line-height: 1.7;
+    }
+    .long-answer-content p {
+      margin: 15px 0;
+    }
+    .objective-list,
+    .factor-list {
+      padding-left: 5px;
+      list-style-type: none;
+    }
+    .objective-list li,
+    .factor-list li {
+      padding: 8px 0;
+      line-height: 1.6;
+      color: #333;
+      position: relative;
+      padding-left: 30px;
+    }
+    .objective-list li::before,
+    .factor-list li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #3498db;
+      font-size: 1.5em;
+      line-height: 0.8;
+    }
+    .difference-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      background: #fefefe;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    .difference-table th,
+    .difference-table td {
+      padding: 12px 15px;
+      border: 1px solid #e0e0e0;
+      text-align: left;
+    }
+    .difference-table th {
+      background-color: #3498db;
+      color: #fff;
+      font-weight: 500;
+    }
+    .difference-table tr:nth-child(even) {
+      background-color: #f8fafc;
+    }
+    strong {
+      color: #2c3e50;
+    }
+  </style>
+
+  <div class="section-header">
+    <div class="section-icon">📘</div>
+    <h2 class="section-title">Long Answer Questions</h2>
+  </div>
+
+  <!-- Question 1 -->
+  <div class="long-answer-card">
+    <span class="long-question-number">1</span>
+    <h3 class="long-question-title">What is accounting? Define its objectives.</h3>
+    <div class="long-answer-content">
+      <p>Accounting is the systematic process of identifying, measuring, recording, and communicating financial information. This information is used by different people such as business owners, investors, banks, and government departments to understand the financial health of a business. It helps a business to keep track of money coming in and going out and supports future planning.</p>
+
+      <p><strong>Objectives of Accounting:</strong></p>
+      <ul class="objective-list">
+        <li><strong>Recording Transactions:</strong> To maintain a permanent and systematic record of all business transactions.</li>
+        <li><strong>Determining Profit or Loss:</strong> To know how much profit or loss has been made at the end of a specific period.</li>
+        <li><strong>Assessing Financial Position:</strong> To find out the financial status of the business through the balance sheet, including assets and liabilities.</li>
+        <li><strong>Communicating Information:</strong> To provide important financial information to stakeholders like owners, creditors, and regulatory bodies.</li>
+        <li><strong>Planning and Decision Making:</strong> To help in making informed business decisions like budgeting, investing, and pricing.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Question 2 -->
+  <div class="long-answer-card">
+    <span class="long-question-number">2</span>
+    <h3 class="long-question-title">Explain the factors which necessitated systematic accounting.</h3>
+    <div class="long-answer-content">
+      <p>Systematic accounting became essential for the following reasons:</p>
+      <ul class="factor-list">
+        <li><strong>High Volume of Transactions:</strong> Businesses carry out numerous transactions daily. Remembering them all is impossible, so proper recording is needed.</li>
+        <li><strong>Need for Accuracy and Evidence:</strong> Accurate records help detect mistakes and fraud. They also serve as proof in case of disputes or legal matters.</li>
+        <li><strong>Providing Useful Financial Data:</strong> Banks, investors, and other stakeholders rely on these records for making decisions about lending, investing, or regulating the business.</li>
+        <li><strong>Legal Requirements:</strong> The law requires businesses to maintain proper books of accounts for audits, tax filing, and regulatory compliance.</li>
+        <li><strong>Taxation and Budgeting:</strong> Systematic records help in preparing tax returns and planning for future income and expenses.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Question 3 -->
+  <div class="long-answer-card">
+    <span class="long-question-number">3</span>
+    <h3 class="long-question-title">Describe the informational needs of external users.</h3>
+    <div class="long-answer-content">
+      <p>External users are people or organizations outside the business. They do not manage the business but need financial information to make decisions related to it.</p>
+      <ul class="objective-list">
+        <li><strong>Investors:</strong> They need to know whether the business is profitable and growing before they invest their money.</li>
+        <li><strong>Creditors and Suppliers:</strong> They want to check if the business can repay its debts on time before providing credit or goods.</li>
+        <li><strong>Government:</strong> It needs financial data to collect taxes and prepare national economic statistics.</li>
+        <li><strong>Banks and Lenders:</strong> They review financial statements before approving loans or extending credit limits.</li>
+        <li><strong>Public and Consumers:</strong> Sometimes, consumers and local communities want to ensure that the business is sustainable and socially responsible.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Question 4 -->
+  <div class="long-answer-card">
+    <span class="long-question-number">4</span>
+    <h3 class="long-question-title">What do you mean by an asset and what are different types of assets?</h3>
+    <div class="long-answer-content">
+      <p>An asset is a resource owned by a business that has economic value and will provide benefits in the future. For example, cash, buildings, and machines are all assets because they help the business operate and earn income.</p>
+      <p><strong>Types of Assets:</strong></p>
+      <ul class="objective-list">
+        <li><strong>Current Assets:</strong> These are assets that are expected to be used or converted into cash within one year. Examples include cash, accounts receivable, and inventory.</li>
+        <li><strong>Non-Current Assets:</strong> These are assets that are used for more than one year in the business. Examples include land, buildings, and machinery.</li>
+        <li><strong>Tangible Assets:</strong> These are physical assets that can be touched and seen like furniture, vehicles, and buildings.</li>
+        <li><strong>Intangible Assets:</strong> These are non-physical assets that still provide value. Examples include patents, trademarks, and goodwill.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Question 5 -->
+  <div class="long-answer-card">
+    <span class="long-question-number">5</span>
+    <h3 class="long-question-title">Explain the meaning of gain and profit. Distinguish between these two terms.</h3>
+    <div class="long-answer-content">
+      <p><strong>Profit:</strong> Profit is the excess of income over expenses from the regular activities of a business, like buying and selling goods. It indicates how much a business has earned during a period.</p>
+      <p><strong>Gain:</strong> Gain refers to the extra money earned from activities that are not part of the business's core operations. For example, selling an old machine at a higher price than its book value.</p>
+
+      <p><strong>Difference between Profit and Gain:</strong></p>
+      <table class="difference-table">
+        <thead>
+          <tr>
+            <th>Basis</th>
+            <th>Profit</th>
+            <th>Gain</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Source</td>
+            <td>Comes from daily business operations</td>
+            <td>Comes from one-time or non-regular events</td>
+          </tr>
+          <tr>
+            <td>Example</td>
+            <td>Profit from selling goods</td>
+            <td>Gain from selling old vehicle above its value</td>
+          </tr>
+          <tr>
+            <td>Frequency</td>
+            <td>Occurs regularly</td>
+            <td>Occurs occasionally</td>
+          </tr>
+          <tr>
+            <td>Recorded in operating income</td>
+            <td>Yes</td>
+            <td>No, usually recorded separately</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Question 6 -->
+  <div class="long-answer-card">
+    <span class="long-question-number">6</span>
+    <h3 class="long-question-title">Explain the qualitative characteristics of accounting information.</h3>
+    <div class="long-answer-content">
+      <p>Accounting information should not only be correct but also useful. The following qualitative characteristics improve the usefulness of financial information:</p>
+      <ul class="objective-list">
+        <li><strong>Reliability:</strong> Information must be based on facts and free from errors or bias. It should be supported by evidence.</li>
+        <li><strong>Relevance:</strong> The information must relate to the decision-making needs of users. It should help predict future trends or confirm past actions.</li>
+        <li><strong>Understandability:</strong> It should be clear and easy to read so that people can understand it without difficulty.</li>
+        <li><strong>Comparability:</strong> Users should be able to compare the financial statements of different years or companies to analyze performance over time.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Question 7 -->
+  <div class="long-answer-card">
+    <span class="long-question-number">7</span>
+    <h3 class="long-question-title">Describe the role of accounting in the modern world.</h3>
+    <div class="long-answer-content">
+      <p>Accounting has become an essential part of every organization, whether it's a small shop or a big company. Here's how accounting helps today:</p>
+      <ul class="objective-list">
+        <li><strong>Supports Business Planning:</strong> Accounting provides financial information that helps in planning the budget, expenses, and resources for the future.</li>
+        <li><strong>Helps in Decision Making:</strong> Business owners can make decisions about buying, expanding, hiring, etc., based on financial data.</li>
+        <li><strong>Improves Financial Control:</strong> It allows the business to track where money is coming from and how it's being spent, helping avoid waste and fraud.</li>
+        <li><strong>Fulfills Legal Obligations:</strong> Accounting helps in preparing reports required by law, paying taxes, and facing audits confidently.</li>
+        <li><strong>Builds Trust:</strong> Proper accounting builds trust with stakeholders like investors, banks, and the public.</li>
+      </ul>
+      <p>That's why accounting is called the <strong>"language of business"</strong> — it communicates the financial story of an organization.</p>
+    </div>
+  </div>
+</div>
+
+    </div>
+  </div>
+</body>
+</html>
+
+ <section style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center; max-width: 1200px; margin: 60px auto; padding: 30px; background-color: #f9f9f9; border-radius: 16px; animation: fadeIn 1s ease;">
+
+    <div style="flex: 1 1 600px;">
+        <h2 style="text-align:center; color:#2c3e50;">📝 Test Your Understanding – Quiz</h2>
+
+        <div style="margin: 20px 0;">
+            <div style="background: #ddd; border-radius: 10px; height: 20px; overflow: hidden;">
+                <div id="progressBar" style="height: 100%; width: 0%; background: linear-gradient(90deg, #3498db, #2ecc71); transition: width 0.4s ease;"></div>
+            </div>
+            <p style="text-align: right; margin: 5px 0; font-size: 0.9em;"><span id="progressText">0%</span> answered</p>
+        </div>
+
+        <form id="accountancyQuiz" style="font-family: 'Poppins', sans-serif; line-height: 1.6;">
+            <div class="question">
+                <p><strong>1. Who is considered an external user of accounting?</strong></p>
+                <label><input type="radio" name="q1" value="a" onchange="updateProgress()"> Management</label><br>
+                <label><input type="radio" name="q1" value="b" onchange="updateProgress()"> Employees</label><br>
+                <label><input type="radio" name="q1" value="c" onchange="updateProgress()"> Creditor</label>
+            </div>
+
+            <div class="question">
+                <p><strong>2. Which of the following is an example of a time gap in accounting?</strong></p>
+                <label><input type="radio" name="q2" value="a" onchange="updateProgress()"> Relevance</label><br>
+                <label><input type="radio" name="q2" value="b" onchange="updateProgress()"> External</label><br>
+                <label><input type="radio" name="q2" value="c" onchange="updateProgress()"> Time-gap</label>
+            </div>
+
+            <div class="question">
+                <p><strong>3. Which of the following is a qualitative characteristic of accounting?</strong></p>
+                <label><input type="radio" name="q3" value="a" onchange="updateProgress()"> Monetary</label><br>
+                <label><input type="radio" name="q3" value="b" onchange="updateProgress()"> Chronological</label><br>
+                <label><input type="radio" name="q3" value="c" onchange="updateProgress()"> Free from bias</label>
+            </div>
+
+            <div class="question">
+                <p><strong>4. What is a key element of reliability in accounting?</strong></p>
+                <label><input type="radio" name="q4" value="a" onchange="updateProgress()"> Verifiability</label><br>
+                <label><input type="radio" name="q4" value="b" onchange="updateProgress()"> Time-gap</label><br>
+                <label><input type="radio" name="q4" value="c" onchange="updateProgress()"> Economic Transactions</label>
+            </div>
+
+            <div class="question">
+                <p><strong>5. Who are examples of external users?</strong></p>
+                <label><input type="radio" name="q5" value="a" onchange="updateProgress()"> Government & Creditors</label><br>
+                <label><input type="radio" name="q5" value="b" onchange="updateProgress()"> Internal auditors</label><br>
+                <label><input type="radio" name="q5" value="c" onchange="updateProgress()"> Department managers</label>
+            </div>
+
+            <div class="question" style="overflow-x: auto;">
+                <p><strong>6. Classify these accounting items (check all that apply):</strong></p>
+                <table class="quiz-table" style="width: 100%; margin-top: 15px;">
+                    <thead>
+                        <tr>
+                            <th style="text-align: left;">Items</th>
+                            <th>Current Assets</th>
+                            <th>Non-Current Assets</th>
+                            <th>Current Liabilities</th>
+                            <th>Non-Current Liabilities</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="text-align: left;">Machinery</td>
+                            <td><input type="checkbox" name="q6_machinery" value="current" onchange="updateProgress()"></td>
+                            <td><input type="checkbox" name="q6_machinery" value="noncurrent" onchange="updateProgress()"></td>
+                            <td><input type="checkbox" name="q6_machinery" value="current_liab" onchange="updateProgress()"></td>
+                            <td><input type="checkbox" name="q6_machinery" value="noncurrent_liab" onchange="updateProgress()"></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">Sundry Creditors</td>
+                            <td><input type="checkbox" name="q6_creditors" value="current" onchange="updateProgress()"></td>
+                            <td><input type="checkbox" name="q6_creditors" value="noncurrent" onchange="updateProgress()"></td>
+                            <td><input type="checkbox" name="q6_creditors" value="current_liab" onchange="updateProgress()"></td>
+                            <td><input type="checkbox" name="q6_creditors" value="noncurrent_liab" onchange="updateProgress()"></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">Cash at Bank</td>
+                            <td><input type="checkbox" name="q6_cash" value="current" onchange="updateProgress()"></td>
+                            <td><input type="checkbox" name="q6_cash" value="noncurrent" onchange="updateProgress()"></td>
+                            <td><input type="checkbox" name="q6_cash" value="current_liab" onchange="updateProgress()"></td>
+                            <td><input type="checkbox" name="q6_cash" value="noncurrent_liab" onchange="updateProgress()"></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">Goodwill</td>
+                            <td><input type="checkbox" name="q6_goodwill" value="current" onchange="updateProgress()"></td>
+                            <td><input type="checkbox" name="q6_goodwill" value="noncurrent" onchange="updateProgress()"></td>
+                            <td><input type="checkbox" name="q6_goodwill" value="current_liab" onchange="updateProgress()"></td>
+                            <td><input type="checkbox" name="q6_goodwill" value="noncurrent_liab" onchange="updateProgress()"></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">Bills Payable</td>
+                            <td><input type="checkbox" name="q6_bills" value="current" onchange="updateProgress()"></td>
+                            <td><input type="checkbox" name="q6_bills" value="noncurrent" onchange="updateProgress()"></td>
+                            <td><input type="checkbox" name="q6_bills" value="current_liab" onchange="updateProgress()"></td>
+                            <td><input type="checkbox" name="q6_bills" value="noncurrent_liab" onchange="updateProgress()"></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">Land & Building</td>
+                            <td><input type="checkbox" name="q6_land" value="current" onchange="updateProgress()"></td>
+                            <td><input type="checkbox" name="q6_land" value="noncurrent" onchange="updateProgress()"></td>
+                            <td><input type="checkbox" name="q6_land" value="current_liab" onchange="updateProgress()"></td>
+                            <td><input type="checkbox" name="q6_land" value="noncurrent_liab" onchange="updateProgress()"></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">Furniture</td>
+                            <td><input type="checkbox" name="q6_furniture" value="current" onchange="updateProgress()"></td>
+                            <td><input type="checkbox" name="q6_furniture" value="noncurrent" onchange="updateProgress()"></td>
+                            <td><input type="checkbox" name="q6_furniture" value="current_liab" onchange="updateProgress()"></td>
+                            <td><input type="checkbox" name="q6_furniture" value="noncurrent_liab" onchange="updateProgress()"></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">Computer Software</td>
+                            <td><input type="checkbox" name="q6_software" value="current" onchange="updateProgress()"></td>
+                            <td><input type="checkbox" name="q6_software" value="noncurrent" onchange="updateProgress()"></td>
+                            <td><input type="checkbox" name="q6_software" value="current_liab" onchange="updateProgress()"></td>
+                            <td><input type="checkbox" name="q6_software" value="noncurrent_liab" onchange="updateProgress()"></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">Motor Vehicles</td>
+                            <td><input type="checkbox" name="q6_vehicles" value="current" onchange="updateProgress()"></td>
+                            <td><input type="checkbox" name="q6_vehicles" value="noncurrent" onchange="updateProgress()"></td>
+                            <td><input type="checkbox" name="q6_vehicles" value="current_liab" onchange="updateProgress()"></td>
+                            <td><input type="checkbox" name="q6_vehicles" value="noncurrent_liab" onchange="updateProgress()"></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">Inventory</td>
+                            <td><input type="checkbox" name="q6_inventory" value="current" onchange="updateProgress()"></td>
+                            <td><input type="checkbox" name="q6_inventory" value="noncurrent" onchange="updateProgress()"></td>
+                            <td><input type="checkbox" name="q6_inventory" value="current_liab" onchange="updateProgress()"></td>
+                            <td><input type="checkbox" name="q6_inventory" value="noncurrent_liab" onchange="updateProgress()"></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">Investments</td>
+                            <td><input type="checkbox" name="q6_investments" value="current" onchange="updateProgress()"></td>
+                            <td><input type="checkbox" name="q6_investments" value="noncurrent" onchange="updateProgress()"></td>
+                            <td><input type="checkbox" name="q6_investments" value="current_liab" onchange="updateProgress()"></td>
+                            <td><input type="checkbox" name="q6_investments" value="noncurrent_liab" onchange="updateProgress()"></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">Loan from Bank</td>
+                            <td><input type="checkbox" name="q6_loan" value="current" onchange="updateProgress()"></td>
+                            <td><input type="checkbox" name="q6_loan" value="noncurrent" onchange="updateProgress()"></td>
+                            <td><input type="checkbox" name="q6_loan" value="current_liab" onchange="updateProgress()"></td>
+                            <td><input type="checkbox" name="q6_loan" value="noncurrent_liab" onchange="updateProgress()"></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">Sundry Debtors</td>
+                            <td><input type="checkbox" name="q6_debtors" value="current" onchange="updateProgress()"></td>
+                            <td><input type="checkbox" name="q6_debtors" value="noncurrent" onchange="updateProgress()"></td>
+                            <td><input type="checkbox" name="q6_debtors" value="current_liab" onchange="updateProgress()"></td>
+                            <td><input type="checkbox" name="q6_debtors" value="noncurrent_liab" onchange="updateProgress()"></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">Patents</td>
+                            <td><input type="checkbox" name="q6_patents" value="current" onchange="updateProgress()"></td>
+                            <td><input type="checkbox" name="q6_patents" value="noncurrent" onchange="updateProgress()"></td>
+                            <td><input type="checkbox" name="q6_patents" value="current_liab" onchange="updateProgress()"></td>
+                            <td><input type="checkbox" name="q6_patents" value="noncurrent_liab" onchange="updateProgress()"></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">Air-Conditioners</td>
+                            <td><input type="checkbox" name="q6_ac" value="current" onchange="updateProgress()"></td>
+                            <td><input type="checkbox" name="q6_ac" value="noncurrent" onchange="updateProgress()"></td>
+                            <td><input type="checkbox" name="q6_ac" value="current_liab" onchange="updateProgress()"></td>
+                            <td><input type="checkbox" name="q6_ac" value="noncurrent_liab" onchange="updateProgress()"></td>
+                        </tr>
+                        <tr>
+                            <td style="text-align: left;">Loose Tools</td>
+                            <td><input type="checkbox" name="q6_tools" value="current" onchange="updateProgress()"></td>
+                            <td><input type="checkbox" name="q6_tools" value="noncurrent" onchange="updateProgress()"></td>
+                            <td><input type="checkbox" name="q6_tools" value="current_liab" onchange="updateProgress()"></td>
+                            <td><input type="checkbox" name="q6_tools" value="noncurrent_liab" onchange="updateProgress()"></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p style="font-size: 0.9em; color: #666; margin-top: 10px;">Note: Some items may belong to multiple categories.</p>
+            </div>
+
+            <br>
+            <button type="button" onclick="checkQuiz()" style="padding: 10px 20px; font-weight: bold; border: none; background: #3498db; color: white; border-radius: 8px; cursor: pointer;">Submit Quiz</button>
+
+            <div id="quizResult" style="margin-top: 20px; font-weight: bold;"></div>
+        </form>
+    </div>
+
+    <div style="flex: 1 1 280px; background: #fff; border: 2px dashed #3498db; border-radius: 12px; padding: 20px; font-size: 0.95em;">
+        <h3 style="text-align: center; color: #2c3e50;">📖 Answer Book</h3>
+        <button onclick="toggleAnswerBook()" style="margin: 10px auto; display: block; background: #2ecc71; color: white; padding: 8px 16px; border: none; border-radius: 6px; font-weight: bold;">Show / Hide Answers</button>
+
+        <div id="answerBook" style="display: none; margin-top: 15px; text-align: left;">
+            <ul style="list-style: none; padding-left: 0;">
+                <li><strong>Q1:</strong> (c) Creditor</li>
+                <li><strong>Q2:</strong> (c) Time-gap</li>
+                <li><strong>Q3:</strong> (c) Free from bias</li>
+                <li><strong>Q4:</strong> (a) Verifiability</li>
+                <li><strong>Q5:</strong> (a) Government & Creditors</li>
+                <li style="margin-top: 15px;"><strong>Q6:</strong>
+                    <ul style="list-style-type: circle; padding-left: 20px; margin-top: 5px;">
+                        <li><strong>Machinery:</strong> Non-Current Asset</li>
+                        <li><strong>Sundry Creditors:</strong> Current Liability</li>
+                        <li><strong>Cash at Bank:</strong> Current Asset</li>
+                        <li><strong>Goodwill:</strong> Non-Current Asset</li>
+                        <li><strong>Bills Payable:</strong> Current Liability</li>
+                        <li><strong>Land & Building:</strong> Non-Current Asset</li>
+                        <li><strong>Furniture:</strong> Non-Current Asset</li>
+                        <li><strong>Computer Software:</strong> Non-Current Asset</li>
+                        <li><strong>Motor Vehicles:</strong> Non-Current Asset</li>
+                        <li><strong>Inventory:</strong> Current Asset</li>
+                        <li><strong>Investments:</strong> Can be both Current and Non-Current Asset</li>
+                        <li><strong>Loan from Bank:</strong> Can be both Current and Non-Current Liability</li>
+                        <li><strong>Sundry Debtors:</strong> Current Asset</li>
+                        <li><strong>Patents:</strong> Non-Current Asset</li>
+                        <li><strong>Air-Conditioners:</strong> Non-Current Asset</li>
+                        <li><strong>Loose Tools:</strong> Can be both Current and Non-Current Asset</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div style="margin-top: 20px; border-top: 1px solid #eee; padding-top: 15px;">
+                <h4 style="color: #2c3e50;">Explanations</h4>
+                <div style="margin-bottom: 10px;">
+                    <button onclick="toggleExplanation('expl1')" style="background: none; border: none; color: #3498db; cursor: pointer; text-align: left; width: 100%; font-weight: bold;">▼ Machinery</button>
+                    <div id="expl1" style="display: none; padding: 10px; background: #f5f5f5; border-radius: 5px; margin-top: 5px;">
+                        Machinery is a **non-current asset** because it's used in business operations for more than one accounting period and provides long-term economic benefits.
+                    </div>
+                </div>
+                <div style="margin-bottom: 10px;">
+                    <button onclick="toggleExplanation('expl2')" style="background: none; border: none; color: #3498db; cursor: pointer; text-align: left; width: 100%; font-weight: bold;">▼ Sundry Creditors</button>
+                    <div id="expl2" style="display: none; padding: 10px; background: #f5f5f5; border-radius: 5px; margin-top: 5px;">
+                        Sundry creditors represent amounts owed to suppliers for goods/services purchased on credit, typically payable within one year, making them **current liabilities**.
+                    </div>
+                </div>
+                <div style="margin-bottom: 10px;">
+                    <button onclick="toggleExplanation('expl3')" style="background: none; border: none; color: #3498db; cursor: pointer; text-align: left; width: 100%; font-weight: bold;">▼ Investments</button>
+                    <div id="expl3" style="display: none; padding: 10px; background: #f5f5f5; border-radius: 5px; margin-top: 5px;">
+                        Investments can be either **current** or **non-current assets** depending on the holding period. Short-term (current) if intended to be sold within one year, long-term (non-current) if held longer.
+                    </div>
+                </div>
+                <div style="margin-bottom: 10px;">
+                    <button onclick="toggleExplanation('expl4')" style="background: none; border: none; color: #3498db; cursor: pointer; text-align: left; width: 100%; font-weight: bold;">▼ Loan from Bank</button>
+                    <div id="expl4" style="display: none; padding: 10px; background: #f5f5f5; border-radius: 5px; margin-top: 5px;">
+                        Bank loans are classified based on the repayment period. The portion due within one year is a **current liability**, while the remaining balance due after one year is a **non-current liability**.
+                    </div>
+                </div>
+                <div style="margin-bottom: 10px;">
+                    <button onclick="toggleExplanation('expl5')" style="background: none; border: none; color: #3498db; cursor: pointer; text-align: left; width: 100%; font-weight: bold;">▼ Loose Tools</button>
+                    <div id="expl5" style="display: none; padding: 10px; background: #f5f5f5; border-radius: 5px; margin-top: 5px;">
+                        **Loose tools** can be classified as **current assets** if they are frequently replaced or consumed within one year (e.g., small hand tools). However, if they are durable and used for multiple periods, they can be considered **non-current assets**.
+                    </div>
+                </div>
+                 <div style="margin-bottom: 10px;">
+                    <button onclick="toggleExplanation('expl6')" style="background: none; border: none; color: #3498db; cursor: pointer; text-align: left; width: 100%; font-weight: bold;">▼ Cash at Bank</button>
+                    <div id="expl6" style="display: none; padding: 10px; background: #f5f5f5; border-radius: 5px; margin-top: 5px;">
+                        **Cash at bank** is a **current asset** as it is readily available and can be converted into cash or used to pay liabilities within one year.
+                    </div>
+                </div>
+                <div style="margin-bottom: 10px;">
+                    <button onclick="toggleExplanation('expl7')" style="background: none; border: none; color: #3498db; cursor: pointer; text-align: left; width: 100%; font-weight: bold;">▼ Goodwill</button>
+                    <div id="expl7" style="display: none; padding: 10px; background: #f5f5f5; border-radius: 5px; margin-top: 5px;">
+                        **Goodwill** is an intangible **non-current asset** representing the value of a company's reputation, customer base, and other non-physical assets. It has a long-term benefit.
+                    </div>
+                </div>
+                <div style="margin-bottom: 10px;">
+                    <button onclick="toggleExplanation('expl8')" style="background: none; border: none; color: #3498db; cursor: pointer; text-align: left; width: 100%; font-weight: bold;">▼ Bills Payable</button>
+                    <div id="expl8" style="display: none; padding: 10px; background: #f5f5f5; border-radius: 5px; margin-top: 5px;">
+                        **Bills Payable** are short-term financial obligations that a business owes to its creditors, typically due within one year, making them **current liabilities**.
+                    </div>
+                </div>
+                 <div style="margin-bottom: 10px;">
+                    <button onclick="toggleExplanation('expl9')" style="background: none; border: none; color: #3498db; cursor: pointer; text-align: left; width: 100%; font-weight: bold;">▼ Land & Building</button>
+                    <div id="expl9" style="display: none; padding: 10px; background: #f5f5f5; border-radius: 5px; margin-top: 5px;">
+                        **Land & Building** are tangible assets used for business operations over a long period, making them **non-current assets**.
+                    </div>
+                </div>
+                 <div style="margin-bottom: 10px;">
+                    <button onclick="toggleExplanation('expl10')" style="background: none; border: none; color: #3498db; cursor: pointer; text-align: left; width: 100%; font-weight: bold;">▼ Furniture</button>
+                    <div id="expl10" style="display: none; padding: 10px; background: #f5f5f5; border-radius: 5px; margin-top: 5px;">
+                        **Furniture** used in a business for more than one accounting period is considered a tangible **non-current asset**.
+                    </div>
+                </div>
+                 <div style="margin-bottom: 10px;">
+                    <button onclick="toggleExplanation('expl11')" style="background: none; border: none; color: #3498db; cursor: pointer; text-align: left; width: 100%; font-weight: bold;">▼ Computer Software</button>
+                    <div id="expl11" style="display: none; padding: 10px; background: #f5f5f5; border-radius: 5px; margin-top: 5px;">
+                        **Computer Software** that provides long-term benefits to the business (e.g., operating systems, specialized applications) is an intangible **non-current asset**.
+                    </div>
+                </div>
+                 <div style="margin-bottom: 10px;">
+                    <button onclick="toggleExplanation('expl12')" style="background: none; border: none; color: #3498db; cursor: pointer; text-align: left; width: 100%; font-weight: bold;">▼ Motor Vehicles</button>
+                    <div id="expl12" style="display: none; padding: 10px; background: #f5f5f5; border-radius: 5px; margin-top: 5px;">
+                        **Motor Vehicles** used for business purposes are tangible assets with a useful life of more than one year, categorizing them as **non-current assets**.
+                    </div>
+                </div>
+                 <div style="margin-bottom: 10px;">
+                    <button onclick="toggleExplanation('expl13')" style="background: none; border: none; color: #3498db; cursor: pointer; text-align: left; width: 100%; font-weight: bold;">▼ Inventory</button>
+                    <div id="expl13" style="display: none; padding: 10px; background: #f5f5f5; border-radius: 5px; margin-top: 5px;">
+                        **Inventory** (raw materials, work-in-progress, finished goods) is expected to be sold or consumed within the operating cycle or one year, making it a **current asset**.
+                    </div>
+                </div>
+                 <div style="margin-bottom: 10px;">
+                    <button onclick="toggleExplanation('expl14')" style="background: none; border: none; color: #3498db; cursor: pointer; text-align: left; width: 100%; font-weight: bold;">▼ Sundry Debtors</button>
+                    <div id="expl14" style="display: none; padding: 10px; background: #f5f5f5; border-radius: 5px; margin-top: 5px;">
+                        **Sundry Debtors** (Accounts Receivable) are amounts owed to the business by customers for goods or services sold on credit, usually collectible within one year, thus classified as **current assets**.
+                    </div>
+                </div>
+                 <div style="margin-bottom: 10px;">
+                    <button onclick="toggleExplanation('expl15')" style="background: none; border: none; color: #3498db; cursor: pointer; text-align: left; width: 100%; font-weight: bold;">▼ Patents</button>
+                    <div id="expl15" style="display: none; padding: 10px; background: #f5f5f5; border-radius: 5px; margin-top: 5px;">
+                        **Patents** are legal rights that provide exclusive use of an invention for a period, making them intangible **non-current assets**.
+                    </div>
+                </div>
+                 <div style="margin-bottom: 10px;">
+                    <button onclick="toggleExplanation('expl16')" style="background: none; border: none; color: #3498db; cursor: pointer; text-align: left; width: 100%; font-weight: bold;">▼ Air-Conditioners</button>
+                    <div id="expl16" style="display: none; padding: 10px; background: #f5f5f5; border-radius: 5px; margin-top: 5px;">
+                        **Air-Conditioners** used in a business typically have a useful life of more than one year and provide long-term benefits, thus classified as **non-current assets**.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .question {
+        margin-bottom: 25px;
+        background: #ffffff;
+        padding: 15px 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    .quiz-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 10px 0;
+    }
+
+    .quiz-table th, .quiz-table td {
+        padding: 10px;
+        text-align: center;
+        border: 1px solid #ddd;
+    }
+
+    .quiz-table th {
+        background-color: #f2f2f2;
+        font-weight: 500;
+    }
+
+    .quiz-table tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+        #answerBook ul li { font-size: 14px; }
+        .quiz-table { font-size: 14px; }
+    }
+</style>
+
+<script>
+    const answers = {
+        q1: 'c',
+        q2: 'c',
+        q3: 'c',
+        q4: 'a',
+        q5: 'a',
+        q6_machinery: ['noncurrent'],
+        q6_creditors: ['current_liab'],
+        q6_cash: ['current'],
+        q6_goodwill: ['noncurrent'],
+        q6_bills: ['current_liab'],
+        q6_land: ['noncurrent'],
+        q6_furniture: ['noncurrent'],
+        q6_software: ['noncurrent'],
+        q6_vehicles: ['noncurrent'],
+        q6_inventory: ['current'],
+        q6_investments: ['current', 'noncurrent'],
+        q6_loan: ['current_liab', 'noncurrent_liab'],
+        q6_debtors: ['current'],
+        q6_patents: ['noncurrent'],
+        q6_ac: ['noncurrent'],
+        q6_tools: ['current', 'noncurrent']
+    };
+
+    function checkQuiz() {
+        let score = 0;
+        let totalMcqQuestions = 5;
+        let totalClassificationItems = Object.keys(answers).filter(key => key.startsWith('q6_')).length;
+        let total = totalMcqQuestions + totalClassificationItems; // 5 MCQs + 16 classification items, each potentially worth 1 point for full correctness
+
+        // Check multiple choice questions
+        for (let i = 1; i <= totalMcqQuestions; i++) {
+            const key = `q${i}`;
+            const selected = document.querySelector(`input[name="${key}"]:checked`);
+            const questionDiv = selected ? selected.closest(".question") : null;
+
+            if (selected && selected.value === answers[key]) {
+                score++;
+                if (questionDiv) questionDiv.style.borderLeft = "6px solid #2ecc71"; // Green for correct
+            } else {
+                if (questionDiv) questionDiv.style.borderLeft = "6px solid #e74c3c"; // Red for incorrect
+            }
+        }
+
+        // Check classification question (partial credit for each item)
+        let classificationScore = 0;
+        const classificationItems = [
+            'machinery', 'creditors', 'cash', 'goodwill', 'bills', 'land', 'furniture',
+            'software', 'vehicles', 'inventory', 'investments', 'loan', 'debtors',
+            'patents', 'ac', 'tools'
+        ];
+
+        classificationItems.forEach(item => {
+            const correctAnswers = answers[`q6_${item}`];
+            const checkboxes = document.querySelectorAll(`input[name="q6_${item}"]:checked`);
+            let correctSelections = 0;
+            let incorrectSelections = 0;
+
+            checkboxes.forEach(checkbox => {
+                if (correctAnswers.includes(checkbox.value)) {
+                    correctSelections++;
+                } else {
+                    incorrectSelections++;
+                }
+            });
+
+            // Calculate score for each classification item
+            // Full point if all correct answers are selected and no incorrect ones.
+            // Partial credit if some correct are selected, or penalty for incorrect selections.
+            if (correctSelections === correctAnswers.length && incorrectSelections === 0) {
+                classificationScore += 1;
+            } else if (correctSelections > 0 && incorrectSelections === 0) {
+                // Award proportional credit if some correct are selected without incorrect ones
+                classificationScore += correctSelections / correctAnswers.length;
+            } else {
+                // Subtract for incorrect selections, minimum score for an item is 0
+                classificationScore += Math.max(0, (correctSelections - incorrectSelections) / correctAnswers.length);
+            }
+        });
+
+        score += classificationScore;
+
+        // Display results
+        const resultDiv = document.getElementById("quizResult");
+        resultDiv.innerHTML = `✅ You got <strong>${Math.round(score)} out of ${total}</strong> correct.`;
+
+        if (Math.round(score) === total) {
+            resultDiv.innerHTML += " 🎉 Perfect score!";
+        } else if (Math.round(score) >= total * 0.7) { // Good attempt if 70% or more
+            resultDiv.innerHTML += " 👍 Good attempt!";
+        } else {
+            resultDiv.innerHTML += " 💡 Keep learning!";
+        }
+
+        // Highlight correct classification answers (visually)
+        classificationItems.forEach(item => {
+            const rowElements = document.querySelectorAll(`input[name^="q6_${item}"]`);
+            rowElements.forEach(input => {
+                input.parentElement.style.backgroundColor = ''; // Reset background
+                if (answers[`q6_${item}`].includes(input.value)) {
+                    input.parentElement.style.backgroundColor = "rgba(46, 204, 113, 0.2)"; // Light green for correct options
+                }
+            });
+        });
+    }
+
+    function updateProgress() {
+        const totalMcqQuestions = 5;
+        const classificationItems = [
+            'machinery', 'creditors', 'cash', 'goodwill', 'bills', 'land', 'furniture',
+            'software', 'vehicles', 'inventory', 'investments', 'loan', 'debtors',
+            'patents', 'ac', 'tools'
+        ];
+        const totalClassificationItems = classificationItems.length;
+        const totalQuestions = totalMcqQuestions + totalClassificationItems; // Total items to be considered for progress
+
+        let answeredMcq = 0;
+        for (let i = 1; i <= totalMcqQuestions; i++) {
+            if (document.querySelector(`input[name="q${i}"]:checked`)) {
+                answeredMcq++;
+            }
+        }
+
+        let answeredClassification = 0;
+        classificationItems.forEach(item => {
+            if (document.querySelectorAll(`input[name="q6_${item}"]:checked`).length > 0) {
+                answeredClassification++;
+            }
+        });
+        
+        const totalAnswered = answeredMcq + answeredClassification;
+        const percent = Math.round((totalAnswered / totalQuestions) * 100);
+        document.getElementById("progressBar").style.width = percent + "%";
+        document.getElementById("progressText").innerText = `${percent}%`;
+    }
+
+    function toggleAnswerBook() {
+        const book = document.getElementById("answerBook");
+        book.style.display = (book.style.display === "none") ? "block" : "none";
+    }
+
+    function toggleExplanation(id) {
+        const expl = document.getElementById(id);
+        expl.style.display = (expl.style.display === "none") ? "block" : "none";
+        const btn = expl.previousElementSibling;
+        btn.innerHTML = (expl.style.display === "none") ? btn.innerHTML.replace('▲', '▼') : btn.innerHTML.replace('▼', '▲');
+    }
+</script>
+  
+ <div class="download-section">
+  <a href="Class11_Accountancy_Chapter1_RSPlatform_Notes.pdf" class="download-btn" download>
+    <i class="fas fa-file-download"></i> Download Complete Chapter Notes (PDF)
+  </a>
+  <p class="info-text">Includes all 15 questions with detailed explanations, diagrams, and practice exercises</p>
+</div>
+
+<footer>
+  <div class="footer-content">
+    <p>© 2025 RSPlatform | AHSEC Class 11 Accountancy Notes</p>
+    <div class="footer-navigation">
+      <a href="chapter2.html" class="footer-cta">
+        Continue Learning: Chapter 2: Theory Base of Accounting 
+        <i class="fas fa-arrow-right"></i>
+      </a>
+      <div class="footer-links">
+        <a href="#" class="footer-link">Terms</a>
+        <span>•</span>
+        <a href="#" class="footer-link">Privacy</a>
+        <span>•</span>
+        <a href="#" class="footer-link">Contact</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
