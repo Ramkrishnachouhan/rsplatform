@@ -336,7 +336,7 @@
             <div class="subtitle">For AHSEC Class 11 | With Simple Notes + Diagrams</div>
             
             <div class="chapter-dropdown" id="chapterDropdown">
-                <button class="chapter-dropbtn">
+                <button class="chapter-dropbtn" id="dropdownBtn">
                     Browse All Chapters
                     <span class="dropdown-icon">▼</span>
                 </button>
@@ -663,6 +663,7 @@
         font-weight: bold;
     }
 </style>
+        </div>
     <footer class="note-footer">
   <div class="footer-inner">
     <p>📚 Part of <strong>AHSEC Class 11 – Business Studies Notes</strong></p>
@@ -709,5 +710,27 @@
 }
 
 </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const dropdownBtn = document.getElementById('dropdownBtn');
+            const dropdownContent = document.getElementById('dropdownContent');
+            const chapterDropdown = document.getElementById('chapterDropdown');
+
+            dropdownBtn.addEventListener('click', function() {
+                dropdownContent.classList.toggle('show');
+                chapterDropdown.classList.toggle('active'); // Add/remove active class for icon rotation
+            });
+
+            // Close the dropdown if the user clicks outside of it
+            window.addEventListener('click', function(event) {
+                if (!event.target.matches('.chapter-dropbtn')) {
+                    if (dropdownContent.classList.contains('show')) {
+                        dropdownContent.classList.remove('show');
+                        chapterDropdown.classList.remove('active');
+                    }
+                }
+            });
+        });
+    </script>
 </body>
 </html>
