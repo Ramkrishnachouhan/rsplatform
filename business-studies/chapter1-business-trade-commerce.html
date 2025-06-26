@@ -636,24 +636,23 @@
 
 <style>
     .steps {
-        counter-reset: step-counter;
         padding-left: 0;
-        list-style: none; /* This removes default numbering */
+        list-style: none;
     }
     
     .steps li {
         position: relative;
         padding-left: 50px;
         margin-bottom: 15px;
+        counter-increment: step-counter;
     }
     
     .steps li:before {
-        counter-increment: step-counter;
         content: counter(step-counter);
         position: absolute;
         left: 0;
         top: 0;
-        background-color: var(--primary-color);
+        background-color: #4361ee;
         color: white;
         width: 30px;
         height: 30px;
@@ -664,51 +663,6 @@
         font-weight: bold;
     }
 </style>
-    
-    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js"></script>
-    <script>
-        mermaid.initialize({ startOnLoad: true });
-        
-        // Enhanced Dropdown Functionality
-        const dropdown = document.getElementById('chapterDropdown');
-        const dropdownContent = document.getElementById('dropdownContent');
-        const dropbtn = document.querySelector('.chapter-dropbtn');
-        
-        // Toggle dropdown
-        dropbtn.addEventListener('click', function(e) {
-            e.stopPropagation();
-            dropdownContent.classList.toggle('show');
-            dropdown.classList.toggle('active');
-        });
-        
-        // Close dropdown when clicking outside
-        document.addEventListener('click', function(e) {
-            if (!dropdown.contains(e.target)) {
-                dropdownContent.classList.remove('show');
-                dropdown.classList.remove('active');
-            }
-        });
-        
-        // Close dropdown when a chapter is selected
-        document.querySelectorAll('.chapter-dropdown-content a').forEach(link => {
-            link.addEventListener('click', function() {
-                dropdownContent.classList.remove('show');
-                dropdown.classList.remove('active');
-                
-                // In a real implementation, this would navigate to the chapter
-                // For demo purposes, we'll just log the action
-                console.log('Navigating to:', this.getAttribute('href'));
-            });
-        });
-        
-        // Keyboard accessibility
-        dropbtn.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                this.click();
-            }
-        });
-    </script>
     <footer class="note-footer">
   <div class="footer-inner">
     <p>📚 Part of <strong>AHSEC Class 11 – Business Studies Notes</strong></p>
