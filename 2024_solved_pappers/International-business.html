@@ -1,1 +1,1057 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>rsplatform.site – Solved Paper 2025</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: #f8f9fa;
+      color: #222;
+      position: relative;
+    }
 
+    /* Soft diagonal watermark background */
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background:
+        repeating-linear-gradient(
+          -30deg,
+          transparent,
+          transparent 300px,
+          rgba(0,0,0,0.02) 300px,
+          rgba(0,0,0,0.02) 600px
+        ),
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="600" height="300"><text x="50" y="150" fill="rgba(0,0,0,0.05)" font-family="Arial" font-size="50" font-weight="bold">rsplatform.site</text></svg>');
+      background-repeat: repeat;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    header {
+      background: #0050b3;
+      color: #fff;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header .logo-main {
+      font-family: 'Poppins', sans-serif;
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    header nav a {
+      color: #fff;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: opacity 0.3s;
+    }
+
+    header nav a:hover {
+      opacity: 0.8;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #0073e6, #00bfff);
+      color: #fff;
+      text-align: center;
+      padding: 70px 20px;
+    }
+
+    .hero h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 38px;
+      margin: 0 0 10px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin: 0;
+    }
+
+    .solved-paper {
+      background: #fff;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 40px; /* Base padding */
+      position: relative; /* Crucial for absolute positioning of children */
+      box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+      border-radius: 8px;
+    }
+
+    .solved-paper::before {
+      content: "rsplatform.site";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-30deg);
+      font: bold 70px Arial, sans-serif;
+      color: rgba(0,0,0,0.05);
+      pointer-events: none;
+      user-select: none;
+      z-index: 0;
+      white-space: nowrap;
+    }
+
+    /* Removed the old .logo class */
+    .logo {
+      display: none;
+    }
+
+    /* Logo Container Styles */
+    .logo-container {
+      position: absolute;
+      top: 20px; /* Adjusted to top of solved-paper */
+      right: 140px; /* Adjusted to make space for back button */
+      width: 160px;
+      height: 40px;
+      z-index: 1;
+    }
+
+    .back-button {
+      position: absolute;
+      top: 20px; /* Adjusted to top of solved-paper */
+      right: 20px;
+      background: #0073e6;
+      color: #fff;
+      padding: 6px 14px;
+      font-size: 12px;
+      font-weight: bold;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: background 0.3s;
+      z-index: 1;
+    }
+
+    .back-button:hover {
+      background: #0050b3;
+    }
+
+    .qr-code {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(255,255,255,0.95);
+      padding: 8px;
+      border-radius: 4px;
+      text-align: center;
+      font-size: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .qr-code img {
+      width: 80px;
+      height: 80px;
+      display: block;
+      margin: 5px auto 0;
+    }
+
+    /* Download button styles */
+    .download-paper-btn {
+      position: absolute;
+      left: 40px; /* Aligns with paper content left padding */
+      top: 20px; /* Positions it at the top-left corner of the solved-paper div */
+      background: linear-gradient(135deg, #00bfff, #0073e6);
+      color: white;
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      font-family: 'Poppins', sans-serif;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s;
+      z-index: 2; /* Ensure it's above other elements */
+      box-shadow: 0 2px 8px rgba(0, 191, 255, 0.3);
+      display: flex;
+      align-items: center;
+    }
+
+    .download-paper-btn:hover {
+      background: linear-gradient(135deg, #0099cc, #005fa3);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 191, 255, 0.4);
+    }
+
+    .download-paper-btn svg {
+      width: 16px;
+      height: 16px;
+      margin-right: 8px;
+    }
+
+    /* Adjust header position to accommodate button and logo/back buttons */
+    .header {
+      text-align: center;
+      margin-top: 50px; /* Pushes the header down below the buttons */
+      margin-bottom: 20px;
+    }
+
+    .header .year {
+      font-weight: bold;
+      font-size: 14pt;
+    }
+
+    .header .subject {
+      font-weight: bold;
+      font-size: 18pt;
+      text-transform: uppercase;
+    }
+
+    .paper-info {
+      margin: 10px 0;
+    }
+
+    .instructions {
+      text-align: center;
+      font-style: italic;
+      margin: 20px 0;
+      padding: 12px;
+      border-top: 1px dashed #ccc;
+      border-bottom: 1px dashed #ccc;
+    }
+
+    .section-title {
+      text-align: center;
+      background: #f0f7ff;
+      border-left: 4px solid #0073e6;
+      border-radius: 3px;
+      padding: 8px 15px;
+      margin: 20px 0 10px 0;
+      font-weight: bold;
+    }
+
+    .question-section {
+      margin-bottom: 30px;
+      background: rgba(255,255,255,0.9);
+      padding: 20px;
+      border-radius: 4px;
+    }
+
+    .question {
+      margin-bottom: 20px;
+    }
+
+    .options {
+      margin-left: 20px;
+    }
+
+    .answer {
+      font-weight: bold;
+      color: #006600;
+    }
+
+    /* Updated Footer Styles */
+    .footer {
+      background: #f0f7ff; /* Light blue background */
+      padding: 40px 20px;
+      text-align: center;
+      border-top: 1px solid #d0e3ff;
+    }
+
+    .footer-logo {
+      max-width: 250px;
+      margin: 0 auto 20px;
+    }
+
+    .footer-logo svg {
+      width: 100%;
+      height: auto;
+    }
+
+    .footer-links {
+      margin: 20px 0;
+    }
+
+    .footer-links a {
+      color: #0050b3;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: #00bfff;
+      text-decoration: underline;
+    }
+
+    .copyright {
+      color: #555;
+      font-size: 14px;
+      margin-top: 20px;
+    }
+
+    @media print {
+      header, .hero, .footer {
+        display: none;
+      }
+      .solved-paper {
+        margin: 0; padding: 20px; box-shadow: none;
+      }
+      .solved-paper::before {
+        font-size: 80px;
+        color: rgba(0,0,0,0.15);
+      }
+      body::after {
+        display: none;
+      }
+      /* Hide all interactive elements on print */
+      .logo-container, .back-button, .qr-code, .download-paper-btn {
+        display: none;
+      }
+      .footer {
+        background: white !important;
+        border-top: 1px solid #ddd;
+      }
+      .footer-logo .main,
+      .footer-logo .highlight {
+        fill: #0050b3 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+  
+  <div class="logo-main">rsplatform.site</div>
+  <nav>
+    <a href="../index.html">Home</a>
+    <a href="../semesters.html">Papers</a>
+    <a href="../contact.html">Contact</a>
+  </nav>
+</header>
+
+
+
+  <div class="hero">
+    <h1>GU B.Com 6th Sem Solved Paper</h1>
+    <p>International Business – COM-HE-6046 – 2025</p>
+  </div>
+
+  <div class="solved-paper">
+    <!-- ✅ Download Button -->
+    <button class="download-paper-btn" onclick="downloadQuestionPaper()">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+      </svg>
+      Download Question Paper
+    </button>
+
+
+    <div class="logo-container">
+      <svg width="160" height="40" viewBox="0 0 320 80" xmlns="http://www.w3.org/2000/svg">
+        <style>
+          .main { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 32px; fill: #0050b3; }
+          .highlight { fill: #00bfff; }
+          .dot { fill: #00bfff; }
+        </style>
+        <text x="0" y="40" class="main">rsplatform</text>
+        <circle cx="188" cy="27" r="4" class="dot">
+          <animate attributeName="opacity" values="1;0.5;1" dur="3s" repeatCount="indefinite"/>
+        </circle>
+        <text x="195" y="40" class="main highlight">site</text>
+      </svg>
+    </div>
+    
+    <button class="back-button" onclick="window.history.back()">← Back</button>
+
+    <div class="qr-code">
+      Scan for more<br>
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://rsplatform.site" alt="QR Code">
+    </div>
+
+    <div class="header">
+      <div class="year">2024</div>
+      <div class="subject">COMMERCE</div>
+      <div>(Honours Elective)</div>
+      <div class="paper-info">
+        <strong>Paper: COM-HE-6046</strong><br>(International Business)
+      </div>
+      <div><strong>Full Marks: 80</strong><br><strong>Time: Three Hours</strong></div>
+      <div>Paper Code: COM-HE-6046</div>
+      <div>6th Semester (CBCS) Honours Elective</div>
+    </div>
+      <script>
+    function downloadQuestionPaper() {
+      window.open('GU_BCom6thSem_InternationalBusiness_2025.pdf', '_blank');
+    }
+  </script>
+
+    <div class="instructions">
+      The figures in the margin indicate full marks for the questions.
+    </div>
+
+    <div class="section-title">✅ Section 1: Objective Questions (1×10 = 10 Marks)</div>
+    <div class="question-section">
+      <div class="question">
+        (a) Which one of the following is the oldest international trade theory?<br>
+        <div class="options">
+          (i) Comparative advantage theory<br>
+          (ii) Mercantilism theory<br>
+          (iii) Absolute advantage theory<br>
+          (iv) Heckscher-Ohlin theory
+        </div>
+        <div class="answer">Answer: (ii) Mercantilism theory</div>
+      </div>
+
+      <div class="question">
+        (b) In which year was the product life cycle theory developed?<br>
+        <div class="options">
+          (i) 1972<br>
+          (ii) 1978<br>
+          (iii) 1970<br>
+          (iv) 1976
+        </div>
+        <div class="answer">Answer: (iii) 1970</div>
+      </div>
+
+      <div class="question">
+        (c) Which of the following nations is not a member of ASEAN?<br>
+        <div class="options">
+          (i) India<br>
+          (ii) Brunei<br>
+          (iii) Vietnam<br>
+          (iv) Laos
+        </div>
+        <div class="answer">Answer: (i) India</div>
+      </div>
+
+      <div class="question">
+        (d) The G-20 Summit for the year 2023 was held in:<br>
+        <div class="options">
+          (i) Japan<br>
+          (ii) Indonesia<br>
+          (iii) India<br>
+          (iv) Pakistan
+        </div>
+        <div class="answer">Answer: (iii) India</div>
+      </div>
+
+      <div class="question">
+        (e) The IMF started functioning in:<br>
+        <div class="options">
+          (i) December 1945<br>
+          (ii) January 1946<br>
+          (iii) March 1947<br>
+          (iv) April 1946
+        </div>
+        <div class="answer">Answer: (i) December 1945</div>
+      </div>
+
+      <div class="question">
+        (f) Which environment is beyond the control of the business?<br>
+        <div class="options">
+          (i) Internal<br>
+          (ii) External<br>
+          (iii) Micro<br>
+          (iv) Macro
+        </div>
+        <div class="answer">Answer: (ii) External</div>
+      </div>
+
+      <div class="question">
+        (g) The foreign direct investment includes:<br>
+        <div class="options">
+          (i) Tangible goods<br>
+          (ii) Intangible goods<br>
+          (iii) Human resources<br>
+          (iv) Intellectual property
+        </div>
+        <div class="answer">Answer: (iv) Intellectual property</div>
+      </div>
+
+      <div class="question">
+        (h) Write the full form of ASEAN.
+        <div class="answer">Answer: Association of Southeast Asian Nations</div>
+      </div>
+
+      <div class="question">
+        (i) Import quota is considered a tariff tool of international business. (Yes/No)
+        <div class="answer">Answer: Yes</div>
+      </div>
+
+      <div class="question">
+        (j) The current account in the balance of payments includes:<br>
+        <div class="options">
+          (i) Merchandise trade and services<br>
+          (ii) Total of all the visible items of trade<br>
+          (iii) Borrowing<br>
+          (iv) Autonomous and accommodating flow
+        </div>
+        <div class="answer">Answer: (i) Merchandise trade and services</div>
+      </div>
+    </div>
+
+    <div class="section-title">✅ Section 2: Short Answer (2×5 = 10 Marks)</div>
+    <div class="question-section">
+      <div class="question">
+        (a) State two basic principles of SAARC.
+        <div class="answer">
+          Answer:<br>
+          SAARC is based on the principles of sovereign equality and mutual benefit. It promotes regional cooperation and aims to improve the quality of life in South Asia through peace, freedom, and economic growth, without interfering in each other's internal affairs.
+        </div>
+      </div>
+
+      <div class="question">
+        (b) Why do nations trade internationally?
+        <div class="answer">
+          Answer:<br>
+          Nations trade internationally to obtain goods and services they cannot produce efficiently themselves. It helps them access better technology, increase employment, earn foreign exchange, and use resources effectively through specialization and comparative advantage.
+        </div>
+      </div>
+
+      <div class="question">
+        (c) State the meaning of 'tariff' in international business.
+        <div class="answer">
+          Answer:<br>
+          A tariff is a tax or duty imposed by a country on imported goods. It raises the price of foreign products, protecting domestic industries and generating revenue for the government.
+        </div>
+      </div>
+
+      <div class="question">
+        (d) What are the main purposes of Special Economic Zones?
+        <div class="answer">
+          Answer:<br>
+          SEZs aim to attract foreign investment, promote exports, and create jobs by offering tax benefits and advanced infrastructure. They boost industrial growth and support economic development in a country.
+        </div>
+      </div>
+
+      <div class="question">
+        (e) State two objectives of WTO.
+        <div class="answer">
+          Answer:<br>
+          1. To promote free, fair, and predictable trade among nations.<br>
+          2. To resolve trade disputes among member countries through proper procedures and agreements.
+        </div>
+      </div>
+    </div>
+      <div class="section-title">✅ Section 3: Answer any four questions (5×4 = 20 Marks)<br>(Answer in about 150 words each)</div>
+    <div class="question-section">
+      <div class="question">
+        (a) Write a note on green field investment.
+        <div class="answer">
+          Answer:<br>
+          Green field investment is a type of foreign direct investment (FDI) where a company starts a new venture in a foreign country by building new facilities from the ground up. This includes the construction of new factories, offices, and distribution hubs, instead of acquiring existing assets. It gives the investing company full control over operations, hiring, equipment, and business practices.<br><br>
+
+          This method requires large capital investment and more time but provides long-term benefits like full profit retention and better brand presence. For the host country, green field investment creates employment opportunities, improves infrastructure, and brings in advanced technology. It also promotes skill development among local workers. Major global firms often choose this mode when entering developing markets to maintain complete ownership and implement their business standards.
+        </div>
+      </div>
+
+      <div class="question">
+        (b) Explain the objectives of SAARC.
+        <div class="answer">
+          Answer:<br>
+          SAARC (South Asian Association for Regional Cooperation) was established to promote peace, progress, and economic development in the South Asian region. The key objectives of SAARC are:<br><br>
+
+          • To improve the quality of life of the people in South Asia through mutual cooperation.<br>
+          • To promote regional collaboration in economic, social, cultural, technical, and scientific fields.<br>
+          • To strengthen collective self-reliance among South Asian countries.<br>
+          • To contribute to mutual trust, understanding, and appreciation of one another's problems.<br>
+          • To ensure active collaboration and mutual assistance in the areas of common interest.<br>
+          • To cooperate with international and regional organizations with similar aims.<br><br>
+
+          SAARC aims to promote peace and stability in the region by reducing conflicts and promoting joint development programs. It also tries to remove trade barriers and encourages free flow of goods and services among member countries.
+        </div>
+      </div>
+
+      <div class="question">
+        (c) Write a note on the positive impact of globalization.
+        <div class="answer">
+          Answer:<br>
+          Globalization has brought many positive changes to the world economy, especially in developing countries. One major benefit is the increase in international trade, which allows countries to access larger markets and sell more goods and services globally.<br><br>
+
+          It encourages foreign direct investment (FDI), which helps in the development of infrastructure, creates employment, and brings in modern technologies. It has also made it easier for businesses to expand their operations across borders, leading to better competition and improved product quality.<br><br>
+
+          Consumers benefit from globalization through greater product variety, better prices, and improved quality. Culturally, globalization has promoted exchange of ideas, values, and innovations among nations. In education and technology, it has led to international collaboration and advancement.<br><br>
+
+          Overall, globalization promotes economic growth, increases standard of living, and supports international cooperation.
+        </div>
+      </div>
+
+      <div class="question">
+        (d) Distinguish between balance of trade and balance of payments.
+        <div class="answer">
+          Answer:<br>
+          <strong>Balance of Trade (BOT):</strong><br>
+          • It is the difference between a country's exports and imports of goods only.<br>
+          • It is a part of the current account in the balance of payments.<br>
+          • If exports exceed imports, it's a trade surplus; if imports exceed exports, it's a trade deficit.<br><br>
+
+          <strong>Balance of Payments (BOP):</strong><br>
+          • It is a comprehensive record of all economic transactions (goods, services, capital) between a country and the rest of the world.<br>
+          • It includes the current account (trade in goods and services), capital account, and financial account.<br>
+          • It gives a broader picture of a country's financial position.<br><br>
+
+          In simple words, BOT is a narrower term limited to goods trade, while BOP is broader and includes all monetary transactions. BOP must always balance in theory, while BOT may not.
+        </div>
+      </div>
+
+      <div class="question">
+        (e) What are the various sources of trade finance? Explain.
+        <div class="answer">
+          Answer:<br>
+          Trade finance refers to the financial support or instruments used by importers and exporters to facilitate international trade. The main sources of trade finance are:<br><br>
+
+          • <strong>Banks:</strong> They provide export credit, import loans, and letter of credit (LC), which assures payment to the exporter.<br>
+          • <strong>Export Credit Agencies (ECAs):</strong> These are government agencies that offer guarantees, loans, and insurance to exporters.<br>
+          • <strong>Factoring Companies:</strong> They buy the exporter's receivables and give immediate payment.<br>
+          • <strong>Forfaiting:</strong> Involves selling long-term receivables to a forfaiter for upfront cash.<br>
+          • <strong>Trade Credit:</strong> Suppliers give credit to buyers, allowing payment at a future date.<br>
+          • <strong>Multilateral Institutions:</strong> Organizations like World Bank or IMF may assist trade finance, especially in developing nations.<br><br>
+
+          Trade finance ensures liquidity, reduces risk, and builds trust between international buyers and sellers, helping businesses grow globally.
+        </div>
+      </div>
+
+      <div class="question">
+        (f) Explain the benefits of international business.
+        <div class="answer">
+          Answer:<br>
+          International business offers many benefits to companies, countries, and consumers:<br><br>
+
+          • <strong>Larger Market Access:</strong> Companies can expand sales by reaching global customers.<br>
+          • <strong>Profit Maximization:</strong> It helps businesses earn more due to higher demand and pricing in foreign markets.<br>
+          • <strong>Efficient Resource Use:</strong> Countries specialize in products where they have comparative advantage, improving global efficiency.<br>
+          • <strong>Technology Transfer:</strong> Developing countries gain access to new technologies and practices from developed nations.<br>
+          • <strong>Employment Generation:</strong> FDI and multinational operations create jobs in host countries.<br>
+          • <strong>Cultural Exchange:</strong> People get to know different cultures, values, and lifestyles.<br>
+          • <strong>Improved Quality and Competition:</strong> Exposure to global competition improves quality, reduces cost, and fosters innovation.<br><br>
+
+          International business contributes to economic development, builds international relations, and promotes global peace through economic ties.
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title">✅ Section 4: Answer any four questions from the following in about 600 words: (10×4=40)</div>
+    <div class="question-section">
+      <div class="question">
+        <div class="question-header">
+          <span class="question-number"> 1️⃣</span>
+          <span class="question-text">What do you mean by international business? Explain the various modes of entry into international business. (2+8)</span>
+        </div>
+        <div class="answer">
+        <p>International business refers to the exchange of goods, services, technology, capital and knowledge across national borders and at a global or transnational scale. It involves transactions that take place between two or more countries. The main aim of international business is to satisfy the needs and wants of consumers in foreign markets by providing products and services at a competitive price. Companies engage in international business to expand markets, increase profits, acquire resources, reduce risks, and benefit from economies of scale.</p>
+        <p><strong>Modes of Entry into International Business:</strong></p>
+        <p>Firms can enter international markets through various methods. The choice of mode depends on factors such as cost, control, risk, and the nature of products and services.</p>
+        <ol>
+          <li><strong>Exporting:</strong>
+            Exporting is the simplest and most common mode. The company produces goods in its home country and ships them to foreign markets. Direct exporting means selling directly to foreign customers; indirect exporting involves intermediaries.</li>
+          <li><strong>Licensing:</strong>
+            Under licensing, a domestic company (licensor) permits a foreign company (licensee) to use its intellectual property, such as patents, trademarks, or technology, for a fee or royalty. This allows expansion with less investment.</li>
+          <li><strong>Franchising:</strong>
+            Franchising is similar to licensing but more specific to services. The franchisor allows the franchisee to use its business model, brand, and processes in exchange for fees. It is common in fast food chains like McDonald’s.</li>
+          <li><strong>Joint Ventures:</strong>
+            A joint venture is when two or more companies from different countries create a new business entity, sharing ownership, control, and profits. This helps companies access local markets, share risks, and combine strengths.</li>
+          <li><strong>Strategic Alliances:</strong>
+            This is an agreement between companies to cooperate in certain areas, such as research or production, without forming a separate entity. It helps firms gain market access and resources.</li>
+          <li><strong>Turnkey Projects:</strong>
+            In turnkey projects, a company designs, constructs, and equips a plant for a client in another country and hands over the ‘ready-to-operate’ facility to the client. This is common in construction and engineering projects.</li>
+          <li><strong>Wholly Owned Subsidiaries:</strong>
+            This involves setting up or acquiring a fully owned company in a foreign country. It can be done through Greenfield investments (building new facilities) or mergers and acquisitions. This mode provides full control but involves higher costs and risks.</li>
+          <li><strong>Contract Manufacturing:</strong>
+            A company contracts a local manufacturer in the foreign country to produce its products. This helps reduce costs and meet local demand without owning production facilities.</li>
+        </ol>
+        <p><strong>Conclusion:</strong></p>
+        <p>Choosing the right mode of entry is crucial for success in international markets. It depends on factors like cost, control, level of risk, and long-term strategic goals. Firms often use a combination of these modes to benefit from global opportunities.</p>
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="question-header">
+          <span class="question-number"> 2️⃣</span>
+          <span class="question-text">Explain the role of FDI in promoting international business in India.</span>
+        </div>
+        <div class="answer">
+        <p>Foreign Direct Investment (FDI) plays a vital role in boosting international business and economic development in India. FDI refers to investment made by a company or individual in one country into business interests located in another country, typically by acquiring assets or establishing business operations like subsidiaries or joint ventures.</p>
+        <p><strong>Role of FDI in India:</strong></p>
+        <ol>
+          <li><strong>Capital Inflow:</strong>
+            FDI brings much-needed foreign capital into the country. This helps finance development projects, infrastructure, and industrial expansion, leading to economic growth.</li>
+          <li><strong>Employment Generation:</strong>
+            FDI creates direct and indirect employment opportunities. Multinational companies set up factories, offices, and service centers, which generate jobs for skilled and unskilled workers.</li>
+          <li><strong>Transfer of Technology:</strong>
+            One major benefit of FDI is access to advanced technology. Foreign companies introduce modern machinery, production methods, and management practices, enhancing the efficiency of Indian industries.</li>
+          <li><strong>Boost to Exports:</strong>
+            FDI helps expand India’s export capacity by establishing production units that cater to global markets. Many export-oriented units (EOUs) are set up with foreign investment.</li>
+          <li><strong>Development of Infrastructure:</strong>
+            Foreign investors contribute to the development of infrastructure such as roads, ports, power supply, and telecommunications, which are essential for industrial growth.</li>
+          <li><strong>Improved Competitiveness:</strong>
+            FDI brings competition and pushes domestic companies to adopt better practices and improve product quality, leading to increased competitiveness in international markets.</li>
+          <li><strong>Growth of Ancillary Industries:</strong>
+            FDI promotes the development of supporting industries like logistics, packaging, and supply chain management, which further strengthens the business ecosystem.</li>
+          <li><strong>Contribution to Government Revenue:</strong>
+            Companies with FDI contribute to the government through taxes, duties, and licensing fees, increasing public revenue.</li>
+          <li><strong>Regional Development:</strong>
+            FDI promotes balanced regional development by investing in backward or underdeveloped regions, generating jobs and infrastructure there.</li>
+        </ol>
+        <p><strong>FDI in India – Current Scenario:</strong></p>
+        <p>The Indian government has implemented policies to attract more FDI by easing regulations, offering tax incentives, and allowing automatic routes in many sectors like retail, telecom, and defense. ‘Make in India’, ‘Digital India’, and other initiatives have created a favorable environment for foreign investors.</p>
+        <p><strong>Conclusion:</strong></p>
+        <p>FDI plays a pivotal role in integrating India into the global economy. It accelerates growth, promotes industrialization, and brings modern technology and skills. For sustained growth, India needs to ensure investor-friendly policies, political stability, and a transparent regulatory framework.</p>
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="question-header">
+          <span class="question-number"> 3️⃣</span>
+          <span class="question-text">Explain the objectives and functions of WTO.</span>
+        </div>
+        <div class="answer">
+        <p>The World Trade Organization (WTO) is an international organization that deals with the global rules of trade between nations. Established in 1995, the WTO replaced the General Agreement on Tariffs and Trade (GATT). Its main goal is to ensure that international trade flows smoothly, predictably, and freely.</p>
+        <p><strong>Objectives of WTO:</strong></p>
+        <ol>
+          <li><strong>Promote Free Trade:</strong>
+            The WTO aims to remove trade barriers and encourage free and fair trade among member nations.</li>
+          <li><strong>Raise Living Standards:</strong>
+            By promoting trade, the WTO aims to boost economic growth, create employment, and improve people’s living standards worldwide.</li>
+          <li><strong>Ensure Fair Competition:</strong>
+            The WTO sets rules to ensure fair competition and prevent unfair practices like dumping and subsidies.</li>
+          <li><strong>Integrate Developing Countries:</strong>
+            One of the key objectives is to help developing countries integrate into the global trading system by providing technical assistance and special provisions.</li>
+          <li><strong>Settle Trade Disputes:</strong>
+            The WTO provides a platform to resolve disputes between member countries through a well-defined mechanism.</li>
+          <li><strong>Reduce Trade Barriers:</strong>
+            The organization works continuously to negotiate and reduce tariffs and other barriers to trade.</li>
+        </ol>
+        <p><strong>Functions of WTO:</strong></p>
+        <ol>
+          <li><strong>Administer Trade Agreements:</strong>
+            The WTO administers and implements various multilateral trade agreements like GATT, GATS, TRIPS, etc.</li>
+          <li><strong>Forum for Negotiations:</strong>
+            It serves as a forum for trade negotiations and discussions among member countries to revise and update trade rules.</li>
+          <li><strong>Handle Trade Disputes:</strong>
+            The WTO’s Dispute Settlement Body (DSB) plays a crucial role in resolving trade conflicts between member countries impartially.</li>
+          <li><strong>Monitor Trade Policies:</strong>
+            Through Trade Policy Review Mechanism (TPRM), the WTO monitors and analyzes the trade policies and practices of member countries.</li>
+          <li><strong>Technical Assistance and Training:</strong>
+            It provides training, technical support, and capacity-building to developing and least developed countries to help them participate effectively in global trade.</li>
+          <li><strong>Cooperation with Other Organizations:</strong>
+            The WTO cooperates with the International Monetary Fund (IMF) and World Bank to ensure global economic stability.</li>
+          <li><strong>Transparency:</strong>
+            The WTO promotes transparency by requiring member countries to publish their trade policies and regulations.</li>
+        </ol>
+        <p><strong>Conclusion:</strong></p>
+        <p>The WTO plays a vital role in promoting a stable and transparent global trading environment. By setting rules, monitoring compliance, resolving disputes, and supporting developing countries, the WTO ensures that trade contributes to economic growth and development globally.</p>
+        </div>
+      </div>
+    </div>
+    <div class="question">
+  <div class="question-header">
+    <span class="question-number">4️⃣</span>
+    <span class="question-text">What do you mean by product life cycle theory? Explain the defects of product life cycle theory. (3+7)</span>
+  </div>
+  <div class="answer">
+    <p><strong>Meaning:</strong><br>
+    The Product Life Cycle (PLC) Theory explains the stages a product goes through from its introduction to decline. It was developed by Raymond Vernon in the 1960s. The PLC describes how sales of a product grow, peak, and eventually fall as the product becomes outdated or replaced by new innovations.</p>
+
+    <p>According to the theory, a product's life cycle has four stages:</p>
+    <ul>
+      <li><strong>Introduction:</strong> The product is launched; sales are low, costs are high, and profits may be negative.</li>
+      <li><strong>Growth:</strong> Sales increase rapidly as more customers adopt the product.</li>
+      <li><strong>Maturity:</strong> Sales reach a peak and stabilize due to market saturation.</li>
+      <li><strong>Decline:</strong> Sales fall as newer products replace the old one.</li>
+    </ul>
+    <p>The PLC theory helps companies plan production, marketing, and sales strategies at each stage.</p>
+
+    <p><strong>Defects of the Product Life Cycle Theory:</strong></p>
+    <p>While the theory is useful, it has several limitations:</p>
+    <ol>
+      <li><strong>Not Universally Applicable:</strong><br>
+      Not all products follow a clear life cycle. Basic goods like salt or sugar stay in the maturity stage for decades.</li>
+      
+      <li><strong>Difficult to Identify Stages:</strong><br>
+      It is often hard for managers to determine which stage a product is in, making it risky to plan marketing strategies.</li>
+      
+      <li><strong>Ignores External Factors:</strong><br>
+      The theory does not consider economic changes, government policies, or sudden market disruptions that can alter a product's life cycle.</li>
+      
+      <li><strong>No Fixed Duration:</strong><br>
+      The length of each stage is not fixed. Some products have very short life cycles (like fashion items), while others last for decades.</li>
+      
+      <li><strong>Does Not Explain Decline Prevention:</strong><br>
+      The theory assumes that all products will decline. But with innovation and rebranding, companies can extend a product's life.</li>
+      
+      <li><strong>Focus on Developed Countries:</strong><br>
+      The original PLC theory assumes that products are developed in rich countries and later produced in poorer countries, but in today's world, innovation happens globally.</li>
+      
+      <li><strong>Underestimates Brand Power:</strong><br>
+      Strong brands like Coca-Cola can remain in the maturity stage for an indefinite period due to customer loyalty.</li>
+      
+      <li><strong>Oversimplified Model:</strong><br>
+      The real market is more dynamic than the PLC model suggests. Changes in customer taste and technology can reshape a product's path unexpectedly.</li>
+    </ol>
+    <p><strong>Conclusion:</strong><br>
+    The Product Life Cycle Theory is helpful for planning, but managers must use it flexibly, considering market trends and external factors. A successful company continuously improves products to stay relevant in a changing market.</p>
+  </div>
+</div>
+
+<div class="question">
+  <div class="question-header">
+    <span class="question-number">5️⃣</span>
+    <span class="question-text">What are the main objectives of the Special Economic Zone (SEZ)? Discuss the contribution of SEZ in the economic development of a country. (4+6)</span>
+  </div>
+  <div class="answer">
+    <p><strong>Meaning:</strong><br>
+    Special Economic Zones (SEZs) are specially designated areas within a country with business-friendly laws and tax benefits to attract investment, boost exports, and generate jobs.</p>
+
+    <p><strong>Objectives of SEZs:</strong></p>
+    <ol>
+      <li><strong>Promote Exports:</strong><br>
+      SEZs aim to increase exports by offering modern infrastructure, tax exemptions, and fewer regulations.</li>
+      
+      <li><strong>Attract FDI:</strong><br>
+      They attract Foreign Direct Investment by creating a secure and profitable environment for foreign companies.</li>
+      
+      <li><strong>Generate Employment:</strong><br>
+      SEZs create jobs for skilled and unskilled workers, directly and indirectly.</li>
+      
+      <li><strong>Boost Infrastructure:</strong><br>
+      SEZs help develop high-quality infrastructure, which also benefits surrounding regions.</li>
+    </ol>
+
+    <p><strong>Contribution of SEZs to Economic Development:</strong></p>
+    <ol>
+      <li><strong>Industrial Growth:</strong><br>
+      SEZs help grow industries by providing modern facilities and encouraging manufacturing and services.</li>
+      
+      <li><strong>Increase in Exports:</strong><br>
+      They contribute significantly to a country's total exports, helping earn foreign exchange.</li>
+      
+      <li><strong>Job Creation:</strong><br>
+      SEZs create millions of jobs in manufacturing, IT, logistics, and services.</li>
+      
+      <li><strong>Technology Transfer:</strong><br>
+      Foreign companies bring advanced technology and management practices, improving local industries.</li>
+      
+      <li><strong>Balanced Regional Development:</strong><br>
+      SEZs are often built in less developed areas, bringing industries, roads, and other benefits to backward regions.</li>
+      
+      <li><strong>Revenue Generation:</strong><br>
+      Though companies enjoy tax benefits initially, SEZs indirectly increase government income through employment, indirect taxes, and economic growth.</li>
+      
+      <li><strong>Support to Ancillary Industries:</strong><br>
+      SEZs boost supporting sectors like transport, warehousing, and packaging, creating a chain of growth.</li>
+      
+      <li><strong>Global Competitiveness:</strong><br>
+      SEZs help domestic companies compete globally by giving them a business-friendly ecosystem.</li>
+    </ol>
+    <p><strong>Conclusion:</strong><br>
+    SEZs play an important role in a country's economic development by boosting exports, creating jobs, attracting foreign investment, and improving regional infrastructure.</p>
+  </div>
+</div>
+
+<div class="question">
+  <div class="question-header">
+    <span class="question-number">6️⃣</span>
+    <span class="question-text">Discuss the various reasons for implementing tariffs in international business.</span>
+  </div>
+  <div class="answer">
+    <p>A tariff is a tax imposed by a country's government on imported goods and services. Countries use tariffs to regulate trade, protect local industries, and earn revenue.</p>
+
+    <p><strong>Reasons for Implementing Tariffs:</strong></p>
+    <ol>
+      <li><strong>Protect Domestic Industries:</strong><br>
+      Tariffs make imported goods more expensive, so local industries can compete with cheaper foreign products.</li>
+      
+      <li><strong>Support Infant Industries:</strong><br>
+      Developing countries use tariffs to protect new industries until they are strong enough to compete globally.</li>
+      
+      <li><strong>Generate Revenue:</strong><br>
+      Tariffs are an important source of government income, especially for developing countries with limited tax systems.</li>
+      
+      <li><strong>Correct Balance of Payments:</strong><br>
+      By making imports expensive, tariffs reduce excessive foreign spending and help maintain a healthy balance of payments.</li>
+      
+      <li><strong>National Security:</strong><br>
+      Tariffs protect industries vital for national security, like defense or food production.</li>
+      
+      <li><strong>Prevent Dumping:</strong><br>
+      Tariffs stop foreign companies from selling goods at very low prices to destroy local businesses.</li>
+      
+      <li><strong>Retaliatory Measure:</strong><br>
+      Countries may impose tariffs in response to unfair trade barriers imposed by other countries.</li>
+      
+      <li><strong>Political Reasons:</strong><br>
+      Governments use tariffs to influence other nations' trade practices or policies.</li>
+      
+      <li><strong>Health and Environment Protection:</strong><br>
+      Tariffs can restrict imports that harm the environment or public health.</li>
+      
+      <li><strong>Encourage Local Production:</strong><br>
+      By raising import costs, tariffs motivate companies to produce goods locally, adding value to the domestic economy.</li>
+    </ol>
+    <p><strong>Conclusion:</strong><br>
+    Tariffs help countries protect local jobs and industries, raise funds for development, and safeguard economic interests. However, excessive tariffs can lead to trade wars and higher prices for consumers, so governments must use them carefully.</p>
+  </div>
+</div>
+<div class="question">
+  <div class="question-header">
+    <span class="question-number">7️⃣</span>
+    <span class="question-text">What are the objectives of the World Bank? How has it assisted developing countries? (4+6)</span>
+  </div>
+  <div class="answer">
+    <p>The World Bank is an international financial institution that provides loans, grants, and technical assistance to developing countries to support their economic development and reduce poverty. It was established in 1944 and is headquartered in Washington, D.C. The World Bank consists of five institutions, with the International Bank for Reconstruction and Development (IBRD) and the International Development Association (IDA) being the most prominent.</p>
+
+    <p><strong>Objectives of the World Bank:</strong><br>
+    The main objectives of the World Bank are:</p>
+    <ol>
+      <li>To help in the reconstruction and development of member countries by providing financial assistance for productive purposes.</li>
+      <li>To promote balanced growth of international trade and maintain equilibrium in balance of payments by encouraging capital investment.</li>
+      <li>To reduce poverty by supporting projects that create economic opportunities, infrastructure, and jobs.</li>
+      <li>To promote long-term economic development and improved living standards through financing sustainable development projects.</li>
+    </ol>
+
+    <p><strong>Assistance to Developing Countries:</strong><br>
+    The World Bank assists developing countries in various ways:</p>
+    <ol>
+      <li><strong>Financial Assistance:</strong><br>
+      The World Bank provides loans at low interest rates and grants to finance projects such as roads, schools, hospitals, and energy plants. This helps countries build infrastructure and support essential services.</li>
+      
+      <li><strong>Technical Assistance:</strong><br>
+      Besides funding, the World Bank offers technical expertise and knowledge sharing. It provides advice on project planning, implementation, governance, and policy reforms.</li>
+      
+      <li><strong>Human Development:</strong><br>
+      The World Bank supports projects that focus on improving health care, education, and skill development. This enhances the productivity and quality of life of people in developing nations.</li>
+      
+      <li><strong>Poverty Reduction Programs:</strong><br>
+      Many World Bank projects directly target poverty alleviation through rural development, agriculture, microfinance, and support for small businesses.</li>
+      
+      <li><strong>Crisis Response:</strong><br>
+      During economic crises, natural disasters, or health emergencies, the World Bank provides immediate financial support and recovery assistance. For example, it funded relief efforts during the COVID-19 pandemic.</li>
+      
+      <li><strong>Environmental Protection:</strong><br>
+      The World Bank emphasizes sustainable development by financing projects that promote renewable energy, climate change mitigation, and natural resource management.</li>
+      
+      <li><strong>Capacity Building:</strong><br>
+      It trains government officials and helps strengthen institutions to ensure effective governance and policy implementation.</li>
+      
+      <li><strong>Support for Private Sector:</strong><br>
+      The World Bank supports the private sector through its International Finance Corporation (IFC), which invests in businesses, promotes entrepreneurship, and encourages foreign investment.</li>
+    </ol>
+    <p><strong>Conclusion:</strong><br>
+    Through its financial support, technical assistance, and policy advice, the World Bank plays a vital role in helping developing countries grow sustainably, reduce poverty, and improve the living standards of their people.</p>
+  </div>
+</div>
+
+<div class="question">
+  <div class="question-header">
+    <span class="question-number">8️⃣</span>
+    <span class="question-text">Explain the role of information technology in international business.</span>
+  </div>
+  <div class="answer">
+    <p>Information Technology (IT) plays a significant role in the growth and smooth functioning of international business. IT refers to the use of computers, telecommunications, software, and networks to store, process, and share information. In today's globalized world, businesses rely heavily on IT to manage operations, communicate with partners, and reach customers worldwide.</p>
+
+    <p><strong>Role of Information Technology in International Business:</strong></p>
+    <ol>
+      <li><strong>Improved Communication:</strong><br>
+      IT enables instant communication between businesses, customers, suppliers, and partners across the globe through emails, video calls, and messaging platforms. This reduces delays and increases efficiency.</li>
+      
+      <li><strong>Efficient Management:</strong><br>
+      Businesses use IT systems for planning, monitoring, and controlling operations. Enterprise Resource Planning (ERP) software helps manage inventory, production, finance, and human resources effectively.</li>
+      
+      <li><strong>E-Commerce:</strong><br>
+      Information technology has made online buying and selling possible. Companies can showcase products, accept orders, and receive payments online, allowing them to reach international markets easily.</li>
+      
+      <li><strong>Market Research and Analysis:</strong><br>
+      Companies use IT tools to collect and analyze market data. They can study customer preferences, monitor competitors, and forecast demand accurately, helping them make informed decisions.</li>
+      
+      <li><strong>Cost Reduction:</strong><br>
+      IT reduces operational costs by automating routine tasks and minimizing paperwork. Digital transactions and online communications cut expenses related to travel and logistics.</li>
+      
+      <li><strong>Global Supply Chain Management:</strong><br>
+      IT enables businesses to manage complex global supply chains. Companies track shipments, monitor inventory levels, and coordinate with suppliers worldwide in real time.</li>
+      
+      <li><strong>Product Development and Innovation:</strong><br>
+      IT supports research and development activities. Companies can design products using advanced software, collaborate with international teams, and bring innovative products to market faster.</li>
+      
+      <li><strong>Customer Relationship Management (CRM):</strong><br>
+      Companies use CRM systems to manage customer data, address queries, and provide better after-sales service. This builds trust and loyalty among global customers.</li>
+      
+      <li><strong>Security and Data Management:</strong><br>
+      IT ensures secure storage and transfer of sensitive business data through encryption, firewalls, and cybersecurity measures, protecting businesses from threats.</li>
+      
+      <li><strong>Remote Work and Virtual Teams:</strong><br>
+      IT tools make remote work possible, allowing companies to hire talent from different countries. Virtual teams collaborate online, reducing the need for physical offices.</li>
+    </ol>
+    <p><strong>Conclusion:</strong><br>
+    Information technology has transformed international business by breaking geographical barriers and enabling businesses to operate globally with ease. It has made communication faster, operations more efficient, and markets more accessible, helping companies remain competitive in the global marketplace.</p>
+  </div>
+
+  <!-- ✅ Download Question Paper Button (Bottom) -->
+<div style="text-align: center; margin: 40px 0;">
+  <a href="GU_BCom6thSem_InternationalBusiness_2025.pdf" target="_blank" style="
+    display: inline-block;
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #0050b3, #00bfff);
+    color: white;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0, 80, 179, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  ">
+    <span style="position: relative; z-index: 1;">
+      <svg style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+      </svg>
+      Download Question Paper
+    </span>
+    <span style="
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: 0.5s;
+    "></span>
+  </a>
+</div>
+
+  <div class="footer">
+    <div class="footer-logo">
+      <svg viewBox="0 0 320 80" xmlns="http://www.w3.org/2000/svg">
+        <style>
+          .main { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 32px; fill: #0050b3; }
+          .highlight { fill: #00bfff; }
+          .dot { fill: #00bfff; }
+          .slogan { font-family: 'Poppins', sans-serif; font-weight: 400; font-size: 14px; fill: #666666; letter-spacing: 0.5px; }
+        </style>
+        <text x="0" y="40" class="main">rsplatform</text>
+        <circle cx="188" cy="27" r="4" class="dot">
+          <animate attributeName="opacity" values="1;0.5;1" dur="3s" repeatCount="indefinite"/>
+        </circle>
+        <text x="195" y="40" class="main highlight">site</text>
+        <text x="0" y="70" class="slogan">Where Preparation Meets Success.</text>
+      </svg>
+    </div>
+    
+    <div class="footer-links">
+  <a href="../index.html">Home</a>
+  <a href="#">Solved Papers</a>
+  <a href="#">About Us</a>
+  <a href="../contact.html">Contact</a>
+</div>
+
+    
+    <div class="copyright">
+      © 2025 rsplatform.site | All Rights Reserved
+    </div>
+  </div>
+</body>
+</html>
