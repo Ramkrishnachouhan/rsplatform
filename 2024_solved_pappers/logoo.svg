@@ -1,0 +1,37 @@
+<svg width="320" height="80" viewBox="0 0 320 80" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .main {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 700;
+      font-size: 32px;
+      fill: #0050b3;
+    }
+    .highlight {
+      fill: #00bfff;
+    }
+    .dot {
+      fill: #00bfff;
+    }
+    .slogan {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      fill: #666666;
+      letter-spacing: 0.5px;
+    }
+  </style>
+
+  <!-- Brand text: rsplatform -->
+  <text x="0" y="40" class="main">rsplatform</text>
+
+  <!-- Animated dot for .site -->
+  <circle cx="188" cy="27" r="4" class="dot">
+    <animate attributeName="opacity" values="1;0.5;1" dur="3s" repeatCount="indefinite" />
+  </circle>
+
+  <!-- Highlighted "site" -->
+  <text x="195" y="40" class="main highlight">site</text>
+
+  <!-- Tagline -->
+  <text x="0" y="70" class="slogan">Where Preparation Meets Success.</text>
+</svg>
