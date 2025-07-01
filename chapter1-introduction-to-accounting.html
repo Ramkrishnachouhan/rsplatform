@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
-
-
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <meta name="description" content="Learn the basics of accounting with Chapter 1: Introduction to Accounting. Understand key terms, history, objectives, and users of accounting information.">
     <meta name="keywords" content="Accounting, Introduction to Accounting, Financial Accounting, RSPlatform, Class 11, Bookkeeping, Luca Pacioli, Chanakya, Arthashastra">
@@ -13,109 +10,210 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Chapter 1: Introduction to Accounting | RSPlatform</title>
     <style>
-      body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f4f4f4;
-        color: #333;
-      }
-    
-      header {
-        background-color: #4CAF50;
-        color: white;
-        padding: 20px 0;
-        text-align: center;
-      }
-    
-      nav {
-        background-color: #333;
-        overflow: hidden;
-      }
-    
-      nav a {
-        float: left;
-        display: block;
-        color: #f2f2f2;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
-      }
-    
-      nav a:hover {
-        background-color: #ddd;
-        color: black;
-      }
-    
-      main {
-        padding: 20px;
-      }
-    
-      section {
-        margin-bottom: 40px;
-        background-color: white;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      }
-    
-      h2 {
-        color: #4CAF50;
-      }
-    
-      ul {
-        list-style-type: disc;
-        padding-left: 20px;
-      }
-    
-      footer {
-        background-color: #333;
-        color: white;
-        text-align: center;
-        padding: 10px 0;
-        position: fixed;
-        width: 100%;
-        bottom: 0;
-      }
-    
-      @media (max-width: 600px) {
-        nav a {
-          float: none;
-          display: block;
-          text-align: left;
-        }
-    
-        section {
-          padding: 15px;
-        }
-      }
-    
-      .back-button {
-        display: inline-block;
-        padding: 10px 15px;
-        margin: 10px;
-        background-color: #555;
-        color: white;
-        text-decoration: none;
-        border-radius: 5px;
-      }
-    
-      .back-button:hover {
-        background-color: #777;
-      }
-    
-      .box {
-        border: 1px solid #ccc;
-        padding: 15px;
-        margin-top: 10px;
-        border-radius: 5px;
-        background-color: #f9f9f9;
-      }
-    </style>
+        /* Existing CSS styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
 
+header {
+    background-color: #4CAF50;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+}
+
+nav {
+    background-color: #333;
+    overflow: hidden;
+}
+
+nav a {
+    float: left;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    background-color: #ddd;
+    color: black;
+}
+
+main {
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 40px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #4CAF50;
+}
+
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+@media (max-width: 600px) {
+    nav a {
+        float: none;
+        display: block;
+        text-align: left;
+    }
+
+    section {
+        padding: 15px;
+    }
+}
+
+.back-button {
+    display: inline-block;
+    padding: 10px 15px;
+    margin: 10px;
+    background-color: #555;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.back-button:hover {
+    background-color: #777;
+}
+
+.box {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+/* Loader Specific CSS */
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(249, 249, 249, 0.95); /* Semi-transparent white */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000; /* Ensures it appears above all content */
+    transition: opacity 0.3s ease; /* Smooth fade-out */
+    backdrop-filter: blur(2px); /* Optional: Adds a slight blur to content behind */
+}
+
+#loader.fade-out {
+    opacity: 0;
+    pointer-events: none; /* Prevents interaction while fading */
+}
+
+#loader video {
+    width: 150px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for the video */
+}
+
+/* Fallback spinner (CSS animation) */
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(62, 33, 76, 0.1);
+    /* If you have --primary-color defined: */
+    /* border-top: 4px solid var(--primary-color, #4CAF50); */ 
+    /* Otherwise, use a fixed color: */
+    border-top: 4px solid #4CAF50; /* Example: Green color to match header */
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    display: none; /* Hidden by default */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+    </style>
 </head>
 <body>
-  
+    <div id="loader" aria-live="polite">
+        <video id="loader-video" autoplay loop muted playsinline>
+            <source src="Bookshelf Loader.webm" type="video/webm"> <source src="Bookshelf Loader.mp4" type="video/mp4">
+            <div class="spinner" role="status" aria-label="Loading content"></div> </video>
+        <p>Loading your study materials...</p>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+  const loader = document.getElementById('loader');
+  const video = document.getElementById('loader-video');
+  const spinner = document.querySelector('.spinner');
+  const loadingMessage = document.querySelector('#loader p');
+
+  // Fallback for video loading errors
+  video.onerror = function() {
+    console.warn('Loader video failed to load. Showing spinner fallback.');
+    video.style.display = 'none';
+    spinner.style.display = 'block';
+    loadingMessage.textContent = 'Loading content...';
+  };
+
+  // Function to hide the loader with a fade-out effect
+  function hideLoader() {
+    if (loader) { // Ensure loader element exists
+      loader.classList.add('fade-out');
+      // After the fade-out transition, completely hide the loader
+      setTimeout(() => {
+        if (loader) {
+          loader.style.display = 'none';
+          // Remove the loader from the DOM to free up resources if desired
+          // loader.remove(); 
+        }
+      }, 300); // Matches the CSS transition duration
+    }
+  }
+
+  // Primary loading trigger: Hide loader when all page resources are loaded
+  window.addEventListener('load', function() {
+    console.log('All page resources loaded. Hiding loader.');
+    hideLoader();
+  });
+
+  // Fallback timeout: Hide loader after a maximum duration
+  // This prevents the loader from getting stuck if 'load' event doesn't fire
+  // (e.g., due to a broken script or external resource)
+  setTimeout(() => {
+    if (loader && loader.style.display !== 'none') {
+      console.warn('Loader timeout reached. Hiding loader as a fallback.');
+      hideLoader();
+    }
+  }, 5000); // Loader will hide after 5 seconds if 'load' event hasn't fired
+});
+    </script>
 
 <a href="financial-accounting-syllabus.html" class="back-button">← Back to Syllabus</a>
 
