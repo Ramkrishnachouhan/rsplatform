@@ -1,94 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "CollectionPage",
-      "name": "IBO-02 Chapters",
-      "description": "Explore individual units of IBO-02 for M.Com IGNOU including International Marketing concepts.",
-      "url": "https://ramkrishnachouhan.github.io/rsplatform/chapter.html",
-      "hasPart": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Unit 1: Introduction to International Marketing"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Unit 2: International Marketing Orientation and Involvement"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "Unit 3: Analysing International Marketing Environment"
-        }
-      ]
-    }
-    </script>
-    
-    <link rel="canonical" href="https://rsplatform.site/">
-
-
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="canonical" href="https://rsplatform.site/">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>IBO-02 Chapters | RSPlatform</title>
-  <link rel="stylesheet" href="styles.css"> <!-- if you're using a CSS file -->
+  <link rel="stylesheet" href="style.css">
   <style>
+    /* Layout structure */
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f9fdfb;
-      padding: 30px;
-      text-align: center;
-    }
-
-    h1 {
-      color: #2b9348;
-      margin-bottom: 20px;
-    }
-
-    .chapter-list {
-      max-width: 700px;
-      margin: auto;
       display: flex;
       flex-direction: column;
-      gap: 15px;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f9f9;
     }
-
-    .chapter-button {
-      padding: 15px 25px;
-      background-color: #a6f1a6;
-      color: #1a421a;
-      border: none;
-      border-radius: 10px;
-      text-align: left;
-      font-size: 16px;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    
+    main {
+      flex: 1;
+      padding-bottom: 20px; /* Space before footer */
     }
-
-    .chapter-button:hover {
-      background-color: #90e290;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+    
+    /* Loader styles */
+    #loader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(249, 249, 249, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.3s ease;
+    }
+    
+    #loader.fade-out {
+      opacity: 0;
+    }
+    
+    #loader video {
+      width: 120px;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(62, 33, 76, 0.2);
+    }
+    
+    /* Spinner fallback */
+    .spinner {
+      width: 30px;
+      height: 30px;
+      border: 3px solid rgba(62, 33, 76, 0.1);
+      border-top: 3px solid #3e214c;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      display: none;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    /* Content styles */
+    header {
+      background-color: #3e214c;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+    }
+    
+    .chapter-list {
+      max-width: 800px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+    
+    .chapter-item {
+      background-color: white;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      padding: 20px;
+      transition: transform 0.2s;
+    }
+    
+    .chapter-item:hover {
+      transform: translateY(-4px);
+    }
+    
+    .chapter-item a {
+      text-decoration: none;
+      color: #3e214c;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    
+    /* Footer at bottom */
+    footer {
+      background-color: #3e214c;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+      margin-top: auto; /* Pushes footer to bottom */
+    }
+    
+    footer a {
+      color: #fff;
+      text-decoration: underline;
+      margin: 0 5px;
+    }
+    
+    footer p {
+      margin: 5px 0;
     }
   </style>
 </head>
 <body>
 
-  <h1>📘 IBO-02 Chapters</h1>
-
-  <div class="chapter-list">
-    <button class="chapter-button" onclick="location.href='notes.html'">
-        Unit 1: Introduction to International Marketing
-      </button>
-      
-    <button class="chapter-button">Unit 2: International Marketing Orientation and Involvement</button>
-    <button class="chapter-button">Unit 3: Analysing International Marketing Environment</button>
-    
+  <!-- Loader -->
+  <div id="loader">
+    <video id="loader-video" autoplay loop muted playsinline>
+      <source src="Bookshelf Loader.mp4" type="video/mp4">
+      <div class="spinner" style="display: block;"></div>
+    </video>
   </div>
+
+  <!-- Main Content -->
+  <header>
+    <h1>M.Com IGNOU IBO-02 Chapters</h1>
+  </header>
+
+  <main>
+    <section class="chapter-list">
+      <div class="chapter-item">
+        <a href="notes.html">Unit 1: Introduction to International Marketing</a>
+      </div>
+      <div class="chapter-item">
+        <a href="notes2.html">Unit 2: International Marketing Orientation and Involvement</a>
+      </div>
+      <div class="chapter-item">
+        <a href="notes3.html">Unit 3: Analysing International Marketing Environment</a>
+      </div>
+      <div class="chapter-item">
+        <a href="notes4.html">Unit 4: Import Policies and Regulations</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer (now properly at bottom) -->
+  <footer>
+    <p>© 2025 RSPlatform.com | All rights reserved</p>
+    <p>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="terms.html">Terms & Conditions</a>
+      <a href="refund.html">Refund Policy</a>
+      <a href="shipping.html">Shipping Policy</a>
+      <a href="contact.html">Contact Us</a>
+    </p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const loader = document.getElementById('loader');
+      const video = document.getElementById('loader-video');
+      
+      video.onerror = function() {
+        document.querySelector('.spinner').style.display = 'block';
+        video.style.display = 'none';
+      };
+      
+      window.addEventListener('load', function() {
+        loader.classList.add('fade-out');
+        setTimeout(() => loader.style.display = 'none', 300);
+      });
+      
+      setTimeout(() => {
+        if (loader.style.display !== 'none') {
+          loader.style.display = 'none';
+        }
+      }, 3000);
+    });
+  </script>
 
 </body>
 </html>
