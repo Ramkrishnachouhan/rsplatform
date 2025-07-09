@@ -3,8 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <title>Download Your PDF</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <style>
     body {
       text-align: center;
@@ -21,50 +19,28 @@
       font-size: 16px;
       font-weight: bold;
     }
+    button:hover {
+      background: #E64A19;
+    }
   </style>
 </head>
 <body>
+
   <h2>✅ Payment Successful!</h2>
-  <p>Thank you for your payment. Click below to download your PDF.</p>
+  <p>Thank you for your payment. Click the button below to download your PDF.</p>
+
   <button id="downloadPDF">Download Question Paper PDF</button>
 
   <script>
-    document.getElementById('downloadPDF').addEventListener('click', function() {
-      const { jsPDF } = window.jspdf;
-      const doc = new jsPDF('p', 'pt', 'a4');
-      const element = document.body;
-
-      const paidWatermark = document.createElement('div');
-      paidWatermark.innerHTML = 'PAID CONTENT - rsplatform.site';
-      paidWatermark.style.position = 'fixed';
-      paidWatermark.style.top = '50%';
-      paidWatermark.style.left = '50%';
-      paidWatermark.style.transform = 'translate(-50%, -50%) rotate(-45deg)';
-      paidWatermark.style.fontSize = '50px';
-      paidWatermark.style.color = 'rgba(255,0,0,0.1)';
-      paidWatermark.style.zIndex = '9999';
-      document.body.appendChild(paidWatermark);
-
-      html2canvas(element, {
-        scale: 2,
-        logging: false,
-        useCORS: true,
-        allowTaint: true
-      }).then(canvas => {
-        document.body.removeChild(paidWatermark);
-
-        const imgData = canvas.toDataURL('image/png');
-        const imgWidth = doc.internal.pageSize.getWidth() - 40;
-        const imgHeight = (canvas.height * imgWidth) / canvas.width;
-
-        doc.addImage(imgData, 'PNG', 20, 20, imgWidth, imgHeight);
-        doc.setFontSize(10);
-        doc.setTextColor(100);
-        doc.text('Purchased from rsplatform.site - ₹1', 40, doc.internal.pageSize.getHeight() - 20);
-        doc.save('Consumer_Affairs_Question_Paper_Premium.pdf');
-        alert('Thank you for your purchase! Your PDF is downloading.');
-      });
+    document.getElementById('downloadPDF').addEventListener('click', function () {
+      const link = document.createElement('a');
+      link.href = 'Consumer_Affairs_Question_Paper_Premium.pdf'; // Must match your uploaded file name
+      link.download = 'Consumer_Affairs_Question_Paper_Premium.pdf';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
     });
   </script>
+
 </body>
 </html>
