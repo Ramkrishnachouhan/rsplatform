@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Consumer Affairs and Customer Care Question Paper</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      line-height: 1.6;
+      position: relative;
+    }
+    h1, h2, .center {
+      text-align: center;
+    }
+    .section {
+      margin-bottom: 30px;
+    }
+    .watermark {
+      position: fixed;
+      font-size: 60px;
+      color: rgba(0, 0, 0, 0.1);
+      z-index: -1;
+      pointer-events: none;
+      user-select: none;
+      transform: rotate(-30deg);
+    }
+    .watermark1 { top: 10%; left: 20%; }
+    .watermark2 { top: 50%; left: 80%; transform: translate(-50%, -50%) rotate(-30deg); }
+    .watermark3 { top: 40%; right: 60%; }
+    .watermark4 { bottom: 40%; left: 50%; }
+
+    #paymentContainer {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+
+    #customPayBtn {
+      padding: 12px 24px;
+      background-color: #FF5722;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    #customPayBtn:hover {
+      background-color: #E64A19;
+    }
+
+    .price-tag {
+      font-size: 14px;
+      margin-left: 5px;
+      opacity: 0.9;
+    }
+
+    .success-message {
+      display: none;
+      background: #4CAF50;
+      color: white;
+      padding: 10px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    #downloadBtn {
+      padding: 12px 24px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+      font-weight: bold;
+      display: none; /* Hidden by default */
+    }
+
+    #downloadBtn:hover {
+      background-color: #43A047;
+    }
+
+    .affiliate-note {
+      margin-top: 50px; /* Space above the note */
+      padding: 15px;
+      background-color: #fffbe6; /* Light yellow background */
+      border: 1px solid #ffe58f; /* Border color */
+      border-radius: 8px;
+      text-align: center;
+      font-size: 16px;
+      color: #333;
+    }
+
+    .affiliate-note strong {
+        color: #FF5722;
+    }
+
+    .affiliate-note a {
+      color: #007bff; /* Link color */
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .affiliate-note a:hover {
+      text-decoration: underline;
+    }
+  </style>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+</head>
+<body>
+
+  <div id="paymentContainer">
+    <div class="success-message" id="successMessage">
+      ✅ Payment Successful! Click below to download your PDF.
+    </div>
+    <button id="downloadBtn">Download PDF</button>
+
+    <button id="customPayBtn">Buy & Download PDF <span class="price-tag">just ₹1</span></button>
+  </div>
+
+  <div class="watermark watermark1">rsplatform.site</div>
+  <div class="watermark watermark2">rsplatform.site</div>
+  <div class="watermark watermark3">rsplatform.site</div>
+  <div class="watermark watermark4">rsplatform.site</div>
+
+  <h2>Total number of printed pages: 8</h2>
+  <h3>4 (Sem-6/CBCS) HE2 (CACC)</h3>
+  <h1>2024</h1>
+  <h2>COMMERCE<br>(Honours Elective)<br>Paper: COM-HE-6026<br>(Consumer Affairs and Customer Care)</h2>
+  <h3 class="center">Full Marks: 80<br>Time: Three Hours</h3>
+  <p class="center">The figures in the margin indicate full marks for the questions.<br>Answer either in English or in Assamese.</p>
+<h3>1. Answer the following questions: (1×10=10)</h3>
+<ol type="a">
+<li>There is freedom of ______ in the market. (Fill in the blank)</li>
+<li>Customer dissatisfaction happens when purchased products or services fall beyond their _______. (Fill in the blank)</li>
+<li>Write the full form of DCDRF.</li>
+<li>What creates a uniform price policy throughout the country?</li>
+<li>Which date is observed as World Consumer Rights Day?</li>
+<li>COPRA is related to:<br>(i) Environment-friendly products<br>(ii) Organic products<br>(iii) Protection of Consumer Rights<br>(iv) Child Rights (Choose the correct option)</li>
+<li>Which of the following certificates is required for jewellers in the market?<br>(i) FPO mark<br>(ii) BIS Hallmark<br>(iii) AGMARK<br>(iv) None of the above (Choose the correct option)</li>
+<li>Who issues the ISI mark in India?<br>(i) Food Safety and Standards Authority of India<br>(ii) National Standard Organisation of India<br>(iii) Bureau of Indian Standards<br>(iv) Both (ii) and (iii) (Choose the correct option)</li>
+<li>Which of the following is not related to the right to choose under the Consumer Protection Act?<br>(i) Right to select only specific products or services<br>(ii) Right to access a variety of products or services<br>(iii) Right to be assured of satisfactory quality<br>(iv) None of the above (Choose the correct option)</li>
+<li>The Central Consumer Protection Authority is a Regulatory Body. (True/False)</li>
+</ol>
+</div>
+
+<div class="section">
+<h3>2. Answer the following questions in about 50 words each: (2×5=10)</h3>
+<ol type="a">
+<li>What is service?</li>
+<li>State two distinctions between wholesale price and retail price.</li>
+<li>What is Pecuniary Jurisdiction?</li>
+<li>State two grounds for deficiency in service for complaint registration.</li>
+<li>Define MRP (Maximum Retail Price).</li>
+</ol>
+</div>
+
+<div class="section">
+<h3>3. Answer any four questions from the following in about 150 words each: (5×4=20)</h3>
+<ol type="a">
+<li>What alternatives are available to dissatisfied consumers?</li>
+<li>Write a note on consumer complaining behaviour.</li>
+<li>How can mediation help in resolving consumer disputes?</li>
+<li>Discuss recent developments in Citizen Charter for consumer protection in India.</li>
+<li>Briefly explain provisions for penalties against unfair trade practices.</li>
+<li>How are consumer complaints handled in the telecom sector?</li>
+</ol>
+</div>
+
+<div class="section">
+<h3>4. Answer any four questions from the following in about 600 words each: (10×4=40)</h3>
+<ol type="a">
+<li>Explain the various forms of market structures, their merits and demerits.<br><strong>Or</strong><br>Briefly outline the recent developments in consumer protection in India.</li>
+<li>Explain the corporate and public redressal systems.<br><strong>Or</strong><br>Describe the advisory and adjudicatory bodies under the Consumer Protection Act.</li>
+<li>Discuss the composition, jurisdiction, and powers of the National Consumer Dispute Redressal Commission.<br><strong>Or</strong><br>Highlight the salient features of the Consumer Protection Act, 2019.</li>
+<li>Explain the BIS Hallmarking Scheme and its benefits for customers and society.<br><strong>Or</strong><br>Discuss the functions of the State Electricity Regulatory Commission in redressing consumer grievances.</li>
+</ol>
+</div>
+
+  <div class="affiliate-note">
+    💡 <strong>Tip:</strong> Use <span style="color:#FF5722;font-weight:bold;">POP UPI</span> to earn cashback from ₹1 to ₹10.
+    Minimum transaction ₹19.
+    <a href="https://play.google.com/store/apps/details?id=com.popclub.android&hl=en_IN" target="_blank">Download App</a>
+  </div>
+
+  <h3 class="center">End of the Question Paper</h3>
+
+  <script>
+    // ✅ Your Razorpay Live Key ID
+    const RAZORPAY_KEY_ID = 'rzp_live_6iyIfVHvJeZ0VA';
+
+    document.getElementById('customPayBtn').addEventListener('click', function() {
+      // Define your payment options
+      var options = {
+        key: RAZORPAY_KEY_ID, // Your Live Key ID
+        amount: "100", // Amount in paise (e.g., 100 paise = ₹1)
+        currency: "INR",
+        name: "rsplatform.site",
+        description: "Consumer Affairs Question Paper",
+        image: "https://razorpay.com/assets/razorpay-logo.svg", // You can replace with your actual logo URL
+        handler: function (response){
+          // This function is called when payment is successful
+          console.log("Payment successful:", response);
+
+          // Show success message and download button
+          document.getElementById('successMessage').style.display = 'block';
+          document.getElementById('downloadBtn').style.display = 'inline-block';
+          document.getElementById('customPayBtn').style.display = 'none';
+
+          // For production, you should send response.razorpay_payment_id to your server
+          // to verify the payment on the backend for security purposes.
+          // Example (conceptual):
+          // fetch('/verify-payment', {
+          //   method: 'POST',
+          //   headers: { 'Content-Type': 'application/json' },
+          //   body: JSON.stringify({ paymentId: response.razorpay_payment_id })
+          // }).then(res => res.json()).then(data => {
+          //   if (data.verified) {
+          //     // Allow download
+          //   } else {
+          //     alert('Payment verification failed.');
+          //   }
+          // });
+        },
+        prefill: {
+          name: "Customer Name", // Optional: prefill customer name for convenience
+          email: "customer@example.com", // Optional: prefill customer email
+          contact: "9876543210" // Optional: prefill customer phone number
+        },
+        notes: {
+          purpose: "Question Paper Download"
+        },
+        theme: {
+          color: "#FF5722" // Your theme color for the checkout form
+        }
+      };
+
+      var rzp1 = new Razorpay(options);
+      rzp1.on('razorpay.payment.failed', function (response){
+        alert("Payment failed: " + response.error.description + ". Please try again. Error Code: " + response.error.code);
+        console.error("Payment failed details:", response.error);
+      });
+
+      rzp1.open(); // Open the Razorpay checkout form
+    });
+
+    // This part handles displaying the download button if redirected from a successful payment (e.g., from a backend)
+    // It checks for 'payment_id' or 'razorpay_payment_id' in the URL query string.
+    if (window.location.search.includes('payment_id') || window.location.search.includes('razorpay_payment_id')) {
+        document.getElementById('successMessage').style.display = 'block';
+        document.getElementById('downloadBtn').style.display = 'inline-block';
+        document.getElementById('customPayBtn').style.display = 'none';
+    }
+
+    document.getElementById('downloadBtn').addEventListener('click', generatePDF);
+
+    function generatePDF() {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF('p', 'pt', 'a4');
+
+      // Clone the body to capture only the content, excluding dynamic elements like the payment button
+      const contentToPrint = document.body.cloneNode(true);
+
+      // Remove the payment container from the cloned content so it's not included in the PDF
+      const paymentContainer = contentToPrint.querySelector('#paymentContainer');
+      if (paymentContainer) {
+        paymentContainer.remove();
+      }
+      // Remove the watermarks from the cloned content if they were part of the html2canvas capture area
+      const existingWatermarks = contentToPrint.querySelectorAll('.watermark');
+      existingWatermarks.forEach(wm => wm.remove());
+
+      // Also remove the affiliate note from the cloned content so it doesn't appear in the PDF
+      const affiliateNote = contentToPrint.querySelector('.affiliate-note');
+      if (affiliateNote) {
+        affiliateNote.remove();
+      }
+
+
+      html2canvas(contentToPrint, { // Use the cloned content for capturing
+        scale: 2, // Higher scale for better quality PDF
+        logging: false, // Set to true for debugging html2canvas issues
+        useCORS: true, // Important if your images/resources are from different origins
+        windowWidth: document.documentElement.scrollWidth,
+        windowHeight: document.documentElement.scrollHeight,
+      }).then(canvas => {
+        const imgData = canvas.toDataURL('image/png');
+        const imgWidth = doc.internal.pageSize.getWidth() - 40; // Subtract margins
+        const imgHeight = (canvas.height * imgWidth) / canvas.width;
+
+        let heightLeft = imgHeight;
+        let position = 20; // Initial Y position for content
+
+        // Add the first page
+        doc.addImage(imgData, 'PNG', 20, position, imgWidth, imgHeight);
+        heightLeft -= (doc.internal.pageSize.getHeight() - position); // Account for content already on first page
+
+        // Add subsequent pages if content is longer than one page
+        while (heightLeft > 0) {
+          doc.addPage();
+          position = -heightLeft + 20; // Adjust position for the remaining content
+          doc.addImage(imgData, 'PNG', 20, position, imgWidth, imgHeight);
+          heightLeft -= (doc.internal.pageSize.getHeight() - 20); // Subtract current page height
+        }
+
+        // Add PDF-specific watermarks and footer to each page *after* content is placed
+        const totalPages = doc.internal.getNumberOfPages();
+        for (let i = 1; i <= totalPages; i++) {
+            doc.setPage(i);
+            doc.setFontSize(60);
+            doc.setTextColor(200, 200, 200); // Light gray color
+            doc.text('PAID CONTENT', 100, 200, { angle: -30 });
+            doc.text('rsplatform.site', 300, 400, { angle: -30 });
+            doc.setFontSize(10);
+            doc.setTextColor(100); // Darker gray for footer
+            doc.text(`Purchased from rsplatform.site - ₹1 - Page ${i} of ${totalPages}`, 40, doc.internal.pageSize.getHeight() - 20);
+        }
+
+        doc.save('Consumer_Affairs_Question_Paper.pdf');
+      }).catch(error => {
+          console.error("Error generating PDF:", error);
+          alert("Could not generate PDF. Please check the console for details.");
+      });
+    }
+  </script>
+</body>
+</html>
