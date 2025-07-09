@@ -35,6 +35,9 @@
       bottom: 20px;
       right: 20px;
       z-index: 1000;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
     }
 
     #customPayBtn {
@@ -47,15 +50,20 @@
       font-size: 16px;
       font-weight: bold;
       box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     #customPayBtn:hover {
       background-color: #E64A19;
     }
 
     .price-tag {
+      background-color: rgba(255,255,255,0.2);
+      padding: 2px 8px;
+      border-radius: 12px;
       font-size: 14px;
-      margin-left: 5px;
-      opacity: 0.9;
+      margin-left: 8px;
     }
 
     .success-message {
@@ -122,7 +130,12 @@
     </div>
     <button id="downloadBtn">Download PDF</button>
 
+    <!-- Custom Buy & Download PDF Button -->
     <button id="customPayBtn">Buy & Download PDF <span class="price-tag">just ₹1</span></button>
+
+    <form>
+        <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_QqNtEkeY2DqjrV" async> </script>
+    </form>
   </div>
 
   <div class="watermark watermark1">rsplatform.site</div>
@@ -193,73 +206,39 @@
   <h3 class="center">End of the Question Paper</h3>
 
   <script>
-    // ✅ Your Razorpay Live Key ID
-    const RAZORPAY_KEY_ID = 'rzp_live_6iyIfVHvJeZ0VA';
+    // This script will now listen for the Razorpay payment button's success
+    // The Razorpay payment button's script (data-payment_button_id) handles the payment initiation.
+    // We need to ensure that upon successful payment, the download button appears.
 
-    document.getElementById('customPayBtn').addEventListener('click', function() {
-      // Define your payment options
-      var options = {
-        key: RAZORPAY_KEY_ID, // Your Live Key ID
-        amount: "100", // Amount in paise (e.g., 100 paise = ₹1)
-        currency: "INR",
-        name: "rsplatform.site",
-        description: "Consumer Affairs Question Paper",
-        image: "https://razorpay.com/assets/razorpay-logo.svg", // You can replace with your actual logo URL
-        handler: function (response){
-          // This function is called when payment is successful
-          console.log("Payment successful:", response);
+    // A simple way to detect successful payment if Razorpay redirects with a success parameter
+    // or if the Razorpay integration on the backend sets a flag.
+    // For this client-side only example, we'll simulate it based on URL parameters (as was the previous logic).
+    // In a real application, Razorpay's success callback (handler function) would be the place to trigger this.
 
-          // Show success message and download button
-          document.getElementById('successMessage').style.display = 'block';
-          document.getElementById('downloadBtn').style.display = 'inline-block';
-          document.getElementById('customPayBtn').style.display = 'none';
-
-          // For production, you should send response.razorpay_payment_id to your server
-          // to verify the payment on the backend for security purposes.
-          // Example (conceptual):
-          // fetch('/verify-payment', {
-          //   method: 'POST',
-          //   headers: { 'Content-Type': 'application/json' },
-          //   body: JSON.stringify({ paymentId: response.razorpay_payment_id })
-          // }).then(res => res.json()).then(data => {
-          //   if (data.verified) {
-          //     // Allow download
-          //   } else {
-          //     alert('Payment verification failed.');
-          //   }
-          // });
-        },
-        prefill: {
-          name: "Customer Name", // Optional: prefill customer name for convenience
-          email: "customer@example.com", // Optional: prefill customer email
-          contact: "9876543210" // Optional: prefill customer phone number
-        },
-        notes: {
-          purpose: "Question Paper Download"
-        },
-        theme: {
-          color: "#FF5722" // Your theme color for the checkout form
-        }
-      };
-
-      var rzp1 = new Razorpay(options);
-      rzp1.on('razorpay.payment.failed', function (response){
-        alert("Payment failed: " + response.error.description + ". Please try again. Error Code: " + response.error.code);
-        console.error("Payment failed details:", response.error);
-      });
-
-      rzp1.open(); // Open the Razorpay checkout form
-    });
-
-    // This part handles displaying the download button if redirected from a successful payment (e.g., from a backend)
-    // It checks for 'payment_id' or 'razorpay_payment_id' in the URL query string.
+    // This checks for 'payment_id' or 'razorpay_payment_id' in the URL query string,
+    // which would typically be present after a successful Razorpay payment redirect.
     if (window.location.search.includes('payment_id') || window.location.search.includes('razorpay_payment_id')) {
         document.getElementById('successMessage').style.display = 'block';
         document.getElementById('downloadBtn').style.display = 'inline-block';
-        document.getElementById('customPayBtn').style.display = 'none';
+        // Hide the Razorpay payment button form if payment is considered successful
+        const razorpayForm = document.querySelector('form');
+        if (razorpayForm) {
+            razorpayForm.style.display = 'none';
+        }
     }
 
     document.getElementById('downloadBtn').addEventListener('click', generatePDF);
+    
+    // Add click handler for custom payment button
+    document.getElementById('customPayBtn').addEventListener('click', function() {
+      // This will trigger the Razorpay payment flow
+      // In a real implementation, you would need to create a Razorpay checkout instance
+      // For now, we'll just simulate clicking the Razorpay payment button
+      const razorpayButton = document.querySelector('.razorpay-payment-button');
+      if (razorpayButton) {
+        razorpayButton.click();
+      }
+    });
 
     function generatePDF() {
       const { jsPDF } = window.jspdf;
