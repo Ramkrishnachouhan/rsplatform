@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>rsplatform.site – Solved Paper 2024</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+      background: #f8f9fa;
+      color: #222;
+      position: relative;
+    }
+
+    /* Soft diagonal watermark background */
+    body::after {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background:
+        repeating-linear-gradient(
+          -30deg,
+          transparent,
+          transparent 300px,
+          rgba(0,0,0,0.02) 300px,
+          rgba(0,0,0,0.02) 600px
+        ),
+        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="600" height="300"><text x="50" y="150" fill="rgba(0,0,0,0.05)" font-family="Arial" font-size="50" font-weight="bold">rsplatform.site</text></svg>');
+      background-repeat: repeat;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    header {
+      background: #0050b3;
+      color: #fff;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header .logo-main {
+      font-family: 'Poppins', sans-serif;
+      font-size: 24px;
+      font-weight: 600;
+    }
+
+    header nav a {
+      color: #fff;
+      margin-left: 20px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: opacity 0.3s;
+    }
+
+    header nav a:hover {
+      opacity: 0.8;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #0073e6, #00bfff);
+      color: #fff;
+      text-align: center;
+      padding: 70px 20px;
+    }
+
+    .hero h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 38px;
+      margin: 0 0 10px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      margin: 0;
+    }
+
+    .solved-paper {
+      background: #fff;
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 40px; /* Base padding */
+      position: relative; /* Crucial for absolute positioning of children */
+      box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+      border-radius: 8px;
+    }
+
+    .solved-paper::before {
+      content: "rsplatform.site";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-30deg);
+      font: bold 70px Arial, sans-serif;
+      color: rgba(0,0,0,0.05);
+      pointer-events: none;
+      user-select: none;
+      z-index: 0;
+      white-space: nowrap;
+    }
+
+    /* Logo Container Styles */
+    .logo-container {
+      position: absolute;
+      top: 20px; /* Adjusted to top of solved-paper */
+      right: 140px; /* Adjusted to make space for back button */
+      width: 160px;
+      height: 40px;
+      z-index: 1;
+    }
+
+    .back-button {
+      position: absolute;
+      top: 20px; /* Adjusted to top of solved-paper */
+      right: 20px;
+      background: #0073e6;
+      color: #fff;
+      padding: 6px 14px;
+      font-size: 12px;
+      font-weight: bold;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: background 0.3s;
+      z-index: 1;
+    }
+
+    .back-button:hover {
+      background: #0050b3;
+    }
+
+    .qr-code {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(255,255,255,0.95);
+      padding: 8px;
+      border-radius: 4px;
+      text-align: center;
+      font-size: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .qr-code img {
+      width: 80px;
+      height: 80px;
+      display: block;
+      margin: 5px auto 0;
+    }
+
+    /* Download button styles */
+    .download-paper-btn {
+      position: absolute;
+      left: 40px; /* Aligns with paper content left padding */
+      top: 20px; /* Positions it at the top-left corner of the solved-paper div */
+      background: linear-gradient(135deg, #00bfff, #0073e6);
+      color: white;
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      font-family: 'Poppins', sans-serif;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s;
+      z-index: 2; /* Ensure it's above other elements */
+      box-shadow: 0 2px 8px rgba(0, 191, 255, 0.3);
+      display: flex;
+      align-items: center;
+    }
+
+    .download-paper-btn:hover {
+      background: linear-gradient(135deg, #0099cc, #005fa3);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0, 191, 255, 0.4);
+    }
+
+    .download-paper-btn svg {
+      width: 16px;
+      height: 16px;
+      margin-right: 8px;
+    }
+
+    /* Adjust header position to accommodate button and logo/back buttons */
+    .header {
+      text-align: center;
+      margin-top: 50px; /* Pushes the header down below the buttons */
+      margin-bottom: 20px;
+    }
+
+    .header .year {
+      font-weight: bold;
+      font-size: 14pt;
+    }
+
+    .header .subject {
+      font-weight: bold;
+      font-size: 18pt;
+      text-transform: uppercase;
+    }
+
+    .paper-info {
+      margin: 10px 0;
+    }
+
+    .instructions {
+      text-align: center;
+      font-style: italic;
+      margin: 20px 0;
+      padding: 12px;
+      border-top: 1px dashed #ccc;
+      border-bottom: 1px dashed #ccc;
+    }
+
+    .section-title {
+      text-align: center;
+      background: #f0f7ff;
+      border-left: 4px solid #0073e6;
+      border-radius: 3px;
+      padding: 8px 15px;
+      margin: 20px 0 10px 0;
+      font-weight: bold;
+    }
+
+    .question-section {
+      margin-bottom: 30px;
+      background: rgba(255,255,255,0.9);
+      padding: 20px;
+      border-radius: 4px;
+    }
+
+    .question {
+      margin-bottom: 20px;
+    }
+
+    .options {
+      margin-left: 20px;
+    }
+
+    .answer {
+      font-weight: bold;
+      color: #006600;
+    }
+
+    /* Updated Footer Styles */
+    .footer {
+      background: #f0f7ff; /* Light blue background */
+      padding: 40px 20px;
+      text-align: center;
+      border-top: 1px solid #d0e3ff;
+    }
+
+    .footer-logo {
+      max-width: 250px;
+      margin: 0 auto 20px;
+    }
+
+    .footer-logo svg {
+      width: 100%;
+      height: auto;
+    }
+
+    .footer-links {
+      margin: 20px 0;
+    }
+
+    .footer-links a {
+      color: #0050b3;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: #00bfff;
+      text-decoration: underline;
+    }
+
+    .copyright {
+      color: #555;
+      font-size: 14px;
+      margin-top: 20px;
+    }
+
+    @media print {
+      header, .hero, .footer {
+        display: none;
+      }
+      .solved-paper {
+        margin: 0; padding: 20px; box-shadow: none;
+      }
+      .solved-paper::before {
+        font-size: 80px;
+        color: rgba(0,0,0,0.15);
+      }
+      body::after {
+        display: none;
+      }
+      /* Hide all interactive elements on print */
+      .logo-container, .back-button, .qr-code, .download-paper-btn {
+        display: none;
+      }
+      .footer {
+        background: white !important;
+        border-top: 1px solid #ddd;
+      }
+      .footer-logo .main,
+      .footer-logo .highlight {
+        fill: #0050b3 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo-main">rsplatform.site</div>
+    <nav>
+      <a href="../index.html">Home</a>
+      <a href="../semesters.html">Papers</a>
+      <a href="../contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <div class="hero">
+    <h1>GU B.Com 6th Sem Solved Paper</h1>
+    <p>Consumer Affairs and Customer Care – COM-HE-6026 – 2024</p>
+  </div>
+
+  <div class="solved-paper">
+    <!-- Download Button -->
+    <button class="download-paper-btn" onclick="downloadQuestionPaper()">
+      <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+      </svg>
+      Download Question Paper
+    </button>
+
+    <div class="logo-container">
+      <svg width="160" height="40" viewBox="0 0 320 80" xmlns="http://www.w3.org/2000/svg">
+        <style>
+          .main { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 32px; fill: #0050b3; }
+          .highlight { fill: #00bfff; }
+          .dot { fill: #00bfff; }
+        </style>
+        <text x="0" y="40" class="main">rsplatform</text>
+        <circle cx="188" cy="27" r="4" class="dot">
+          <animate attributeName="opacity" values="1;0.5;1" dur="3s" repeatCount="indefinite"/>
+        </circle>
+        <text x="195" y="40" class="main highlight">site</text>
+      </svg>
+    </div>
+    
+    <button class="back-button" onclick="window.history.back()">← Back</button>
+
+    <div class="qr-code">
+      Scan for more<br>
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://rsplatform.site" alt="QR Code">
+    </div>
+
+    <div class="header">
+      <div class="year">2024</div>
+      <div class="subject">COMMERCE</div>
+      <div>(Honours Elective)</div>
+      <div class="paper-info">
+        <strong>Paper: COM-HE-6026</strong><br>(Consumer Affairs and Customer Care)
+      </div>
+      <div><strong>Full Marks: 80</strong><br><strong>Time: Three Hours</strong></div>
+      <div>Paper Code: COM-HE-6026</div>
+      <div>6th Semester (CBCS) Honours Elective</div>
+    </div>
+
+    <div class="instructions">
+      The figures in the margin indicate full marks for the questions.<br>
+      Answer either in English or in Assamese.
+    </div>
+
+    <div class="section-title">✅ Section 1: Fill in the blanks / Objective Type (1×10 = 10 Marks)</div>
+    <div class="question-section">
+      <div class="question">
+        1️⃣ There is freedom of choice in the market.
+        <div class="answer">Answer: True</div>
+      </div>
+
+      <div class="question">
+        2️⃣ Customer dissatisfaction happens when purchased products or services fall beyond their expectations.
+        <div class="answer">Answer: True</div>
+      </div>
+
+      <div class="question">
+        3️⃣ Full form of DCDRF:
+        <div class="answer">Answer: District Consumer Disputes Redressal Forum</div>
+      </div>
+
+      <div class="question">
+        4️⃣ Uniform price policy:
+        <div class="answer">Answer: Maximum Retail Price (MRP)</div>
+      </div>
+
+      <div class="question">
+        5️⃣ World Consumer Rights Day:
+        <div class="answer">Answer: 15th March</div>
+      </div>
+
+      <div class="question">
+        6️⃣ COPRA is related to:
+        <div class="options">
+          (i) Consumer Products<br>
+          (ii) Consumer Protection<br>
+          (iii) Protection of Consumer Rights<br>
+          (iv) Consumer Price Rights
+        </div>
+        <div class="answer">Answer: (iii) Protection of Consumer Rights</div>
+      </div>
+
+      <div class="question">
+        7️⃣ Certificate for jewellers:
+        <div class="options">
+          (i) ISO Certificate<br>
+          (ii) BIS Hallmark<br>
+          (iii) Gold Standard<br>
+          (iv) Quality Mark
+        </div>
+        <div class="answer">Answer: (ii) BIS Hallmark</div>
+      </div>
+
+      <div class="question">
+        8️⃣ ISI mark is issued by:
+        <div class="options">
+          (i) Indian Standards Institution<br>
+          (ii) Indian Quality Bureau<br>
+          (iii) Bureau of Indian Standards<br>
+          (iv) Quality Council of India
+        </div>
+        <div class="answer">Answer: (iii) Bureau of Indian Standards</div>
+      </div>
+
+      <div class="question">
+        9️⃣ Not related to right to choose:
+        <div class="options">
+          (i) Right to select only specific products or services<br>
+          (ii) Right to access variety of goods<br>
+          (iii) Right to competitive prices<br>
+          (iv) Right to satisfactory quality
+        </div>
+        <div class="answer">Answer: (i) Right to select only specific products or services</div>
+      </div>
+
+      <div class="question">
+        🔟 The Central Consumer Protection Authority is a Regulatory Body:
+        <div class="answer">Answer: True</div>
+      </div>
+    </div>
+
+    <div class="section-title">✅ Section 2: Short Answers (2×5 = 10 Marks)</div>
+    <div class="question-section">
+      <div class="question">
+        (i) What is service?
+        <div class="answer">
+          Answer:<br>
+          Service means any work done for consumers for payment, like banking, insurance, transport, or supply of electricity. A service can be of any description made available to users for payment.
+        </div>
+      </div>
+
+      <div class="question">
+        (ii) Two distinctions between wholesale price and retail price:
+        <div class="answer">
+          Answer:<br>
+          Wholesale price is the price at which goods are sold in bulk to retailers. Retail price is the price at which goods are sold in small quantities to final consumers. Wholesale price is usually lower than retail price.
+        </div>
+      </div>
+
+      <div class="question">
+        (iii) What is Pecuniary Jurisdiction?
+        <div class="answer">
+          Answer:<br>
+          Pecuniary Jurisdiction means the limit of the amount up to which a consumer court can hear complaints. For example, District Forum handles cases up to Rs. 1 crore.
+        </div>
+      </div>
+
+      <div class="question">
+        (iv) Two grounds for deficiency in service:
+        <div class="answer">
+          Answer:<br>
+          Some grounds are delay in delivery, poor service, non-response to complaints, charging extra money, or not fulfilling promised terms.
+        </div>
+      </div>
+
+      <div class="question">
+        (v) Define MRP (Maximum Retail Price):
+        <div class="answer">
+          Answer:<br>
+          MRP means the maximum price printed on a product which a seller can charge. It includes cost, profit, and taxes. Retailers cannot sell goods above MRP.
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title">✅ Section 3: Medium Answers (5×4 = 20 Marks)</div>
+    <div class="question-section">
+      <div class="question">
+        (i) What alternatives are available to dissatisfied consumers?
+        <div class="answer">
+          Answer:<br>
+          Dissatisfied consumers can use various options:<br>
+          (i) Complain directly to the seller or company for replacement or refund.<br>
+          (ii) Use grievance redressal cells or consumer help lines.<br>
+          (iii) Approach consumer forums or courts under the Consumer Protection Act.<br>
+          (iv) Use mediation or arbitration for quick settlement.<br>
+          (v) Report to government bodies like Bureau of Indian Standards or FSSAI for quality complaints.<br>
+          Consumers may also use online grievance portals and mobile apps launched by the government.
+          These help resolve complaints without going to court.
+        </div>
+      </div>
+
+      <div class="question">
+        (ii) Write a note on consumer complaining behaviour.
+        <div class="answer">
+          Answer:<br>
+          Consumer complaining behaviour means how consumers react when they are not satisfied. Some complain directly to sellers, while others switch brands or share bad experiences with friends. Many use social media or online platforms to express dissatisfaction. Complaints depend on the type of problem, product value, and awareness of rights. Active consumers approach consumer courts or redressal agencies for justice.
+        </div>
+      </div>
+
+      <div class="question">
+        (iii) How can mediation help in resolving consumer disputes?
+        <div class="answer">
+          Answer:<br>
+          Mediation is a quick, simple way where a neutral person (mediator) helps both parties discuss and settle their dispute. It saves time and money. The process is confidential and flexible. The Consumer Protection Act, 2019 has made mediation official in India. It reduces the burden on consumer courts. Mediation agreements are binding and protect consumer rights without lengthy court cases.
+        </div>
+      </div>
+
+      <div class="question">
+        (iv) Discuss recent developments in Citizen Charter for consumer protection in India.
+        <div class="answer">
+          Answer:<br>
+          The Citizen Charter is a document by government departments to share standards of service. Many new Citizen Charters include clear timelines for services, grievance redressal, contact details of officers, and helpline numbers. Digital grievance portals, real-time tracking, and online complaint filing have improved transparency. This strengthens consumer trust and helps solve complaints faster.
+        </div>
+      </div>
+
+      <div class="question">
+        (v) Briefly explain provisions for penalties against unfair trade practices.
+        <div class="answer">
+          Answer:<br>
+          The Consumer Protection Act, 2019 provides penalties for misleading advertisements, unfair trade, or false claims. The Central Consumer Protection Authority (CCPA) can fine advertisers and endorse penalties up to Rs. 10 lakh for first offence and Rs. 50 lakh for repeat offences. The court may stop production and sale of defective goods. Companies can be asked to withdraw misleading ads.
+        </div>
+      </div>
+
+      <div class="question">
+        (vi) How are consumer complaints handled in the telecom sector?
+        <div class="answer">
+          Answer:<br>
+          Telecom Regulatory Authority of India (TRAI) has rules for complaint redressal. First, complaints are made to service providers. If not solved in 3 days, an appeal can be made to the Appellate Authority. Consumers can also approach consumer forums for unresolved complaints. Online complaint portals and customer care help faster resolution.
+        </div>
+      </div>
+    </div>
+
+    <div class="section-title">✅ Section 4: Long Answers (10×4 = 40 Marks)</div>
+    <div class="question-section">
+      <div class="question">
+        <div class="question-header">
+          <span class="question-number">1️⃣</span>
+          <span class="question-text">Explain the various forms of market structures, their merits and demerits.</span>
+        </div>
+        <div class="answer">
+          <p>Market structure means how different markets are organised based on number of buyers and sellers, product nature, entry barriers, and competition level. There are mainly four forms: Perfect Competition, Monopoly, Monopolistic Competition, and Oligopoly.</p>
+
+          <p><strong>(i) Perfect Competition:</strong><br>
+          Perfect competition is an ideal market where there are many sellers and buyers selling identical products. There is free entry and exit, and prices are decided by market demand and supply.</p>
+
+          <p><strong>Merits:</strong></p>
+          <ul>
+            <li>Buyers get goods at lowest price due to competition.</li>
+            <li>There is efficient allocation of resources.</li>
+            <li>Consumers have full information about prices and products.</li>
+            <li>There is no wastage of resources.</li>
+          </ul>
+
+          <p><strong>Demerits:</strong></p>
+          <ul>
+            <li>It is unrealistic; rarely found in real life.</li>
+            <li>Sellers cannot earn abnormal profits.</li>
+            <li>Innovation is discouraged because firms can't charge extra.</li>
+            <li>Too much competition may create instability.</li>
+          </ul>
+
+          <p><strong>(ii) Monopoly:</strong><br>
+          Monopoly exists when a single seller controls the entire market with no close substitute. Entry of new firms is restricted due to patents, control over raw materials, or legal protection.</p>
+
+          <p><strong>Merits:</strong></p>
+          <ul>
+            <li>Large-scale production benefits like economies of scale.</li>
+            <li>High profits can be used for research and development.</li>
+            <li>Stable prices because only one seller fixes the price.</li>
+          </ul>
+
+          <p><strong>Demerits:</strong></p>
+          <ul>
+            <li>Consumers have no choice and may pay high prices.</li>
+            <li>Exploitation of consumers is possible due to price control.</li>
+            <li>Poor quality may result due to lack of competition.</li>
+            <li>Monopolies may become inefficient.</li>
+          </ul>
+
+          <p><strong>(iii) Monopolistic Competition:</strong><br>
+          In this structure, there are many sellers selling similar but differentiated products. Examples are soaps, toothpaste, clothes etc. Firms differentiate their products through branding, quality, and packaging.</p>
+
+          <p><strong>Merits:</strong></p>
+          <ul>
+            <li>Consumers get variety of products.</li>
+            <li>New firms can enter easily.</li>
+            <li>Innovation and advertising are encouraged.</li>
+            <li>Consumers enjoy better services.</li>
+          </ul>
+
+          <p><strong>Demerits:</strong></p>
+          <ul>
+            <li>Heavy expenditure on advertising increases cost.</li>
+            <li>Excess capacity and wastage of resources.</li>
+            <li>Prices may be higher than in perfect competition.</li>
+            <li>Misleading advertisements may confuse buyers.</li>
+          </ul>
+
+          <p><strong>(iv) Oligopoly:</strong><br>
+          Oligopoly is a market where a few large firms dominate. Products may be homogeneous (e.g., steel, cement) or differentiated (e.g., cars, mobile phones).</p>
+
+          <p><strong>Merits:</strong></p>
+          <ul>
+            <li>Firms enjoy huge economies of scale.</li>
+            <li>Product quality improves due to competition among few.</li>
+            <li>Price stability is possible through price leadership.</li>
+            <li>Companies spend on R&D and better technology.</li>
+          </ul>
+
+          <p><strong>Demerits:</strong></p>
+          <ul>
+            <li>Price collusion is possible, harming consumers.</li>
+            <li>Difficult for new firms to enter due to high cost.</li>
+            <li>Firms may form cartels to fix prices.</li>
+            <li>Advertising costs may mislead consumers.</li>
+          </ul>
+
+          <p>In India, different sectors follow different market structures. Agriculture shows features of perfect competition, power companies show monopoly, consumer goods follow monopolistic competition, and oil, steel industries show oligopoly.</p>
+
+          <p>Understanding market structures helps policymakers, businesses, and consumers to make better decisions.</p>
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="question-header">
+          <span class="question-number">2️⃣</span>
+          <span class="question-text">Explain the corporate and public redressal systems.</span>
+        </div>
+        <div class="answer">
+          <p>Redressal systems help consumers resolve complaints. There are two main systems: Corporate Redressal and Public Redressal.</p>
+
+          <p><strong>(i) Corporate Redressal System:</strong><br>
+          Companies set up internal grievance cells to solve customer problems quickly. Every company selling goods/services must follow customer satisfaction policies.</p>
+
+          <p><strong>Key features:</strong></p>
+          <ul>
+            <li>Customer Care: Firms have helplines, emails, complaint forms.</li>
+            <li>Grievance Officers: Many companies appoint officers to handle complaints.</li>
+            <li>Time-bound Service: Complaints must be solved within a certain time limit.</li>
+            <li>Refund & Replacement: Companies must provide refund or exchange for faulty products.</li>
+            <li>Feedback & Ratings: Companies ask customers for feedback to improve services.</li>
+          </ul>
+
+          <p><strong>Advantages:</strong></p>
+          <ul>
+            <li>Fast solutions without legal hassle.</li>
+            <li>Builds goodwill and customer trust.</li>
+            <li>Saves time and cost for both parties.</li>
+          </ul>
+
+          <p><strong>Challenges:</strong></p>
+          <ul>
+            <li>Not all companies respond well.</li>
+            <li>Some firms ignore complaints after sale.</li>
+            <li>Lack of awareness among consumers.</li>
+          </ul>
+
+          <p><strong>(ii) Public Redressal System:</strong><br>
+          This is provided by the government under the Consumer Protection Act, 2019.</p>
+
+          <p><strong>Main public redressal bodies:</strong></p>
+          <ul>
+            <li>District Forum (District Consumer Disputes Redressal Commission): Deals with complaints up to ₹1 crore.</li>
+            <li>State Commission: Deals with complaints above ₹1 crore up to ₹10 crore.</li>
+            <li>National Commission (NCDRC): Deals with claims above ₹10 crore.</li>
+          </ul>
+
+          <p><strong>Functions:</strong></p>
+          <ul>
+            <li>Handle complaints related to defective goods, unfair trade, poor service.</li>
+            <li>Provide orders for compensation, replacement or refund.</li>
+            <li>Fine traders for misleading ads or unfair practices.</li>
+          </ul>
+
+          <p><strong>Advantages:</strong></p>
+          <ul>
+            <li>Free or low-cost justice for consumers.</li>
+            <li>Legal powers to enforce orders.</li>
+            <li>Helps protect rights of poor and unaware consumers.</li>
+          </ul>
+
+          <p><strong>Limitations:</strong></p>
+          <ul>
+            <li>Legal procedures can take time.</li>
+            <li>Many people do not know how to approach.</li>
+            <li>Courts may be overloaded with cases.</li>
+          </ul>
+
+          <p>The government has also launched Online Dispute Resolution (ODR) and E-Daakhil portal to make filing complaints easier.</p>
+          <p>Together, corporate and public redressal help protect consumers and promote fair trade.</p>
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="question-header">
+          <span class="question-number">3️⃣</span>
+          <span class="question-text">Discuss the composition, jurisdiction, and powers of the National Consumer Dispute Redressal Commission (NCDRC).</span>
+        </div>
+        <div class="answer">
+          <p>The NCDRC is the top-level consumer redressal body in India. It deals with complaints involving high amounts and complex consumer cases.</p>
+
+          <p><strong>Composition:</strong></p>
+          <ul>
+            <li>NCDRC is headed by a President.</li>
+            <li>The President must be a retired or serving Supreme Court Judge or High Court Chief Justice.</li>
+            <li>It includes at least four other members with knowledge of law, commerce, public affairs.</li>
+          </ul>
+
+          <p><strong>Jurisdiction:</strong></p>
+          <ul>
+            <li>It handles complaints where the value exceeds ₹10 crore.</li>
+            <li>It hears appeals against State Commission orders.</li>
+            <li>It also has revision jurisdiction to check legality of lower commissions' decisions.</li>
+          </ul>
+
+          <p><strong>Powers:</strong></p>
+          <ul>
+            <li>Orders compensation to consumers for loss, harassment, or damage.</li>
+            <li>Can ask companies to withdraw defective goods from the market.</li>
+            <li>Can order replacement of products or refund.</li>
+            <li>May impose penalties for misleading ads or unfair trade.</li>
+            <li>Has same powers as civil court: summoning, examining evidence, enforcing orders.</li>
+          </ul>
+
+          <p><strong>Procedure:</strong><br>
+          Complaints can be filed online through the E-Daakhil portal. The NCDRC tries to resolve complaints within three months if no lab test is needed, and within five months if it is needed.</p>
+
+          <p><strong>Recent Improvements:</strong><br>
+          The Consumer Protection Act, 2019 has strengthened NCDRC with more digital facilities. E-commerce disputes can be filed online. Appeals must be filed within 30 days.</p>
+
+          <p>The NCDRC plays a vital role in ensuring big businesses respect consumer rights. Its decisions are final but can be challenged in the Supreme Court. This provides justice to consumers and creates a fair market.</p>
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="question-header">
+          <span class="question-number">4️⃣</span>
+          <span class="question-text">Explain the BIS Hallmarking Scheme and its benefits for customers and society.</span>
+        </div>
+        <div class="answer">
+          <p>BIS Hallmarking is a certification scheme for gold and silver jewellery. The Bureau of Indian Standards (BIS) runs this scheme.</p>
+
+          <p><strong>Meaning:</strong><br>
+          Hallmark means marking jewellery with a stamp to show purity and quality. BIS introduced it to protect buyers from fraud and ensure they get pure metal.</p>
+
+          <p><strong>Features:</strong></p>
+          <ul>
+            <li>BIS certifies only licensed jewellers.</li>
+            <li>It checks the metal's purity in certified labs.</li>
+            <li>Hallmark shows BIS logo, fineness number, jeweller's mark, and year.</li>
+          </ul>
+
+          <p><strong>Benefits for customers:</strong></p>
+          <ul>
+            <li>Ensures accurate purity of gold or silver.</li>
+            <li>Protects from fake or sub-standard jewellery.</li>
+            <li>Increases trust in branded jewellers.</li>
+            <li>Helps resale value; easy to sell or mortgage.</li>
+            <li>Government compensation if cheating is proved.</li>
+          </ul>
+
+          <p><strong>Benefits for society:</strong></p>
+          <ul>
+            <li>Promotes ethical trade practices.</li>
+            <li>Reduces black marketing of impure gold.</li>
+            <li>Generates employment for assaying centres and certified shops.</li>
+            <li>Boosts India's export image for quality jewellery.</li>
+          </ul>
+
+          <p><strong>Legal Mandate:</strong><br>
+          In June 2021, hallmarking was made mandatory in over 256 districts in India. Non-hallmarked jewellery sales are illegal in these areas.</p>
+
+          <p><strong>Challenges:</strong><br>
+          Some rural areas still lack awareness. Small jewellers find it costly to get license.</p>
+
+          <p><strong>Conclusion:</strong><br>
+          BIS Hallmarking builds confidence, ensures consumer rights and makes the jewellery sector fair and transparent.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- OR Questions -->
+    <div class="section-title">✅ OR Questions (Alternative to any of the above)</div>
+    <div class="question-section">
+      <div class="question">
+        <div class="question-header">
+          <span class="question-number">1️⃣ (OR)</span>
+          <span class="question-text">Briefly outline the recent developments in consumer protection in India.</span>
+        </div>
+        <div class="answer">
+          <p>Consumer protection in India has changed a lot to match new market trends, digital trade, and modern consumer needs. Let's see how recent developments have strengthened consumer rights.</p>
+
+          <p><strong>(i) New Consumer Protection Act, 2019:</strong><br>
+          This Act replaced the old 1986 Act. It is stronger, clearer and covers e-commerce too. It came into force in July 2020.</p>
+
+          <p><strong>Key changes:</strong></p>
+          <ul>
+            <li>Covers online shopping, digital services, and unfair trade online.</li>
+            <li>Introduced Central Consumer Protection Authority (CCPA) to check misleading ads and protect consumer rights.</li>
+            <li>E-filing of complaints through E-Daakhil portal is now possible.</li>
+            <li>Product liability: Manufacturers, sellers and service providers are responsible for damages.</li>
+            <li>Mediation: Encourages settlement outside court.</li>
+          </ul>
+
+          <p><strong>(ii) E-commerce Guidelines:</strong><br>
+          The government issued guidelines for online shopping sites:</p>
+          <ul>
+            <li>They must display seller details, return/refund policy clearly.</li>
+            <li>Fake reviews and misleading ads are banned.</li>
+            <li>Unfair cancellation charges are not allowed.</li>
+          </ul>
+
+          <p><strong>(iii) Food Safety Measures:</strong><br>
+          FSSAI made it mandatory for restaurants to display calorie info and hygiene ratings. Packaged food must have clear labels showing ingredients, expiry and nutrition facts.</p>
+
+          <p><strong>(iv) Hallmarking for Jewellery:</strong><br>
+          BIS Hallmarking for gold and silver jewellery is mandatory in many cities. It ensures buyers get pure metal. Penalties apply for fake hallmarks.</p>
+
+          <p><strong>(v) Telecom Complaints:</strong><br>
+          TRAI strengthened consumer rights in mobile and internet services. Call drop compensation rules and easy mobile number portability help consumers switch networks.</p>
+
+          <p><strong>(vi) National Consumer Helpline (NCH):</strong><br>
+          A toll-free helpline and app allow people to file complaints easily. Multiple language support is available. Grievances are resolved faster.</p>
+
+          <p><strong>(vii) Online Dispute Resolution (ODR):</strong><br>
+          Pilot projects for ODR help settle low-value complaints digitally. This saves time, travel and legal costs.</p>
+
+          <p><strong>(viii) Penalties for Misleading Ads:</strong><br>
+          Big celebrities endorsing false claims can be fined or banned. CCPA has authority to impose penalties on companies giving fake offers.</p>
+
+          <p><strong>(ix) Awareness Campaigns:</strong><br>
+          Programs like Jaago Grahak Jaago spread awareness through TV, radio and social media. This educates consumers about their rights.</p>
+
+          <p><strong>(x) Strengthening District & State Commissions:</strong><br>
+          More benches are opened for faster hearings. E-filing and video hearings help solve pending cases quickly.</p>
+
+          <p><strong>Conclusion:</strong><br>
+          These recent developments show the government's serious effort to protect consumers. They help buyers trust sellers, encourage fair trade, and keep the market safe.</p>
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="question-header">
+          <span class="question-number">2️⃣ (OR)</span>
+          <span class="question-text">Describe the advisory and adjudicatory bodies under the Consumer Protection Act.</span>
+        </div>
+        <div class="answer">
+          <p>The Consumer Protection Act, 2019 has two main kinds of bodies:<br>
+          Advisory (guide and recommend) and Adjudicatory (resolve disputes).</p>
+
+          <p><strong>(i) Advisory Bodies:</strong><br>
+          These give advice on policy, awareness and improvement.</p>
+
+          <p><strong>1. Central Consumer Protection Council (CCPC):</strong></p>
+          <ul>
+            <li>Headed by Union Minister of Consumer Affairs.</li>
+            <li>Includes officials, MPs, representatives of consumer groups.</li>
+            <li>Advises on promoting and protecting consumer rights at the national level.</li>
+          </ul>
+
+          <p><strong>2. State Consumer Protection Council:</strong></p>
+          <ul>
+            <li>Headed by State Minister of Food and Civil Supplies.</li>
+            <li>Promotes consumer rights in the state.</li>
+            <li>Suggests awareness programs, price checks, and local issues.</li>
+          </ul>
+
+          <p><strong>3. District Consumer Protection Council:</strong></p>
+          <ul>
+            <li>Headed by District Collector.</li>
+            <li>Promotes consumer welfare at grassroots level.</li>
+            <li>Handles local campaigns and complaints.</li>
+          </ul>
+
+          <p><strong>(ii) Adjudicatory Bodies:</strong><br>
+          These give legal decisions and orders.</p>
+
+          <p><strong>1. District Consumer Disputes Redressal Commission:</strong></p>
+          <ul>
+            <li>Deals with complaints up to ₹1 crore.</li>
+            <li>Minimum one President (retired District Judge) + two members.</li>
+            <li>Handles cases like defective products, poor services.</li>
+          </ul>
+
+          <p><strong>2. State Consumer Disputes Redressal Commission:</strong></p>
+          <ul>
+            <li>Handles complaints from ₹1 crore to ₹10 crore.</li>
+            <li>Can hear appeals against District Commission orders.</li>
+            <li>Headed by retired High Court Judge.</li>
+          </ul>
+
+          <p><strong>3. National Consumer Disputes Redressal Commission (NCDRC):</strong></p>
+          <ul>
+            <li>Deals with claims above ₹10 crore.</li>
+            <li>Hears appeals against State Commission.</li>
+            <li>Headed by retired Supreme Court Judge or High Court Chief Justice.</li>
+          </ul>
+
+          <p><strong>Powers:</strong></p>
+          <ul>
+            <li>Can summon parties, check evidence, order replacement, refund or compensation.</li>
+            <li>Can punish sellers for unfair trade.</li>
+            <li>Orders are legally binding.</li>
+          </ul>
+
+          <p><strong>Importance:</strong></p>
+          <ul>
+            <li>These bodies provide cheap, quick justice.</li>
+            <li>They ensure big brands and small traders follow consumer laws.</li>
+            <li>They protect consumers from exploitation.</li>
+          </ul>
+
+          <p><strong>Conclusion:</strong><br>
+          Together, the advisory councils spread awareness, and adjudicatory bodies deliver justice. This two-way system makes India's consumer protection stronger.</p>
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="question-header">
+          <span class="question-number">3️⃣ (OR)</span>
+          <span class="question-text">Highlight the salient features of the Consumer Protection Act, 2019.</span>
+        </div>
+        <div class="answer">
+          <p>The Consumer Protection Act, 2019 is a milestone law that replaced the 1986 Act. It modernises consumer rights for today's digital world.</p>
+
+          <p><strong>Key Features:</strong></p>
+
+          <p><strong>(i) Definition Expanded:</strong><br>
+          The definition of 'consumer' now includes buyers on e-commerce platforms.</p>
+
+          <p><strong>(ii) Product Liability:</strong><br>
+          Manufacturers, sellers and service providers are responsible for harm caused by defective goods/services.</p>
+
+          <p><strong>(iii) Central Consumer Protection Authority (CCPA):</strong><br>
+          A powerful new authority that can order product recalls, cancel ads, fine companies for unfair trade.</p>
+
+          <p><strong>(iv) E-filing & E-Daakhil:</strong><br>
+          Complaints can be filed online, even from home. No need to go to commission office.</p>
+
+          <p><strong>(v) Mediation:</strong><br>
+          New provision to solve disputes amicably through mediation centres.</p>
+
+          <p><strong>(vi) Penalties for Misleading Ads:</strong><br>
+          Celebrities and brands giving false claims can be fined.</p>
+
+          <p><strong>(vii) Pecuniary Jurisdiction Changed:</strong><br>
+          District: Up to ₹1 crore<br>
+          State: ₹1 crore to ₹10 crore<br>
+          National: Above ₹10 crore</p>
+
+          <p><strong>(viii) Rules for E-commerce:</strong><br>
+          Online sellers must provide all product info, refund policy, seller details. Unfair flash sales are banned.</p>
+
+          <p><strong>(ix) Time Limit:</strong><br>
+          Cases must be solved quickly — 3 months if no lab testing, 5 months if testing needed.</p>
+
+          <p><strong>(x) Class Action Suits:</strong><br>
+          Groups of consumers can file complaints together. Saves time and money.</p>
+
+          <p><strong>Benefits:</strong></p>
+          <ul>
+            <li>Protects buyers of online goods.</li>
+            <li>Easy, cheap, quick justice.</li>
+            <li>Promotes fair trade and ethical marketing.</li>
+          </ul>
+
+          <p><strong>Conclusion:</strong><br>
+          The new Act is modern, strong and fits India's growing digital economy. It empowers every consumer to fight unfair trade fearlessly.</p>
+        </div>
+      </div>
+
+      <div class="question">
+        <div class="question-header">
+          <span class="question-number">4️⃣ (OR)</span>
+          <span class="question-text">Discuss the functions of the State Electricity Regulatory Commission in redressing consumer grievances.</span>
+        </div>
+        <div class="answer">
+          <p>The State Electricity Regulatory Commission (SERC) is an important body under the Electricity Act, 2003. It protects electricity consumers in each state.</p>
+
+          <p><strong>Functions:</strong></p>
+
+          <p><strong>(i) Fixing Tariffs:</strong></p>
+          <ul>
+            <li>Sets fair prices for supply of electricity to households, industries and agriculture.</li>
+            <li>Prevents overcharging by private or public suppliers.</li>
+          </ul>
+
+          <p><strong>(ii) Licensing:</strong></p>
+          <ul>
+            <li>Grants licenses to power companies for generation, transmission and distribution.</li>
+            <li>Cancels license if company cheats consumers.</li>
+          </ul>
+
+          <p><strong>(iii) Consumer Grievance Redressal:</strong></p>
+          <ul>
+            <li>SERC ensures that every distribution company has Consumer Grievance Redressal Forums (CGRF).</li>
+            <li>If a complaint is not solved by CGRF, it goes to the Ombudsman appointed by SERC.</li>
+          </ul>
+
+          <p><strong>(iv) Monitoring Quality:</strong></p>
+          <ul>
+            <li>Checks that power companies provide quality supply.</li>
+            <li>Stops frequent power cuts and faulty meters.</li>
+          </ul>
+
+          <p><strong>(v) Promoting Competition:</strong></p>
+          <ul>
+            <li>Encourages fair competition among multiple suppliers to give consumers better rates.</li>
+          </ul>
+
+          <p><strong>(vi) Renewable Energy:</strong></p>
+          <ul>
+            <li>Promotes green energy and sustainable practices.</li>
+            <li>Orders companies to buy some energy from solar or wind sources.</li>
+          </ul>
+
+          <p><strong>(vii) Public Hearings:</strong></p>
+          <ul>
+            <li>Organises meetings where consumers can raise issues.</li>
+            <li>Suggestions are recorded while fixing tariffs.</li>
+          </ul>
+
+          <p><strong>Example:</strong><br>
+          In Assam, AERC solves complaints related to APDCL supply issues. It fines companies for poor service.</p>
+
+          <p><strong>Conclusion:</strong><br>
+          The SERC is a powerful watchdog to protect power consumers. Its proper functioning ensures affordable, reliable and fair supply to people and industries.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Download Button -->
+    <div style="text-align: center; margin: 40px 0;">
+      <a href="consumer2024.html" target="_blank" style="
+        display: inline-block;
+        padding: 15px 30px;
+        background: linear-gradient(135deg, #0050b3, #00bfff);
+        color: white;
+        text-decoration: none;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 600;
+        font-size: 18px;
+        border-radius: 50px;
+        box-shadow: 0 4px 15px rgba(0, 80, 179, 0.3);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+      ">
+        <span style="position: relative; z-index: 1;">
+          <svg style="width: 20px; height: 20px; vertical-align: middle; margin-right: 8px;" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+          </svg>
+          Download Question Paper
+        </span>
+        <span style="
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+          transition: 0.5s;
+        "></span>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    function downloadQuestionPaper() {
+      window.open('consumer2024.html', '_blank');
+    }
+  </script>
+
+  <div class="footer">
+    <div class="footer-logo">
+      <svg viewBox="0 0 320 80" xmlns="http://www.w3.org/2000/svg">
+        <style>
+          .main { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 32px; fill: #0050b3; }
+          .highlight { fill: #00bfff; }
+          .dot { fill: #00bfff; }
+          .slogan { font-family: 'Poppins', sans-serif; font-weight: 400; font-size: 14px; fill: #666666; letter-spacing: 0.5px; }
+        </style>
+        <text x="0" y="40" class="main">rsplatform</text>
+        <circle cx="188" cy="27" r="4" class="dot">
+          <animate attributeName="opacity" values="1;0.5;1" dur="3s" repeatCount="indefinite"/>
+        </circle>
+        <text x="195" y="40" class="main highlight">site</text>
+        <text x="0" y="70" class="slogan">Where Preparation Meets Success.</text>
+      </svg>
+    </div>
+    
+    <div class="footer-links">
+      <a href="../index.html">Home</a>
+      <a href="#">Solved Papers</a>
+      <a href="#">About Us</a>
+      <a href="../contact.html">Contact</a>
+    </div>
+    
+    <div class="copyright">
+      © 2024 rsplatform.site | All Rights Reserved
+    </div>
+  </div>
+</body>
+</html>
