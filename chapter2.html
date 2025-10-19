@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎉 Epic Accounting Adventure: Chapter 2 - Theory Base of Accounting! 📚</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Comic Sans MS', Arial, sans-serif;
+            line-height: 1.8;
+            color: #222;
+            background: linear-gradient(to bottom right, #e0f7fa, #b2ebf2);
+            padding: 30px;
+            animation: fadeInBody 1s ease-in;
+        }
+        @keyframes fadeInBody {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        header {
+            background: linear-gradient(135deg, #d81b60, #ff5722);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 3rem;
+            text-shadow: 2px 2px 4px #888;
+            animation: pulse 1.5s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .subtitle {
+            font-size: 1.4rem;
+            opacity: 0.9;
+        }
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
+        .main-content {
+            flex: 3;
+            min-width: 300px;
+            padding: 20px;
+        }
+        .sidebar {
+            flex: 1;
+            min-width: 280px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            margin-left: 20px;
+        }
+        h2 {
+            color: #0288d1;
+            border-bottom: 3px dashed #fbc02d;
+            padding-bottom: 8px;
+            font-size: 2em;
+            animation: slideIn 1s;
+        }
+        @keyframes slideIn {
+            from { transform: translateX(-50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        h3 {
+            color: #d81b60;
+            margin: 20px 0 10px;
+            font-size: 1.6em;
+        }
+        p {
+            margin-bottom: 15px;
+            font-size: 1.2em;
+            transition: transform 0.3s;
+        }
+        p:hover {
+            transform: translateY(-3px);
+        }
+        .concept-card {
+            background: #f1f8e9;
+            border-left: 5px solid #4caf50;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .concept-card h4 {
+            color: #2c3e50;
+            margin-bottom: 8px;
+            font-size: 1.3em;
+        }
+        .fun-fact {
+            background: #fff3e0;
+            border-left: 6px solid #e64a19;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 8px;
+            font-style: italic;
+            animation: bounceIn 1s;
+        }
+        @keyframes bounceIn {
+            0% { transform: scale(0.8); opacity: 0; }
+            60% { transform: scale(1.2); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .qa-section {
+            margin: 25px 0;
+            padding: 20px;
+            background: #e3f2fd;
+            border: 2px solid #0288d1;
+            border-radius: 10px;
+            transition: background 0.3s;
+        }
+        .qa-section:hover {
+            background: #bbdefb;
+        }
+        .question {
+            font-weight: bold;
+            color: #c2185b;
+            cursor: pointer;
+            font-size: 1.3em;
+        }
+        .answer {
+            display: none;
+            color: #2e7d32;
+            margin-top: 10px;
+            font-size: 1.1em;
+        }
+        .interactive-section {
+            background: #fafafa;
+            padding: 25px;
+            border: 3px solid #616161;
+            border-radius: 12px;
+            margin: 30px 0;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1.1em;
+            transition: border 0.3s;
+        }
+        input:focus {
+            border-color: #0288d1;
+            outline: none;
+        }
+        button {
+            background: #ff5722;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1em;
+            transition: background 0.3s;
+        }
+        button:hover {
+            background: #e64a19;
+        }
+        #report {
+            margin-top: 25px;
+            padding: 15px;
+            background: #e8f4fc;
+            border-radius: 8px;
+            font-size: 1.2em;
+        }
+        #ranking {
+            margin-top: 20px;
+            background: linear-gradient(135deg, #ffd700, #ffa500);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+        #ranking h3 {
+            color: #ffffff;
+            text-align: center;
+            font-size: 1.8em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            margin-bottom: 15px;
+        }
+        #ranking-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        #ranking-list li {
+            background: #ffffff;
+            margin: 10px 0;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 1.1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s, background 0.3s;
+        }
+        #ranking-list li:hover {
+            transform: scale(1.03);
+            background: #f1f8e9;
+        }
+        #ranking-list li .rank {
+            font-weight: bold;
+            color: #d81b60;
+            margin-right: 10px;
+        }
+        #ranking-list li .name {
+            flex-grow: 1;
+            color: #2c3e50;
+        }
+        #ranking-list li .score {
+            background: #4caf50;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 12px;
+            font-size: 0.9em;
+        }
+        #ranking-list li:nth-child(1) .rank::before {
+            content: '🏆 ';
+        }
+        #ranking-list li:nth-child(2) .rank::before {
+            content: '🥈 ';
+        }
+        #ranking-list li:nth-child(3) .rank::before {
+            content: '🥉 ';
+        }
+        .trophy {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            font-size: 2em;
+            transform: rotate(20deg);
+            opacity: 0.3;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, #2c3e50, #4a6491);
+            color: white;
+            margin-top: 30px;
+        }
+        @media (max-width: 768px) {
+            .content {
+                flex-direction: column;
+            }
+            .sidebar {
+                margin-left: 0;
+                margin-top: 20px;
+            }
+            #ranking {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎉 Epic Accounting Adventure: Chapter 2</h1>
+            <p class="subtitle">Theory Base of Accounting</p>
+        </header>
+        
+        <div class="content">
+            <div class="main-content">
+                <section>
+                    <h2>🌟 Welcome to the Accounting Quest!</h2>
+                    <p>Imagine accounting as a grand adventure where numbers tell epic tales of business triumphs! Chapter 2, "Theory Base of Accounting," is your magical map to mastering the rules that keep financial stories clear and reliable. From GAAP to GST, we’ll explore the superhero principles that make accounting a blockbuster. Ready to dive in? 🦸‍♂️</p>
+                    <div class="fun-fact">🌟 Fun Fact: Without accounting rules, comparing businesses is like comparing a wizard’s spell to a knight’s sword—total chaos! 🧙‍♂️⚔️</div>
+                </section>
+                
+                <section>
+                    <h2>📜 GAAP: The Sacred Rulebook!</h2>
+                    <p>The <strong>Generally Accepted Accounting Principles (GAAP)</strong> are like the sacred scrolls of accounting, ensuring every financial tale is told consistently. Forged by the wisdom of the Institute of Chartered Accountants of India (ICAI), GAAP keeps accountants in sync, like a perfectly choreographed superhero team. 🧝‍♀️ It mandates recording assets at historical cost for objectivity, and it evolves with the economic world!</p>
+                    <div class="fun-fact">🌟 Fun Fact: GAAP is the accounting world’s Constitution, keeping financial stories fair and square! ⚖️🌌</div>
+                </section>
+                
+                <section>
+                    <h2>🦸‍♀️ Basic Accounting Concepts: The Superhero League!</h2>
+                    <p>Meet the 13 superheroes of accounting, each with a unique power to keep financial statements epic:</p>
+                    <div class="concept-card">
+                        <h4>💼 Business Entity Concept</h4>
+                        <p>The business is a separate hero from its owner. If Tony Stark invests $1M, it’s a loan to Stark Industries, not his personal piggy bank!</p>
+                    </div>
+                    <div class="concept-card">
+                        <h4>💰 Money Measurement Concept</h4>
+                        <p>Only money-based events make the cut. Employee morale? Epic, but not in the books. Inflation’s a villain, skewing old values!</p>
+                    </div>
+                    <div class="concept-card">
+                        <h4>🏃‍♂️ Going Concern Concept</h4>
+                        <p>The business is an immortal legend, so we spread costs (like a $50K computer) over years, not all at once!</p>
+                    </div>
+                    <div class="concept-card">
+                        <h4>📅 Accounting Period Concept</h4>
+                        <p>Slice business life into yearly chapters for profit/loss reports, like new seasons of a hit show!</p>
+                    </div>
+                    <div class="concept-card">
+                        <h4>🛒 Cost Concept</h4>
+                        <p>Record assets at purchase price, not market value. A $5M factory stays $5M, even if it’s worth $10M now!</p>
+                    </div>
+                    <div class="concept-card">
+                        <h4>↔️ Dual Aspect Concept</h4>
+                        <p>Every transaction has two sides, powering the equation: Assets = Liabilities + Capital. The heart of double-entry!</p>
+                    </div>
+                    <div class="concept-card">
+                        <h4>💸 Revenue Recognition Concept</h4>
+                        <p>Count revenue when earned, not when paid. Sell on credit? That’s revenue now, not later!</p>
+                    </div>
+                    <div class="concept-card">
+                        <h4>⚖️ Matching Concept</h4>
+                        <p>Pair expenses with their revenue buddies in the same period, like a hero and sidekick!</p>
+                    </div>
+                    <div class="concept-card">
+                        <h4>🔍 Full Disclosure Concept</h4>
+                        <p>Spill all the financial tea! No hiding key details from investors or creditors.</p>
+                    </div>
+                    <div class="concept-card">
+                        <h4>🔄 Consistency Concept</h4>
+                        <p>Stick to the same script year after year for fair comparisons, like keeping a movie franchise consistent!</p>
+                    </div>
+                    <div class="concept-card">
+                        <h4>🛡️ Conservatism Concept</h4>
+                        <p>Be cautious—record losses early, but wait for profits to be certain. Safety first!</p>
+                    </div>
+                    <div class="concept-card">
+                        <h4>📏 Materiality Concept</h4>
+                        <p>Focus on big plot points. A $10 pencil? Skip it. A $1M factory? That’s epic!</p>
+                    </div>
+                    <div class="concept-card">
+                        <h4>📜 Objectivity Concept</h4>
+                        <p>Stick to facts with receipts, not guesses. Historical cost is king for truth!</p>
+                    </div>
+                </section>
+                
+                <section>
+                    <h2>⚙️ Systems & Basis: The Mechanics!</h2>
+                    <p><strong>Double Entry</strong> is like a perfectly choreographed fight—every debit has a credit, catching every detail. <strong>Single Entry</strong>? A pirate’s messy logbook for small businesses. 🏴‍☠️ For timing, <strong>Cash Basis</strong> records when cash moves, while <strong>Accrual Basis</strong> captures deals when they happen, aligning with the Matching Concept for true profit tales!</p>
+                    <div class="fun-fact">🌟 Fun Fact: Double Entry is like a buddy cop movie—every transaction needs a partner! 👮‍♂️👮‍♀️</div>
+                </section>
+                
+                <section>
+                    <h2>🇮🇳 Accounting Standards & GST: Modern Legends!</h2>
+                    <p><strong>Accounting Standards</strong> from ICAI are enchanted scrolls ensuring uniform, reliable financial tales. They boost comparability but can be rigid. <strong>GST</strong> is India’s tax superhero, uniting taxes into one! It’s destination-based, with CGST, SGST, and IGST splitting duties. It zaps old taxes, boosts exports, and simplifies compliance! 🦸‍♀️</p>
+                    <div class="fun-fact">🌟 Fun Fact: GST is India’s “One Country, One Tax!” battle cry, vanquishing tax chaos! 🇮🇳💪</div>
+                </section>
+                
+                <section>
+                    <h2>🧠 Interactive Q&A: Test Your Powers!</h2>
+                    <p>Click these questions to reveal answers faster than a speeding ledger! 🪄</p>
+                    <div class="qa-section">
+                        <div class="question" onclick="toggleAnswer(this)">Q1: What’s the deal with GAAP?</div>
+                        <div class="answer">A: GAAP is the rulebook ensuring accountants tell consistent, comparable financial stories! 📜</div>
+                    </div>
+                    <div class="qa-section">
+                        <div class="question" onclick="toggleAnswer(this)">Q2: Why does Going Concern matter?</div>
+                        <div class="answer">A: It assumes the business is immortal, spreading costs over time like chapters in a saga! 🏰</div>
+                    </div>
+                    <div class="qa-section">
+                        <div class="question" onclick="toggleAnswer(this)">Q3: What’s the Matching Concept’s vibe?</div>
+                        <div class="answer">A: Pair expenses with their revenue buddies, like a hero and sidekick! ⚖️</div>
+                    </div>
+                    <div class="qa-section">
+                        <div class="question" onclick="toggleAnswer(this)">Q4: What makes GST so cool?</div>
+                        <div class="answer">A: GST zaps old taxes, simplifies compliance, and powers India’s economic adventure! 🇮🇳</div>
+                    </div>
+                </section>
+                
+                <section class="interactive-section">
+                    <h2>🦸‍♂️ Quiz Time: Become an Accounting Hero!</h2>
+                    <p>Enter your name and answer these questions to join the Leaderboard of Accounting Heroes! Your score will be saved (mock) to a Google Sheet. Hit “Submit” for glory! 🌟</p>
+                    <div class="form-group">
+                        <label for="name">Your Hero Name:</label>
+                        <input type="text" id="name" placeholder="Enter your epic name">
+                    </div>
+                    <div class="form-group">
+                        <label for="q1">Q1: What’s the Dual Aspect equation?</label>
+                        <input type="text" id="q1" placeholder="Your answer">
+                    </div>
+                    <div class="form-group">
+                        <label for="q2">Q2: Name one limitation of Money Measurement.</label>
+                        <input type="text" id="q2" placeholder="Your answer">
+                    </div>
+                    <div class="form-group">
+                        <label for="q3">Q3: What’s Conservatism all about?</label>
+                        <input type="text" id="q3" placeholder="Your answer">
+                    </div>
+                    <button onclick="submitQuiz()">Submit & Claim Your Glory!</button>
+                    <div id="report"></div>
+                </section>
+            </div>
+            
+            <div class="sidebar">
+                <h3>✨ Key Takeaways</h3>
+                <ul>
+                    <li>Accounting principles ensure epic, consistent financial stories.</li>
+                    <li>GAAP is the sacred rulebook for fairness.</li>
+                    <li>13 superhero concepts power every financial statement.</li>
+                    <li>GST unites India’s taxes for a smoother economic quest!</li>
+                </ul>
+                <div id="ranking">
+                    <h3>🏆 Accounting Heroes Leaderboard</h3>
+                    <span class="trophy">🏆</span>
+                    <ul id="ranking-list">
+                        <li>No heroes yet. Be the first legend!</li>
+                    </ul>
+                </div>
+                <div style="margin-top: 30px;">
+                    <h3>📖 Next Chapter Preview</h3>
+                    <p>Dive into Chapter 3, where we’ll unravel the accounting cycle—from recording transactions to crafting epic financial statements!</p>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Accounting Adventure &copy; 2025 | Powered by Epic Learning</p>
+        </footer>
+    </div>
+
+    <script>
+        function toggleAnswer(element) {
+            const answer = element.nextElementSibling;
+            answer.style.display = (answer.style.display === 'block') ? 'none' : 'block';
+        }
+
+        let rankings = [];
+
+        function submitQuiz() {
+            const name = document.getElementById('name').value.trim();
+            if (!name) {
+                alert('Please enter your hero name to join the leaderboard!');
+                return;
+            }
+            const q1 = document.getElementById('q1').value.toLowerCase().trim();
+            const q2 = document.getElementById('q2').value.toLowerCase().trim();
+            const q3 = document.getElementById('q3').value.toLowerCase().trim();
+
+            let score = 0;
+            if (q1.includes('assets') && q1.includes('liabilities') && q1.includes('capital')) score++;
+            if (q2.includes('inflation') || q2.includes('price changes') || q2.includes('purchasing power')) score++;
+            if (q3.includes('losses') || q3.includes('not profits') || q3.includes('play safe') || q3.includes('prudence')) score++;
+
+            const report = document.getElementById('report');
+            report.innerHTML = `
+                <h3>🎉 Epic Hero ${name}!</h3>
+                <p>Your Score: ${score}/3! 🦸‍♀️</p>
+                <p><strong>Suggested Answers:</strong></p>
+                <p>Q1: Assets = Liabilities + Capital (The heart of double-entry accounting!)</p>
+                <p>Q2: It doesn’t account for inflation or changes in money’s purchasing power.</p>
+                <p>Q3: Record all possible losses early but wait for profits to be certain.</p>
+                <p>Keep practicing to climb the leaderboard! 🚀</p>
+            `;
+            report.style.display = 'block';
+
+            rankings.push({ name, score });
+            rankings.sort((a, b) => b.score - a.score);
+            updateRankingList();
+
+            console.log('Saving to Google Sheet:', { name, score, date: new Date().toISOString() });
+            // Example: fetch('https://script.google.com/macros/s/YOUR_ID/exec', { method: 'POST', body: JSON.stringify({name, score, date: new Date().toISOString()}) });
+        }
+
+        function updateRankingList() {
+            const list = document.getElementById('ranking-list');
+            list.innerHTML = '';
+            if (rankings.length === 0) {
+                list.innerHTML = '<li>No heroes yet. Be the first legend!</li>';
+                return;
+            }
+            rankings.forEach((entry, index) => {
+                const li = document.createElement('li');
+                li.innerHTML = `<span class="rank">${index + 1}</span><span class="name">${entry.name}</span><span class="score">${entry.score}/3</span>`;
+                list.appendChild(li);
+            });
+        }
+    </script>
+</body>
+</html>
