@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 3: Recording of Transactions-I | Accountancy Learning</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #3498db;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --success: #2ecc71;
+            --warning: #f39c12;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 30px 0;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--light);
+        }
+        
+        .chapter-title {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .chapter-title h1 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        .chapter-title p {
+            font-size: 1.2rem;
+            color: #666;
+        }
+        
+        .learning-objectives {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            border-left: 5px solid var(--secondary);
+        }
+        
+        .learning-objectives h2 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+        
+        .learning-objectives ul {
+            padding-left: 20px;
+        }
+        
+        .learning-objectives li {
+            margin-bottom: 10px;
+            position: relative;
+        }
+        
+        .content-section {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .main-content {
+            flex: 2;
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+        
+        .sidebar {
+            flex: 1;
+        }
+        
+        .section-title {
+            color: var(--primary);
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .voucher-container {
+            background-color: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25px 0;
+            border: 1px dashed #ccc;
+        }
+        
+        .tally-animation {
+            background-color: #1e1e1e;
+            color: #00ff00;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 25px 0;
+            font-family: 'Courier New', monospace;
+            height: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        /* Centered Sections for Rules and Examples */
+        .centered-section {
+            background-color: var(--primary);
+            color: var(--light);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            margin: 30px auto;
+            max-width: 900px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .centered-section.examples-centered {
+            background-color: var(--light);
+            color: var(--dark);
+            border: 2px solid var(--accent);
+            padding: 40px;
+            margin-top: 50px;
+        }
+        
+        .centered-section .section-title-centered {
+            color: var(--accent);
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+            display: inline-block;
+            font-size: 1.8rem;
+        }
+
+        .centered-section.examples-centered .section-title-centered {
+             color: var(--primary);
+             border-color: var(--secondary);
+        }
+
+        .rules-grid-centered {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .rule-card-centered {
+            background-color: #444;
+            border-radius: 8px;
+            padding: 20px;
+            border: 2px solid var(--secondary);
+            flex: 1 1 300px;
+            text-align: left;
+            max-width: 350px;
+        }
+
+        .rule-card-centered .rule-title {
+            color: var(--light);
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            border-bottom: 1px dotted var(--light);
+            padding-bottom: 5px;
+        }
+
+        .rule-card-centered p {
+            margin-bottom: 8px;
+            color: #ddd;
+        }
+
+        .rule-card-centered strong {
+            color: var(--success);
+            font-weight: 700;
+        }
+
+        .examples-grid-centered {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            text-align: left;
+        }
+
+        .example-card-centered {
+            background-color: white;
+            border-radius: 8px;
+            padding: 15px;
+            border-left: 5px solid var(--accent);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .example-card-centered .example-title {
+            font-weight: bold;
+            color: var(--accent);
+            margin-bottom: 8px;
+        }
+
+        .example-card-centered p {
+            margin-bottom: 5px;
+        }
+        
+        /* Quiz and Leaderboard Styles */
+        #quiz-section, #leaderboard {
+            background-color: var(--light);
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px auto;
+            max-width: 700px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
+
+        #quiz-section h3, #leaderboard h3 {
+            color: var(--primary);
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .quiz-question {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .quiz-options label {
+            display: block;
+            background-color: white;
+            padding: 10px 15px;
+            margin-bottom: 8px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .quiz-options label:hover {
+            background-color: #f0f0f0;
+        }
+
+        #quiz-message {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        #leaderboard table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        #leaderboard th, #leaderboard td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        #leaderboard th {
+            background-color: var(--secondary);
+            color: white;
+        }
+
+        #leaderboard tr:nth-child(even) {
+            background-color: #f4f4f4;
+        }
+
+        /* Utility classes */
+        .correct-answer { color: var(--success); }
+        .incorrect-answer { color: var(--accent); }
+        .button {
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+
+        .button:hover {
+            background-color: #2980b9;
+        }
+        
+        footer {
+            background-color: var(--primary);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 50px;
+            border-radius: 10px 10px 0 0;
+        }
+        
+        @media (max-width: 768px) {
+            .content-section {
+                flex-direction: column;
+            }
+            .account-types {
+                flex-direction: column;
+            }
+            .account-type {
+                margin: 10px 0;
+            }
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            nav ul {
+                margin-top: 20px;
+                justify-content: center;
+            }
+            nav ul li {
+                margin: 0 10px;
+            }
+            .rules-grid-centered {
+                flex-direction: column;
+            }
+            .examples-grid-centered {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Accountancy<span>Learning</span></div>
+                <nav>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Chapters</a></li>
+                        <li><a href="#">Resources</a></li>
+                        <li><a href="#">Practice</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="chapter-title">
+            <h1>Chapter 3: Recording of Transactions-I</h1>
+            <p>Understanding the fundamentals of recording business transactions</p>
+        </div>
+        
+        <div class="learning-objectives">
+            <h2>Learning Objectives</h2>
+            <ul>
+                <li>Describe the nature of transaction and source documents</li>
+                <li>Explain the preparation of accounting vouchers</li>
+                <li>Apply accounting equation to explain the effect of transactions</li>
+                <li>Record transactions using rules of debit and credit</li>
+                <li>Explain the concept of book of original entry and recording of transactions in journal</li>
+                <li>Explain the concept of ledger and posting of journal entries to the ledger accounts</li>
+            </ul>
+        </div>
+        
+        <div class="content-section">
+            <div class="main-content">
+                <h2 class="section-title">What is Accounts? (खाता क्या है?)</h2>
+                <div class="bilingual-text">
+                    <p class="hindi">एक business के दायरे में जो भी लेन-देन होते हैं, उन्हें एक account के रुप में लिखा जाता है। Purchases, Sales, Ram, Mohan, Bank, Cash, Computer, Machinery, Furniture, Assets, Deposit, Interest, Discount, Wages इत्यादि।</p>
+                    <p class="english">In a business's work, whatever giving-receiving happens, it is written in the form of an account! Purchases, Sales, Ram, Mohan, Bank, Cash, Computer, Machinery, Furniture, Assets, Deposit, Interest, Discount, Wages, etc.</p>
+                </div>
+                
+                <h3 class="section-title">Tally Recording Animation</h3>
+                <div class="tally-animation">
+                    <div class="tally-screen" id="tallyScreen">
+                        </div>
+                </div>
+                
+                <h3 class="section-title">Business Transactions and Source Document</h3>
+                <p>In chapter 1 and 2, while explaining the development and importance of accounting as a source of disseminating the financial information along with the discussion on basic accounting concepts that guide the recording of business transactions, it has been indicated that accounting involves a process of identifying and analysing the business transactions, recording them, classifying and summarising their effects and finally communicating it to the interested users of accounting information.</p>
+                
+                <p>In this chapter, we will discuss the details of each step involved in the accounting process. The first step involves identifying the transactions to be recorded and preparing the source documents which are in turn recorded in the basic book of original entry called journal and are then posted to individual accounts in the principal book called ledger.</p>
+                
+                <h3>3.1 Business Transactions and Source Document</h3>
+                <p>After securing good percentage in your previous examination, as promised, your father wishes to buy you a computer. You go to the market along with your father to buy a computer. The dealer gives a cash memo along with the computer and in exchange your father makes cash payment of ₹35,000. Purchase of computer for cash is an example of a transaction, which involves reciprocal exchange of two things: (i) payment of cash, (i) delivery of a computer. Hence, the transaction involves this aspect, i.e. Give and Take. Payment of cash involves give aspect and delivery of computer is a take aspect. Thus, business transactions are exchanges of economic consideration between parties and have two-fold effects that are recorded in at least two accounts.</p>
+                
+                <p>Business transactions are usually evidenced by an appropriate documents such as Cash memo, Invoice, Sales bill, Pay-in-slip, Cheque, Salary slip, etc. A document which provides evidence of the transactions is called the **Source Document** or a **Voucher**. At times, there may be no documentary for certain items as in case of petty expenses. In such case voucher may be prepared showing the necessary details and got approved by appropriate authority within the firm. All such documents (vouchers) are arranged in chronological order and are serially numbered and kept in a separate file. All recording in books of account is done on the basis of vouchers.</p>
+                
+                <div class="voucher-container">
+                    <h3>Transaction Voucher</h3>
+                    <div class="voucher" id="transactionVoucher">
+                        <div class="voucher-header">
+                            <h3>ABC Enterprises</h3>
+                            <p>Transaction Voucher</p>
+                        </div>
+                        <div class="voucher-line">
+                            <span class="voucher-label">Voucher No:</span>
+                            <span id="voucherNo">TV-001</span>
+                        </div>
+                        <div class="voucher-line">
+                            <span class="voucher-label">Date:</span>
+                            <span id="voucherDate">15/03/2023</span>
+                        </div>
+                        <div class="voucher-line">
+                            <span class="voucher-label">Debit Account:</span>
+                            <span id="debitAccount">Computer Account</span>
+                        </div>
+                        <div class="voucher-line">
+                            <span class="voucher-label">Credit Account:</span>
+                            <span id="creditAccount">Cash Account</span>
+                        </div>
+                        <div class="voucher-line">
+                            <span class="voucher-label">Amount (₹):</span>
+                            <span id="voucherAmount">35,000</span>
+                        </div>
+                        <div class="voucher-line">
+                            <span class="voucher-label">Narration:</span>
+                            <span id="voucherNarration">Purchase of computer for office use</span>
+                        </div>
+                        <div class="voucher-footer">
+                            <div>
+                                <p>Authorised By: <span id="authBy">Manager</span></p>
+                            </div>
+                            <div>
+                                <p>Prepared By: <span id="prepBy">Accountant</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sidebar">
+                <div class="account-classification">
+                    <h2 class="section-title">Classification Recap</h2>
+                    <ul style="padding-left: 15px; text-align: left;">
+                        <li>**Personal:** Persons, Firms, Banks, Capital</li>
+                        <li>**Real:** Assets (Cash, Machinery, Building)</li>
+                        <li>**Nominal:** Incomes, Expenses (Rent, Salary, Interest)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="account-classification">
+            <h2 class="section-title">Classification of Accounts (खातों का वर्गीकरण)</h2>
+            <div class="bilingual-text" style="text-align: center;">
+                <p class="hindi">व्यवसाय के कार्यों में जो भी लेन-देन होते हैं, उन्हें खातों के रूप में लिखा जाता है।</p>
+                <p class="english">In a business's work, whatever giving-receiving happens, it is written in the form of an account!</p>
+            </div>
+            
+            <div class="account-types">
+                <div class="account-type">
+                    <h3>Personal Account (व्यक्तिगत खाते)</h3>
+                    <div class="bilingual-text">
+                        <p class="hindi">वह खाते जो किसि व्यक्ति या संस्था के नाम से बनाए जाते है। उदाहरण:</p>
+                        <p class="english">These are accounts that are made in the name of any person or institution. Examples:</p>
+                    </div>
+                    <ul style="text-align: left; margin-top: 10px;">
+                        <li>Mohit, Rahul (Individuals)</li>
+                        <li>Bank (Financial Institution)</li>
+                        <li>ABC Company (Business Entity)</li>
+                        <li>Capital, Drawings (Owner's Accounts)</li>
+                    </ul>
+                </div>
+                
+                <div class="account-type">
+                    <h3>Real Account (वास्तविक खाते)</h3>
+                    <div class="bilingual-text">
+                        <p class="hindi">वह खाते जो किसी वस्तु या सम्पत्ति से सम्बन्धित होते हैं। उदाहरण:</p>
+                        <p class="english">These are accounts related to assets, properties, or items of value. Examples:</p>
+                    </div>
+                    <ul style="text-align: left; margin-top: 10px;">
+                        <li>Cash (Liquid Asset)</li>
+                        <li>Computer, Machinery (Fixed Assets)</li>
+                        <li>Furniture (Office Asset)</li>
+                        <li>Land, Building (Property Assets)</li>
+                    </ul>
+                </div>
+                
+                <div class="account-type">
+                    <h3>Nominal Account (नाममात्र खाते)</h3>
+                    <div class="bilingual-text">
+                        <p class="hindi">वह खाते जो लाभ-हानि, आय-व्यय से सम्बन्धित होते हैं। उदाहरण:</p>
+                        <p class="english">These accounts are related to income, expenses, gains, and losses. Examples:</p>
+                    </div>
+                    <ul style="text-align: left; margin-top: 10px;">
+                        <li>Purchases, Sales (Trading Accounts)</li>
+                        <li>Interest, Discount (Financial Items)</li>
+                        <li>Wages, Rent (Expenses)</li>
+                        <li>Profit & Loss (Performance Measure)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="centered-section">
+            <h2 class="section-title-centered">Golden Rules of Accounting</h2>
+            <div class="rules-grid-centered">
+                <div class="rule-card-centered">
+                    <div class="rule-title">1. Personal Account (व्यक्तिगत खाता)</div>
+                    <p><strong>Debit:</strong> The Receiver (प्राप्त करने वाला)</p>
+                    <p><strong>Credit:</strong> The Giver (देने वाला)</p>
+                </div>
+                
+                <div class="rule-card-centered">
+                    <div class="rule-title">2. Real Account (वास्तविक खाता)</div>
+                    <p><strong>Debit:</strong> What comes in (आने वाला)</p>
+                    <p><strong>Credit:</strong> What goes out (जाने वाला)</p>
+                </div>
+                
+                <div class="rule-card-centered">
+                    <div class="rule-title">3. Nominal Account (नाममात्र खाता)</div>
+                    <p><strong>Debit:</strong> Expenses and Losses (खर्च और नुकसान)</p>
+                    <p><strong>Credit:</strong> Income and Gains (आय और लाभ)</p>
+                </div>
+            </div>
+        </div>
+        <div class="centered-section examples-centered">
+            <h2 class="section-title-centered">Practical Examples (व्यावहारिक उदाहरण)</h2>
+            <div class="examples-grid-centered">
+                <div class="example-card-centered">
+                    <div class="example-title">Example 1 (Cash Purchase):</div>
+                    <p class="hindi">Rahul ने ₹12000 का एक नगद Computer खरीदा।</p>
+                    <p class="english">Rahul bought a Computer for ₹12,000 cash!</p>
+                    <p><strong>Accounts Involved:</strong> **Computer** (Real - Debit: What comes in), **Cash** (Real - Credit: What goes out)</p>
+                </div>
+                
+                <div class="example-card-centered">
+                    <div class="example-title">Example 2 (Credit Purchase):</div>
+                    <p class="hindi">Rahul ने ₹4000 का एक Phone Mohan से उधार खरीदा।</p>
+                    <p class="english">Rahul bought a Phone from Mohan on credit for ₹4,000!</p>
+                    <p><strong>Accounts Involved:</strong> **Phone** (Real - Debit: What comes in), **Mohan** (Personal - Credit: The Giver)</p>
+                </div>
+                
+                <div class="example-card-centered">
+                    <div class="example-title">Example 3 (Mixed Payment):</div>
+                    <p class="hindi">Rahul ने ₹24000 की एक AC Suresh से खरीदी, ₹15000 cash में दे दिये और बाकी उधार कर दिये।</p>
+                    <p class="english">Rahul bought an AC from Suresh for ₹24,000, paid ₹15,000 cash and the rest on credit!</p>
+                    <p><strong>Accounts Involved:</strong> **AC** (Real - Debit: Comes in), **Cash** (Real - Credit: Goes out), **Suresh** (Personal - Credit: The Giver)</p>
+                </div>
+                
+                <div class="example-card-centered">
+                    <div class="example-title">Example 4 (Expense):</div>
+                    <p class="hindi">Rahul ने ₹2500 Office Rent दिया।</p>
+                    <p class="english">Rahul paid ₹2,500 Office Rent!</p>
+                    <p><strong>Accounts Involved:</strong> **Rent** (Nominal - Debit: Expense), **Cash** (Real - Credit: What goes out)</p>
+                </div>
+            </div>
+        </div>
+        <div id="quiz-section">
+            <h3>Quick Accountancy Quiz 💡</h3>
+            <div id="name-container">
+                <input type="text" id="learner-name-entry" placeholder="Enter your Name to Start Quiz" style="margin-bottom: 15px; padding: 8px; border-radius: 5px; border: 1px solid #ccc; width: 100%; max-width: 300px;">
+                <button id="start-quiz" class="button" onclick="startQuiz()">Start Quiz</button>
+            </div>
+            <div id="quiz-container" style="display: none;">
+                </div>
+            <p id="quiz-message"></p>
+            <button id="submit-quiz" class="button" style="display: none;" onclick="submitQuiz()">Submit Answer</button>
+            <button id="next-question" class="button" style="display: none;" onclick="loadNextQuestion()">Next Question</button>
+            <p id="score-display" style="margin-top: 15px; font-weight: bold;"></p>
+            <button id="save-score" class="button" style="display: none; background-color: var(--success);" onclick="saveScore()">Save Score</button>
+        </div>
+        <div id="leaderboard">
+            <h3>Golden Rules Leaderboard 🏆</h3>
+            <table id="leaderboard-table">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Learner Name</th>
+                        <th>Score (Correct)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    </tbody>
+            </table>
+        </div>
+        </div>
+    
+    <footer>
+        <div class="container">
+            <p>AccountancyLearning - Free Educational Resource for Accountancy Students</p>
+            <p>© 2025 All Rights Reserved</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- Tally Animation Script (Existing functionality) ---
+        document.addEventListener('DOMContentLoaded', function() {
+            const tallyScreen = document.getElementById('tallyScreen');
+            const lines = [
+                {text: "Tally ERP 9 - Gateway of Tally", type: "output", delay: 500},
+                {text: "Company: ABC Enterprises", type: "output", delay: 800},
+                {text: "Period: 1 Apr 2023 to 31 Mar 2024", type: "output", delay: 800},
+                {text: "", type: "blank", delay: 500},
+                {text: "Accounting Vouchers -> Create", type: "command", delay: 800},
+                {text: "F7: Journal Voucher", type: "command", delay: 800},
+                {text: "", type: "blank", delay: 500},
+                {text: "Date: 15/03/2023", type: "output", delay: 800},
+                {text: "Particulars          Amount (Dr)   Amount (Cr)", type: "output", delay: 800},
+                {text: "Computer A/c                35,000.00", type: "output", delay: 800},
+                {text: "  To Cash A/c                               35,000.00", type: "output", delay: 800},
+                {text: "", type: "blank", delay: 500},
+                {text: "Narration: Purchase of computer for office use", type: "output", delay: 800},
+                {text: "Voucher saved successfully!", type: "highlight", delay: 1000}
+            ];
+            
+            let currentLine = 0;
+            
+            function addTallyLine() {
+                if (currentLine >= lines.length) {
+                    setTimeout(() => {
+                        tallyScreen.innerHTML = '';
+                        currentLine = 0;
+                        setTimeout(addTallyLine, 1000);
+                    }, 5000);
+                    return;
+                }
+                
+                const line = lines[currentLine];
+                const lineElement = document.createElement('div');
+                lineElement.className = 'tally-line';
+                
+                if (line.type === 'blank') {
+                    lineElement.innerHTML = '&nbsp;';
+                } else if (line.type === 'prompt') {
+                    lineElement.className += ' tally-prompt';
+                    lineElement.textContent = '> ' + line.text;
+                } else if (line.type === 'command') {
+                    lineElement.className += ' tally-command';
+                    lineElement.textContent = '> ' + line.text;
+                } else if (line.type === 'highlight') {
+                    lineElement.className += ' tally-highlight';
+                    lineElement.textContent = line.text;
+                } else {
+                    lineElement.className += ' tally-output';
+                    lineElement.textContent = line.text;
+                }
+                
+                tallyScreen.appendChild(lineElement);
+                tallyScreen.scrollTop = tallyScreen.scrollHeight;
+                
+                currentLine++;
+                setTimeout(addTallyLine, line.delay);
+            }
+            
+            setTimeout(addTallyLine, 1000);
+        });
+
+        // --- Interactive Quiz and Leaderboard Script ---
+
+        const quizData = [
+            {
+                question: "Transaction: **Paid Salary ₹5,000 in cash.** Which account is DEBITED?",
+                options: ["Cash Account", "Salary Account", "Personal Account", "The Giver Account"],
+                answer: "Salary Account",
+                rule: "Nominal Account Rule: Debit all Expenses and Losses."
+            },
+            {
+                question: "Transaction: **Received ₹10,000 from Rahul (Debtor).** Which account is CREDITED?",
+                options: ["Cash Account", "Rahul's Account", "Interest Received Account", "The Receiver Account"],
+                answer: "Rahul's Account",
+                rule: "Personal Account Rule: Credit the Giver (Rahul is the giver of money)."
+            },
+            {
+                question: "Transaction: **Purchased Furniture ₹20,000 for cash.** Which rule is applied to the Furniture Account?",
+                options: ["Personal (Debit the Receiver)", "Real (Debit what comes in)", "Nominal (Debit Expense)", "Real (Credit what goes out)"],
+                answer: "Real (Debit what comes in)",
+                rule: "Real Account Rule: Furniture is an asset (Real Account) and it is coming into the business."
+            },
+            {
+                question: "Which type of account does 'Rent Paid' fall under?",
+                options: ["Personal", "Real", "Nominal", "Asset"],
+                answer: "Nominal",
+                rule: "Nominal accounts deal with expenses and incomes."
+            },
+            {
+                question: "Transaction: **Sold goods worth ₹15,000 on credit to Shyam.** Which account is DEBITED?",
+                options: ["Cash Account", "Shyam's Account", "Sales Account", "Goods Account"],
+                answer: "Shyam's Account",
+                rule: "Personal Account Rule: Debit the Receiver (Shyam is receiving the goods)."
+            },
+            {
+                question: "Transaction: **Paid ₹8,000 for electricity bill in cash.** Which account is DEBITED?",
+                options: ["Cash Account", "Electricity Account", "Personal Account", "Nominal Account"],
+                answer: "Electricity Account",
+                rule: "Nominal Account Rule: Debit all Expenses and Losses."
+            },
+            {
+                question: "Transaction: **Received interest ₹2,000 in cash.** Which account is CREDITED?",
+                options: ["Cash Account", "Interest Received Account", "Personal Account", "Real Account"],
+                answer: "Interest Received Account",
+                rule: "Nominal Account Rule: Credit all Incomes and Gains."
+            },
+            {
+                question: "Transaction: **Purchased machinery ₹50,000 on credit from XYZ Ltd.** Which rule is applied to the Machinery Account?",
+                options: ["Personal (Debit the Receiver)", "Real (Debit what comes in)", "Nominal (Debit Expense)", "Real (Credit what goes out)"],
+                answer: "Real (Debit what comes in)",
+                rule: "Real Account Rule: Machinery is an asset (Real Account) and it is coming into the business."
+            }
+        ];
+
+        let currentQuestionIndex = 0;
+        let score = 0;
+        let learnerName = '';
+
+        function startQuiz() {
+            learnerName = document.getElementById('learner-name-entry').value.trim();
+            if (learnerName === '') {
+                alert('Please enter your name to start the quiz!');
+                return;
+            }
+            document.getElementById('name-container').style.display = 'none';
+            document.getElementById('quiz-container').style.display = 'block';
+            loadQuiz();
+        }
+
+        function loadQuiz() {
+            if (currentQuestionIndex >= quizData.length) {
+                showQuizResults();
+                return;
+            }
+
+            const quizContainer = document.getElementById('quiz-container');
+            const submitButton = document.getElementById('submit-quiz');
+            const nextButton = document.getElementById('next-question');
+            const messageElement = document.getElementById('quiz-message');
+
+            const q = quizData[currentQuestionIndex];
+            
+            quizContainer.innerHTML = `
+                <div class="quiz-question">Q${currentQuestionIndex + 1}: ${q.question}</div>
+                <div class="quiz-options">
+                    ${q.options.map((option, index) => `
+                        <label>
+                            <input type="radio" name="quiz-option" value="${option}">
+                            ${option}
+                        </label>
+                    `).join('')}
+                </div>
+            `;
+            
+            messageElement.textContent = '';
+            submitButton.style.display = 'block';
+            nextButton.style.display = 'none';
+            document.getElementById('save-score').style.display = 'none';
+            document.getElementById('score-display').textContent = `Current Score: ${score}/${quizData.length}`;
+        }
+
+        function submitQuiz() {
+            const selectedOption = document.querySelector('input[name="quiz-option"]:checked');
+            const messageElement = document.getElementById('quiz-message');
+            const submitButton = document.getElementById('submit-quiz');
+            const nextButton = document.getElementById('next-question');
+            const options = document.querySelectorAll('input[name="quiz-option"]');
+            const q = quizData[currentQuestionIndex];
+
+            if (!selectedOption) {
+                messageElement.textContent = 'Please select an answer.';
+                messageElement.className = 'incorrect-answer';
+                return;
+            }
+
+            const isCorrect = selectedOption.value === q.answer;
+
+            // Disable all options and show results
+            options.forEach(opt => {
+                opt.disabled = true;
+                const label = opt.closest('label');
+                if (opt.value === q.answer) {
+                    label.style.backgroundColor = 'var(--success)';
+                    label.style.color = 'white';
+                } else if (opt.checked) {
+                    label.style.backgroundColor = 'var(--accent)';
+                    label.style.color = 'white';
+                }
+            });
+
+            if (isCorrect) {
+                score++;
+                messageElement.innerHTML = `<span class="correct-answer">✅ Correct!</span> Rule Applied: ${q.rule}`;
+            } else {
+                messageElement.innerHTML = `<span class="incorrect-answer">❌ Incorrect.</span> The correct answer was **${q.answer}**. Rule Applied: ${q.rule}`;
+            }
+            
+            document.getElementById('score-display').textContent = `Current Score: ${score}/${quizData.length}`;
+            submitButton.style.display = 'none';
+            nextButton.style.display = 'block';
+            currentQuestionIndex++;
+        }
+
+        function loadNextQuestion() {
+            loadQuiz();
+        }
+
+        function showQuizResults() {
+            const quizContainer = document.getElementById('quiz-container');
+            const messageElement = document.getElementById('quiz-message');
+            const scoreDisplay = document.getElementById('score-display');
+            const submitButton = document.getElementById('submit-quiz');
+            const nextButton = document.getElementById('next-question');
+            const saveButton = document.getElementById('save-score');
+
+            quizContainer.innerHTML = `
+                <p>Quiz Completed!</p>
+                <p>Your Final Score: ${score} out of ${quizData.length}</p>
+            `;
+            
+            scoreDisplay.textContent = '';
+            messageElement.textContent = `Well done, ${learnerName}! Click below to save your score on the leaderboard!`;
+            submitButton.style.display = 'none';
+            nextButton.style.display = 'none';
+            saveButton.style.display = 'block';
+        }
+
+        function getLeaderboard() {
+            const leaderboard = JSON.parse(localStorage.getItem('accountingLeaderboard')) || [];
+            return leaderboard.sort((a, b) => b.score - a.score); // Sort by score descending
+        }
+
+        function saveScore() {
+            const newEntry = {
+                name: learnerName.substring(0, 20), // Truncate name for board
+                score: score
+            };
+
+            let leaderboard = getLeaderboard();
+            leaderboard.push(newEntry);
+            leaderboard = leaderboard.sort((a, b) => b.score - a.score).slice(0, 10); // Keep top 10
+
+            localStorage.setItem('accountingLeaderboard', JSON.stringify(leaderboard));
+            
+            alert(`Score of ${score} saved for ${learnerName}!`);
+            displayLeaderboard();
+            document.getElementById('save-score').style.display = 'none';
+            document.getElementById('name-container').style.display = 'block';
+            document.getElementById('quiz-container').style.display = 'none';
+            document.getElementById('learner-name-entry').value = '';
+
+            // Reset quiz state for next attempt
+            currentQuestionIndex = 0;
+            score = 0;
+            learnerName = '';
+        }
+
+        function displayLeaderboard() {
+            const leaderboardTableBody = document.querySelector('#leaderboard-table tbody');
+            const leaderboard = getLeaderboard();
+            
+            leaderboardTableBody.innerHTML = '';
+
+            if (leaderboard.length === 0) {
+                leaderboardTableBody.innerHTML = '<tr><td colspan="3" style="text-align: center;">No scores yet. Take the quiz!</td></tr>';
+                return;
+            }
+
+            leaderboard.forEach((entry, index) => {
+                const row = leaderboardTableBody.insertRow();
+                row.insertCell().textContent = index + 1;
+                row.insertCell().textContent = entry.name;
+                row.insertCell().textContent = entry.score;
+            });
+        }
+
+        // Initialize leaderboard on load
+        window.onload = function() {
+            displayLeaderboard();
+        };
+    </script>
+</body>
+</html>
