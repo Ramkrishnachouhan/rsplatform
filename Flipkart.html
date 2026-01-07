@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flipkart Minutes Incentive Process – Coming Soon</title>
+    <title>Flipkart Minutes Incentive Process – PDF Download</title>
 
     <style>
         :root {
             --primary-blue: #1a237e;
+            --flipkart-blue: #2874f0;
             --light-bg: #f4f7f9;
-            --disabled-grey: #bdbdbd;
-            --orange-alert: #e65100;
         }
 
         body {
@@ -30,20 +29,6 @@
             box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         }
 
-        /* Top Notice Box */
-        .status-notice {
-            background: #fff3e0;
-            border: 1px solid #ffb74d;
-            color: var(--orange-alert);
-            padding: 14px;
-            border-radius: 8px;
-            text-align: center;
-            font-weight: bold;
-            margin-bottom: 25px;
-            font-size: 14px;
-            line-height: 1.4;
-        }
-
         h1 {
             text-align: center;
             color: var(--primary-blue);
@@ -52,10 +37,10 @@
         }
 
         .features {
-            background: #fcfcfc;
+            background: #f9fbe7;
             padding: 20px;
             border-radius: 8px;
-            border: 1px solid #eee;
+            border: 1px solid #e6ee9c;
             margin-bottom: 30px;
         }
 
@@ -67,38 +52,33 @@
         li {
             margin-bottom: 12px;
             line-height: 1.5;
-            color: #555;
+            color: #333;
         }
 
-        /* Payment area without price */
+        /* Container for the Razorpay Script Button */
         .pay-box {
             text-align: center;
-            padding: 10px 0;
+            padding: 20px 0;
+            min-height: 50px; /* Prevents layout jump while loading */
         }
 
-        .pay-btn-disabled {
-            background: var(--disabled-grey);
-            color: #ffffff;
-            padding: 18px 40px;
-            font-size: 16px;
-            font-weight: bold;
-            border-radius: 50px;
-            text-decoration: none;
-            display: inline-block;
-            cursor: not-allowed;
-            pointer-events: none;
-            border: none;
-            width: 80%;
+        /* This targets the Razorpay generated button specifically */
+        .razorpay-payment-button {
+            background-color: var(--flipkart-blue) !important;
+            color: #fff !important;
+            padding: 12px 25px !important;
+            font-size: 18px !important;
+            border-radius: 6px !important;
+            border: none !important;
+            font-weight: bold !important;
+            cursor: pointer !important;
+            box-shadow: 0 4px 12px rgba(40, 116, 240, 0.3) !important;
+            transition: all 0.3s ease !important;
         }
 
-        .update-text {
-            display: block;
-            margin-top: 15px;
-            color: #d32f2f;
-            font-weight: bold;
-            font-size: 15px;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
+        .razorpay-payment-button:hover {
+            background-color: #1259cc !important;
+            transform: translateY(-2px);
         }
 
         footer {
@@ -113,7 +93,6 @@
         @media (max-width: 480px) {
             .container { padding: 20px; margin-top: 20px; }
             h1 { font-size: 20px; }
-            .pay-btn-disabled { width: 100%; }
         }
     </style>
 </head>
@@ -121,29 +100,36 @@
 <body>
 
 <div class="container">
-    <div class="status-notice">
-        ⚠️ <strong>Updates in Progress:</strong><br>
-        We are currently updating the incentive breakdown for 2026.
-    </div>
-
     <h1>Flipkart Minutes Incentive Process</h1>
 
+    <p style="text-align: center; color: #555;">Download the updated 2026 earning guide for delivery partners.</p>
+
     <div class="features">
-        <strong>The upcoming guide will cover:</strong>
+        <strong>What you will get in the PDF:</strong>
         <ul>
-            <li>New 2026 Incentive Structure</li>
-            <li>Detailed Payout Calculations</li>
-            <li>Tips to maximize your daily income</li>
+            <li>Complete incentive calculation process</li>
+            <li>Time and distance based earning explanation</li>
+            <li>Real earning examples</li>
+            <li>Easy language and simple format</li>
         </ul>
     </div>
 
     <div class="pay-box">
-        <button class="pay-btn-disabled">Downloads Currently Paused</button>
-        <span class="update-text">Coming Back Soon!</span>
+        <form>
+            <script 
+                src="https://checkout.razorpay.com/v1/payment-button.js" 
+                data-payment_button_id="pl_S15AqY9RPxk7Rb" 
+                async> 
+            </script> 
+        </form>
     </div>
 
+    <p style="font-size: 12px; color: #777; text-align: center; margin-top: 10px;">
+        * Secure payment via Razorpay. PDF download available after payment.
+    </p>
+
     <footer>
-        © 2026 rsplatform.site | Information shared for educational purposes.
+        © 2026 rsplatform.site | Secure Digital Delivery
     </footer>
 </div>
 
