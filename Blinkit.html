@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blinkit Captain Hiring - Guwahati</title>
+    <style>
+        body { 
+            font-family: 'Arial', sans-serif; 
+            margin: 0; 
+            padding: 0; 
+            line-height: 1.7; 
+            color: #333;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+        }
+        
+        /* Animated delivery scene */
+        .delivery-scene {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+        
+        /* Background buildings */
+        .building {
+            position: absolute;
+            bottom: 0;
+            background: linear-gradient(to top, #e8f0f7, #ffffff);
+            border-radius: 8px 8px 0 0;
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.05);
+        }
+        
+        /* Delivery vehicle base styles */
+        .delivery-vehicle {
+            position: absolute;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.1));
+        }
+        
+        /* Scooter animation */
+        .scooter {
+            width: 120px;
+            height: 80px;
+            bottom: 15%;
+            animation: moveRight 25s linear infinite;
+        }
+        
+        /* Bicycle animation */
+        .bicycle {
+            width: 100px;
+            height: 70px;
+            bottom: 10%;
+            animation: moveLeft 35s linear infinite;
+        }
+        
+        /* Delivery executive */
+        .delivery-person {
+            position: absolute;
+            width: 40px;
+            height: 70px;
+            bottom: 0;
+            animation: bounce 2s ease-in-out infinite;
+        }
+        
+        /* Delivery bag */
+        .delivery-bag {
+            position: absolute;
+            width: 40px;
+            height: 50px;
+            background: linear-gradient(135deg, #25D366, #1ea853);
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        /* Package box */
+        .package {
+            position: absolute;
+            width: 35px;
+            height: 35px;
+            background: linear-gradient(135deg, #FF9800, #FF5722);
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        /* Home/house icon */
+        .home {
+            position: absolute;
+            bottom: 0;
+            width: 60px;
+            height: 70px;
+            background: linear-gradient(to top, #FFE0B2, #FFF3E0);
+            border-radius: 10px 10px 0 0;
+            box-shadow: 0 -5px 15px rgba(0,0,0,0.05);
+        }
+        
+        /* Mobile app interface */
+        .mobile-app {
+            position: absolute;
+            width: 50px;
+            height: 90px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+        }
+        
+        /* Clouds */
+        .cloud {
+            position: absolute;
+            background: white;
+            border-radius: 50px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            opacity: 0.7;
+        }
+        
+        /* Animations */
+        @keyframes moveRight {
+            0% { transform: translateX(-200px); }
+            100% { transform: translateX(calc(100vw + 200px)); }
+        }
+        
+        @keyframes moveLeft {
+            0% { transform: translateX(calc(100vw + 200px)); }
+            100% { transform: translateX(-200px); }
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            50% { transform: translateY(-10px) translateX(5px); }
+        }
+        
+        @keyframes slideInOut {
+            0% { transform: translateX(-100%); opacity: 0; }
+            10%, 90% { opacity: 1; }
+            100% { transform: translateX(200%); opacity: 0; }
+        }
+        
+        /* Container styling */
+        .container { 
+            max-width: 900px; 
+            margin: 40px auto; 
+            background: rgba(255, 255, 255, 0.95); 
+            padding: 30px; 
+            position: relative;
+            z-index: 1;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            backdrop-filter: blur(5px);
+        }
+        
+        h1 { color: #1a237e; text-align: center; margin-bottom: 20px; font-size: 2.2em; }
+        h2 { color: #0d47a1; margin-top: 30px; border-left: 4px solid #0d47a1; padding-left: 10px; }
+        .highlight { background: #fff3cd; padding: 12px 15px; border-left: 5px solid #ffc107; font-weight: bold; margin: 15px 0; border-radius: 5px; }
+        .info-box { background: #e3f2fd; padding: 15px; border-radius: 8px; margin: 15px 0; border: 1px solid #bbdefb; }
+        .btn-link { display: inline-block; margin-top: 10px; background: #1976d2; color: #ffffff; padding: 12px 22px; border-radius: 6px; text-decoration: none; font-weight: bold; transition: all 0.3s ease; border: none; cursor: pointer; }
+        .btn-link:hover { background: #0d47a1; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        .btn-whatsapp { background: #25D366; }
+        .btn-whatsapp:hover { background: #1ea853; }
+        .update-text { font-size: 14px; color: #666; font-style: italic; margin-left: 10px; }
+        .job-img { width: 100%; max-width: 600px; border-radius: 10px; margin: 20px auto; display: block; border: 2px solid #e0e0e0; }
+        ul { padding-left: 20px; }
+        
+        /* Responsive design */
+        @media (max-width: 600px) { 
+            .container { padding: 20px; margin: 20px; } 
+            .btn-link { width: 100%; text-align: center; }
+            h1 { font-size: 1.8em; }
+            .delivery-scene { transform: scale(0.8); }
+        }
+    </style>
+</head>
+<body>
+
+<div class="delivery-scene" id="deliveryScene"></div>
+
+<div class="container">
+    <h1>📦 WE ARE HIRING: BLINKIT CAPTAINS</h1>
+    
+    <div style="text-align: center;">
+        <img src="assets/5995769470888119107.jpg" alt="Blinkit Hiring Guwahati" class="job-img">
+        <p><em>[Image: Blinkit Delivery Executive in Guwahati]</em></p>
+    </div>
+
+    <div class="highlight">Location: Bhangagarh, Guwahati (India's leading quick-commerce team)</div>
+
+    <p>We are looking for energetic individuals to join our warehouse operations in Bhangagarh. Start your career with Blinkit today!</p>
+
+    <h2>📌 JOB ROLE</h2>
+    <ul>
+        <li><strong>Picking:</strong> Finding items for customer orders.</li>
+        <li><strong>Inventory Audit:</strong> Managing and counting stock.</li>
+        <li><strong>Loading & Unloading:</strong> Handling incoming/outgoing goods.</li>
+    </ul>
+
+    <h2>💰 SALARY & BENEFITS</h2>
+    <div class="info-box">
+        <strong>Total Monthly Income: Upto ₹16,000</strong><br>
+        • Basic Salary: ₹11,800<br>
+        • Variable Bonus: ₹2,500<br>
+        • Benefits: PF (Provident Fund) + ESIC (Medical Insurance)
+    </div>
+
+    <h2>✅ REQUIREMENTS</h2>
+    <ul>
+        <li>Minimum 10th or 12th Pass.</li>
+        <li>Must have a Smartphone.</li>
+        <li>Willingness to work in a fast-paced environment.</li>
+        <li>Punctual and hardworking.</li>
+    </ul>
+
+    <h2>📖 COMPLETE DECISION-MAKING GUIDE (PDF)</h2>
+    <div class="highlight">
+        Get the "Blinkit Captain Roadmap" for just ₹5!
+    </div>
+    <p>Download our comprehensive PDF to understand the <strong>actual work process</strong>, full-time vs part-time earning shifts, and incentive secrets.</p>
+    
+    <form>
+        <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_S40AIVqm4TIw4e" async> </script> 
+    </form>
+
+    <h2>📞 HOW TO APPLY</h2>
+    <p>Interested candidates can contact HR directly via WhatsApp or Phone:</p>
+    <a href="https://wa.me/918918343286" class="btn-link btn-whatsapp">WhatsApp: 8918343286</a>
+    
+    <div style="margin-top: 30px; display: flex; align-items: center; flex-wrap: wrap;">
+        <a href="#" class="btn-link" style="background: #333;">Click Here for More</a>
+        <span class="update-text">More updates coming soon...</span>
+    </div>
+
+    <footer style="margin-top: 40px; padding: 15px; background: #f1f1f1; text-align: center; font-size: 14px; border-radius: 8px;">
+        <strong>Powered by rsplatform.site</strong><br>
+        <a href="#" style="color: #0d47a1; text-decoration: none;">About Us</a> | 
+        <a href="#" style="color: #0d47a1; text-decoration: none;">Contact Us</a> | 
+        <a href="#" style="color: #0d47a1; text-decoration: none;">Privacy Policy</a>
+    </footer>
+</div>
+
+<script>
+    function createDeliveryScene() {
+        const scene = document.getElementById('deliveryScene');
+        createBuildings(scene);
+        createDeliveryVehicles(scene);
+        createWalkingDeliveries(scene);
+        createFloatingElements(scene);
+        createClouds(scene);
+    }
+    
+    function createBuildings(scene) {
+        const buildingPositions = [5, 15, 35, 55, 75, 85];
+        buildingPositions.forEach(pos => {
+            const building = document.createElement('div');
+            building.className = 'building';
+            building.style.cssText = `
+                left: ${pos}%;
+                width: ${60 + Math.random() * 40}px;
+                height: ${150 + Math.random() * 100}px;
+                opacity: ${0.3 + Math.random() * 0.3};
+            `;
+            for(let i = 0; i < 3; i++) {
+                const windowDiv = document.createElement('div');
+                windowDiv.style.cssText = `
+                    position: absolute;
+                    width: 10px;
+                    height: 15px;
+                    background: #E3F2FD;
+                    border-radius: 2px;
+                    left: ${15 + i * 15}px;
+                    top: ${20 + i * 25}px;
+                `;
+                building.appendChild(windowDiv);
+            }
+            scene.appendChild(building);
+        });
+    }
+    
+    function createDeliveryVehicles(scene) {
+        for(let i = 0; i < 3; i++) {
+            const scooter = document.createElement('div');
+            scooter.className = 'delivery-vehicle scooter';
+            scooter.style.cssText = `animation-delay: ${i * 8}s; opacity: ${0.7 + Math.random() * 0.3};`;
+            const body = document.createElement('div');
+            body.style.cssText = `width: 100%; height: 100%; background: linear-gradient(135deg, #FF9800, #FF5722); border-radius: 20px 5px 5px 20px; position: relative;`;
+            const bag = document.createElement('div');
+            bag.className = 'delivery-bag';
+            bag.style.cssText = `position: absolute; right: 10px; top: -20px; transform: rotate(15deg);`;
+            scooter.appendChild(body);
+            scooter.appendChild(bag);
+            scene.appendChild(scooter);
+        }
+        for(let i = 0; i < 2; i++) {
+            const bicycle = document.createElement('div');
+            bicycle.className = 'delivery-vehicle bicycle';
+            bicycle.style.cssText = `animation-delay: ${i * 12}s; opacity: ${0.7 + Math.random() * 0.3};`;
+            const frame = document.createElement('div');
+            frame.style.cssText = `width: 100%; height: 100%; background: linear-gradient(135deg, #2196F3, #1976D2); border-radius: 5px; position: relative;`;
+            const pkg = document.createElement('div');
+            pkg.className = 'package';
+            pkg.style.cssText = `position: absolute; left: 10px; top: -15px; transform: rotate(-15deg);`;
+            bicycle.appendChild(frame);
+            bicycle.appendChild(pkg);
+            scene.appendChild(bicycle);
+        }
+    }
+    
+    function createWalkingDeliveries(scene) {
+        for(let i = 0; i < 4; i++) {
+            const person = document.createElement('div');
+            person.className = 'delivery-person';
+            person.style.cssText = `left: ${15 + i * 20}%; animation-delay: ${i * 2}s; animation-duration: ${2 + Math.random() * 1}s;`;
+            const body = document.createElement('div');
+            body.style.cssText = `width: 30px; height: 50px; background: linear-gradient(135deg, #4CAF50, #2E7D32); border-radius: 15px 15px 0 0; position: absolute; bottom: 0; left: 5px;`;
+            const bag = document.createElement('div');
+            bag.className = 'delivery-bag';
+            bag.style.cssText = `position: absolute; right: -15px; top: 10px; transform: rotate(10deg);`;
+            person.appendChild(body);
+            person.appendChild(bag);
+            scene.appendChild(person);
+        }
+    }
+    
+    function createFloatingElements(scene) {
+        for(let i = 0; i < 5; i++) {
+            const pkg = document.createElement('div');
+            pkg.className = 'package';
+            pkg.style.cssText = `animation: float ${6 + Math.random() * 4}s ease-in-out infinite; animation-delay: ${i * 2}s; left: ${10 + i * 15}%; top: ${30 + Math.random() * 40}%; opacity: ${0.4 + Math.random() * 0.3};`;
+            scene.appendChild(pkg);
+        }
+        for(let i = 0; i < 3; i++) {
+            const app = document.createElement('div');
+            app.className = 'mobile-app';
+            app.style.cssText = `animation: slideInOut ${20 + i * 5}s linear infinite; animation-delay: ${i * 7}s; top: ${20 + i * 20}%; opacity: ${0.3 + Math.random() * 0.2};`;
+            const screen = document.createElement('div');
+            screen.style.cssText = `width: 40px; height: 60px; background: white; border-radius: 8px; position: absolute; top: 10px; left: 5px;`;
+            app.appendChild(screen);
+            scene.appendChild(app);
+        }
+    }
+    
+    function createClouds(scene) {
+        for(let i = 0; i < 5; i++) {
+            const cloud = document.createElement('div');
+            cloud.className = 'cloud';
+            cloud.style.cssText = `width: ${80 + Math.random() * 60}px; height: ${40 + Math.random() * 30}px; top: ${10 + i * 15}%; animation: moveRight ${80 + Math.random() * 40}s linear infinite; animation-delay: ${i * 10}s; opacity: ${0.3 + Math.random() * 0.2};`;
+            scene.appendChild(cloud);
+        }
+    }
+    
+    document.addEventListener('DOMContentLoaded', createDeliveryScene);
+    window.addEventListener('resize', function() {
+        const scene = document.getElementById('deliveryScene');
+        scene.innerHTML = '';
+        createDeliveryScene();
+    });
+</script>
+
+</body>
+</html>
